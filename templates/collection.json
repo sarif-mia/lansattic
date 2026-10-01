@@ -44,9 +44,17 @@
         "elements",
         "beads"
       ]
+    },
+    "jewelry_banner": {
+      "type": "lansattic-collection-image",
+      "settings": {
+        "image_asset": "lansattic-collection-jewelry-banner.png",
+        "image_alt": "Jewelry \u2014 Handcrafted jewelry inspired by natural stones and timeless details. A natural stone pendant necklace on warm linen."
+      }
     }
   },
   "order": [
+    "jewelry_banner",
     "collection-banner",
     "lansattic_story",
     "main"
