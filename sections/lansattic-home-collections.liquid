@@ -1,6 +1,6 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhs" id="shop"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhcards">{% for i in (1..6) %}{% assign ik='collection_image_'|append:i %}{% assign lk='collection_link_'|append:i %}<a class="lhcard"{% if forloop.first %} id="collectors-gallery"{% endif %} href="{{section.settings[lk]}}">{% if section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:1000|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhcardtext"><h3>{% assign editable_titles = 'titles_' | append: forloop.index %}{{ section.settings[editable_titles] | escape }}</h3><p>{% assign editable_descs = 'descs_' | append: forloop.index %}{{ section.settings[editable_descs] | escape }}</p></div></a>{% endfor %}</div></div></section>
+<section class="lhs" id="shop"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhcards">{% for i in (1..6) %}{% assign ik='collection_image_'|append:i %}{% assign lk='collection_link_'|append:i %}{% assign ak='collection_asset_'|append:i %}{% assign tk='titles_'|append:i %}{% assign pk='collection_position_'|append:i %}<a class="lhcard"{% if forloop.first %} id="collectors-gallery"{% endif %} href="{{section.settings[lk]}}">{% if section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:1000|image_tag:loading:'lazy'}}{% elsif section.settings[ak] != blank %}<img src="{{ section.settings[ak] | asset_url }}" alt="{{ section.settings[tk] | escape }}" loading="lazy" width="{% if i == 3 or i == 6 %}749{% elsif i == 4 %}426{% else %}425{% endif %}" height="{% if i == 3 %}497{% elsif i == 4 %}282{% elsif i == 5 %}570{% else %}500{% endif %}" style="object-position:{{ section.settings[pk] | default: '50% 50%' | escape }};">{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhcardtext"><h3>{% assign editable_titles = 'titles_' | append: forloop.index %}{{ section.settings[editable_titles] | escape }}</h3><p>{% assign editable_descs = 'descs_' | append: forloop.index %}{{ section.settings[editable_descs] | escape }}</p></div></a>{% endfor %}</div></div></section>
 </div>
 
 {% schema %}
@@ -123,6 +123,18 @@
       "label": "Pearl Garden image"
     },
     {
+      "type": "text",
+      "id": "collection_asset_3",
+      "label": "Pearl Garden theme asset",
+      "info": "Used when the image picker is empty."
+    },
+    {
+      "type": "text",
+      "id": "collection_position_3",
+      "label": "Pearl Garden asset focal point",
+      "default": "50% 50%"
+    },
+    {
       "type": "url",
       "id": "collection_link_3",
       "label": "Pearl Garden link"
@@ -131,6 +143,18 @@
       "type": "image_picker",
       "id": "collection_image_4",
       "label": "Five Elements image"
+    },
+    {
+      "type": "text",
+      "id": "collection_asset_4",
+      "label": "Five Elements theme asset",
+      "info": "Used when the image picker is empty."
+    },
+    {
+      "type": "text",
+      "id": "collection_position_4",
+      "label": "Five Elements asset focal point",
+      "default": "50% 50%"
     },
     {
       "type": "url",
@@ -143,6 +167,18 @@
       "label": "Sacred Beads image"
     },
     {
+      "type": "text",
+      "id": "collection_asset_5",
+      "label": "Sacred Beads theme asset",
+      "info": "Used when the image picker is empty."
+    },
+    {
+      "type": "text",
+      "id": "collection_position_5",
+      "label": "Sacred Beads asset focal point",
+      "default": "50% 50%"
+    },
+    {
       "type": "url",
       "id": "collection_link_5",
       "label": "Sacred Beads link"
@@ -151,6 +187,18 @@
       "type": "image_picker",
       "id": "collection_image_6",
       "label": "One of a Kind image"
+    },
+    {
+      "type": "text",
+      "id": "collection_asset_6",
+      "label": "One of a Kind theme asset",
+      "info": "Used when the image picker is empty."
+    },
+    {
+      "type": "text",
+      "id": "collection_position_6",
+      "label": "One of a Kind asset focal point",
+      "default": "50% 50%"
     },
     {
       "type": "url",
