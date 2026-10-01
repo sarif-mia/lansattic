@@ -6,6 +6,18 @@
   assign photo_width = 1448
   assign photo_height = 1086
   case asset
+   when 'lansattic-collection-pearl-shell.jpg'
+    assign photo_width = 749
+    assign photo_height = 497
+   when 'lansattic-collection-purple-earrings.jpg'
+    assign photo_width = 749
+    assign photo_height = 500
+   when 'lansattic-collection-colorful-beads.jpg'
+    assign photo_width = 426
+    assign photo_height = 282
+   when 'lansattic-collection-bead-maker.jpg'
+    assign photo_width = 425
+    assign photo_height = 570
    when 'lansattic-supplied-jade-heritage.jpg'
     assign photo_width = 896
     assign photo_height = 1195
@@ -68,5 +80,5 @@
     assign photo_height = 1086
   endcase
  %}
- <img src="{{ asset | asset_img_url: '800x' }}" srcset="{% if photo_width > 400 %}{{ asset | asset_img_url: '400x' }} 400w,{% endif %}{% if photo_width > 800 %}{{ asset | asset_img_url: '800x' }} 800w,{% endif %}{% if photo_width > 1200 %}{{ asset | asset_img_url: '1200x' }} 1200w,{% endif %}{{ asset | asset_url }} {{ photo_width }}w" sizes="{{ photo_sizes }}" alt="{{ alt | escape }}" width="{{ photo_width }}" height="{{ photo_height }}" loading="{{ loading | default: 'lazy' }}">
+ <img src="{{ asset | asset_img_url: '800x' }}" srcset="{% if photo_width > 400 %}{{ asset | asset_img_url: '400x' }} 400w,{% endif %}{% if photo_width > 800 %}{{ asset | asset_img_url: '800x' }} 800w,{% endif %}{% if photo_width > 1200 %}{{ asset | asset_img_url: '1200x' }} 1200w,{% endif %}{{ asset | asset_url }} {{ photo_width }}w" sizes="{{ photo_sizes }}" alt="{{ alt | escape }}" width="{{ photo_width }}" height="{{ photo_height }}" {% if position != blank %}style="object-position:{{ position | escape }};"{% endif %} loading="{{ loading | default: 'lazy' }}">
 {% endif %}

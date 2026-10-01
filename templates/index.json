@@ -44,12 +44,10 @@
         "collection_link_6": "shopify://collections/one-of-a-kind",
         "collection_asset_3": "lansattic-collection-pearl-shell.jpg",
         "collection_position_3": "75% 50%",
-        "collection_asset_4": "lansattic-collection-colorful-beads.jpg",
-        "collection_position_4": "50% 50%",
-        "collection_asset_5": "lansattic-collection-bead-maker.jpg",
-        "collection_position_5": "50% 50%",
-        "collection_asset_6": "lansattic-collection-purple-earrings.jpg",
-        "collection_position_6": "75% 50%"
+        "collection_asset_4": "lansattic-collection-purple-earrings.jpg",
+        "collection_position_4": "75% 50%",
+        "collection_image_5": "shopify://shop_images/sacred_beads.png",
+        "collection_image_6": "shopify://shop_images/one_of_a_kind.png"
       }
     },
     "home_founder": {
@@ -77,8 +75,8 @@
         "wd_3": "Influenced by years of personal practice and travel, expressed through beads, natural materials and everyday rituals of stillness.",
         "wd_4": "We respect the differences found in jade, pearls, gemstones and wood because nature never repeats itself.",
         "world_asset_1": "lansattic-supplied-jade-heritage.jpg",
-        "world_asset_2": "lansattic-archive-eastern-materials.png",
-        "world_asset_3": "lansattic-archive-jade-beads.jpeg",
+        "world_asset_2": "lansattic-collection-colorful-beads.jpg",
+        "world_asset_3": "lansattic-collection-bead-maker.jpg",
         "world_asset_4": "lansattic-archive-baroque-pearls.jpeg"
       }
     },
