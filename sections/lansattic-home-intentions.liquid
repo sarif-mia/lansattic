@@ -1,0 +1,178 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhs lhintent-section" id="shop-by-intention"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhintentions">{% assign ints='Calm|Grounding|Balance|Clarity|Vitality|Connection'|split:'|' %}{% for x in ints %}{% assign lk='intention_link_'|append:forloop.index %}<a class="lhintent" href="{{ section.settings[lk] | default: section.settings.elements_link }}"><span>0{{forloop.index}}</span><b>{% assign editable_ints = 'ints_' | append: forloop.index %}{{ section.settings[editable_ints] | escape }}</b></a>{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Intentions",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Choose what speaks to you"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "Shop by intention"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_3",
+      "label": "Text 3",
+      "default": "Explore jewelry through intention — a personal way to find pieces that feel meaningful to wear and keep."
+    },
+    {
+      "type": "textarea",
+      "id": "ints_1",
+      "label": "Title 1",
+      "default": "Calm"
+    },
+    {
+      "type": "textarea",
+      "id": "ints_2",
+      "label": "Title 2",
+      "default": "Grounding"
+    },
+    {
+      "type": "textarea",
+      "id": "ints_3",
+      "label": "Title 3",
+      "default": "Balance"
+    },
+    {
+      "type": "textarea",
+      "id": "ints_4",
+      "label": "Title 4",
+      "default": "Clarity"
+    },
+    {
+      "type": "textarea",
+      "id": "ints_5",
+      "label": "Title 5",
+      "default": "Vitality"
+    },
+    {
+      "type": "textarea",
+      "id": "ints_6",
+      "label": "Title 6",
+      "default": "Connection"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_1",
+      "label": "Calm intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_2",
+      "label": "Grounding intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_3",
+      "label": "Balance intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_4",
+      "label": "Clarity intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_5",
+      "label": "Vitality intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_6",
+      "label": "Connection intention link"
+    },
+    {
+      "type": "url",
+      "id": "elements_link",
+      "label": "Five Elements link"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Intentions"
+    }
+  ]
+}
+{% endschema %}

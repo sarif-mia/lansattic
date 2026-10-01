@@ -1,0 +1,72 @@
+{% assign photo_sizes = sizes | default: '(max-width: 749px) calc(100vw - 40px), 560px' %}
+{% if image != blank %}
+  {{ image | image_url: width: 1600 | image_tag: loading: loading, widths: '350, 550, 800, 1100, 1600', sizes: photo_sizes, alt: alt }}
+{% elsif asset != blank %}
+ {% liquid
+  assign photo_width = 1448
+  assign photo_height = 1086
+  case asset
+   when 'lansattic-supplied-jade-heritage.jpg'
+    assign photo_width = 896
+    assign photo_height = 1195
+   when 'lansattic-supplied-five-elements.png'
+    assign photo_width = 1536
+    assign photo_height = 1024
+   when 'lansattic-supplied-bead-making.png'
+    assign photo_width = 1086
+    assign photo_height = 1448
+   when 'lansattic-archive-childhood-jade.jpeg'
+    assign photo_width = 1080
+    assign photo_height = 1302
+   when 'lansattic-archive-founder-archive.jpeg'
+    assign photo_width = 513
+    assign photo_height = 867
+   when 'lansattic-archive-jade-beads.jpeg'
+    assign photo_width = 1836
+    assign photo_height = 2448
+   when 'lansattic-archive-tibet-practice.jpeg'
+    assign photo_width = 1282
+    assign photo_height = 898
+   when 'lansattic-archive-tibet-prayer-wheels.jpeg'
+    assign photo_width = 800
+    assign photo_height = 530
+   when 'lansattic-archive-shangrila-friends.jpeg'
+    assign photo_width = 1282
+    assign photo_height = 858
+   when 'lansattic-archive-shangrila-school.jpeg'
+    assign photo_width = 1282
+    assign photo_height = 960
+   when 'lansattic-archive-shangrila-music.jpeg'
+    assign photo_width = 670
+    assign photo_height = 445
+   when 'lansattic-archive-guangzhou-shop.jpeg'
+    assign photo_width = 2500
+    assign photo_height = 1875
+   when 'lansattic-archive-guangzhou-counter.jpeg'
+    assign photo_width = 1282
+    assign photo_height = 1713
+   when 'lansattic-archive-eastern-materials.png'
+    assign photo_width = 1448
+    assign photo_height = 1086
+   when 'lansattic-archive-baroque-pearls.jpeg'
+    assign photo_width = 882
+    assign photo_height = 1195
+   when 'lansattic-archive-pearl-ring.jpeg'
+    assign photo_width = 1189
+    assign photo_height = 935
+   when 'lansattic-archive-jade-workbench.jpeg'
+    assign photo_width = 1875
+    assign photo_height = 2500
+   when 'lansattic-archive-jade-pendant.jpeg'
+    assign photo_width = 2219
+    assign photo_height = 2500
+   when 'lansattic-archive-studio-packaging.png'
+    assign photo_width = 1448
+    assign photo_height = 1086
+   when 'lansattic-archive-founder-jade.png'
+    assign photo_width = 1448
+    assign photo_height = 1086
+  endcase
+ %}
+ <img src="{{ asset | asset_img_url: '800x' }}" srcset="{% if photo_width > 400 %}{{ asset | asset_img_url: '400x' }} 400w,{% endif %}{% if photo_width > 800 %}{{ asset | asset_img_url: '800x' }} 800w,{% endif %}{% if photo_width > 1200 %}{{ asset | asset_img_url: '1200x' }} 1200w,{% endif %}{{ asset | asset_url }} {{ photo_width }}w" sizes="{{ photo_sizes }}" alt="{{ alt | escape }}" width="{{ photo_width }}" height="{{ photo_height }}" loading="{{ loading | default: 'lazy' }}">
+{% endif %}

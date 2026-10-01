@@ -1,0 +1,203 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhs lhelements" id="five-elements"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2></header><div class="lhegrid">{% for i in (1..5) %}{% assign ik='element_image_'|append:i %}<a class="lhe" href="{{section.settings.elements_link}}">{% if section.settings.use_document_images %}{% render 'lansattic-element-reference', index: i %}{% elsif section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:800|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhet"><h3>{% assign editable_et = 'et_' | append: forloop.index %}{{ section.settings[editable_et] | escape }}</h3><small>{% assign editable_eq = 'eq_' | append: forloop.index %}{{ section.settings[editable_eq] | escape }}</small></div></a>{% endfor %}</div><div class="lhcta"><a class="lhbtn" href="{{section.settings.elements_link}}">{{ section.settings.elements_cta_label | default: 'Explore Five Elements' }}</a></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Five Elements",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_document_images",
+      "label": "Use photos from the Five Elements PDF reference",
+      "default": false
+    },
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Discover the Five Elements"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "The Five Elements"
+    },
+    {
+      "type": "textarea",
+      "id": "et_1",
+      "label": "Title 1",
+      "default": "Wood"
+    },
+    {
+      "type": "textarea",
+      "id": "et_2",
+      "label": "Title 2",
+      "default": "Fire"
+    },
+    {
+      "type": "textarea",
+      "id": "et_3",
+      "label": "Title 3",
+      "default": "Earth"
+    },
+    {
+      "type": "textarea",
+      "id": "et_4",
+      "label": "Title 4",
+      "default": "Metal"
+    },
+    {
+      "type": "textarea",
+      "id": "et_5",
+      "label": "Title 5",
+      "default": "Water"
+    },
+    {
+      "type": "textarea",
+      "id": "eq_1",
+      "label": "Description 1",
+      "default": "Growth"
+    },
+    {
+      "type": "textarea",
+      "id": "eq_2",
+      "label": "Description 2",
+      "default": "Vitality"
+    },
+    {
+      "type": "textarea",
+      "id": "eq_3",
+      "label": "Description 3",
+      "default": "Grounding"
+    },
+    {
+      "type": "textarea",
+      "id": "eq_4",
+      "label": "Description 4",
+      "default": "Clarity"
+    },
+    {
+      "type": "textarea",
+      "id": "eq_5",
+      "label": "Description 5",
+      "default": "Stillness"
+    },
+    {
+      "type": "text",
+      "id": "elements_cta_label",
+      "label": "Five Elements CTA text",
+      "default": "EXPLORE FIVE ELEMENTS"
+    },
+    {
+      "type": "url",
+      "id": "elements_link",
+      "label": "Five Elements link"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_1",
+      "label": "Wood image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_2",
+      "label": "Fire image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_3",
+      "label": "Earth image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_4",
+      "label": "Metal image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_5",
+      "label": "Water image"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Five Elements"
+    }
+  ]
+}
+{% endschema %}

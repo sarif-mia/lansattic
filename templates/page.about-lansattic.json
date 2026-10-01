@@ -1,0 +1,323 @@
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-about-reference",
+      "settings": {
+        "page_handle": "",
+        "kicker": "About Us",
+        "title": "Jewelry With\nMeaning",
+        "intro": "<p>Rooted in nature. Shaped by Eastern wisdom.<br>Made to be lived with.</p><p>Lansattic is an independent California-based jewelry studio working with fine jade, natural jadeite, Baroque pearls and natural gemstones.</p>",
+        "hero_asset": "lansattic-archive-founder-archive.jpeg",
+        "hero_alt": "The founder selecting jewelry, from the Lansattic archive.",
+        "hero_height": 540,
+        "hero_height_mobile": 440,
+        "hero_background": "#eeebe2",
+        "hero_text_color": "#24251f",
+        "section_gap": 64
+      },
+      "blocks": {
+        "beginning": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Where It Began",
+            "subheading": "",
+            "text": "<p>Lansattic grew from a lifelong curiosity about natural materials and the meaning we give the things we wear.</p><p>Jade, travel, Eastern philosophy and years of making and selecting jewelry have each shaped this story.</p><h3>A Childhood Surrounded by Jade</h3><p>I grew up surrounded by jade. Its colors, textures and quiet presence became familiar long before I began working with jewelry.</p><p>That early connection stayed with me, growing into a lasting interest in the individuality of natural stones.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "Natural jade stones in varied colors and textures from the founder’s archive.",
+            "image_asset": "lansattic-archive-childhood-jade.jpeg",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "river": {
+          "type": "chapter",
+          "settings": {
+            "heading": "2007 — A Deeper Encounter with Jade",
+            "subheading": "",
+            "text": "<p>In 2007, searching for natural jade by the river brought me closer to the material itself.</p><p>It deepened my appreciation for the journey of a stone before it reaches our hands, and for the character that makes each piece different.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "A strand of white beads with a colorful tassel on blue patterned fabric, from the founder’s archive.",
+            "image_asset": "lansattic-archive-jade-beads.jpeg",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "tibet": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Tibet — A Journey Inward",
+            "subheading": "",
+            "text": "<p>Travel through Tibet and time spent in personal contemplative practice gradually changed how I understood the objects we keep close.</p><p>A piece of jewelry could hold a memory, mark an intention or offer a quiet reminder to pause.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "A personal travel photograph of contemplative practice in Tibet.",
+            "image_asset": "lansattic-archive-tibet-practice.jpeg",
+            "image_asset_2": "lansattic-archive-tibet-prayer-wheels.jpeg",
+            "image_alt_2": "A traveler turning prayer wheels, from the founder’s travel archive.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "shangrila": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Shangri-La",
+            "subheading": "Where My Hands Began to Create",
+            "text": "<p>Before opening my jewelry shop, I spent about six months volunteering in Shangri-La, working mainly with a local elementary school and a youth hostel.</p><p>There, an art teacher taught me to weave beads by hand. Bringing color and natural materials together became a new way to express what I had been discovering.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "Friends gathered around a table in Shangri-La.",
+            "image_asset": "lansattic-archive-shangrila-friends.jpeg",
+            "image_asset_2": "lansattic-archive-shangrila-school.jpeg",
+            "image_alt_2": "An archival photograph of time spent with children during the founder’s travels.",
+            "image_asset_3": "lansattic-archive-shangrila-music.jpeg",
+            "image_alt_3": "Sharing music in Shangri-La, from the founder’s archive.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "guangzhou": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Guangzhou",
+            "subheading": "Ten Years Behind the Counter",
+            "text": "<p>That first experience of making grew into a jewelry shop in Guangzhou, where I spent approximately ten years working closely with jade, pearls, beads and other natural materials.</p><p>Selecting stones, developing jewelry designs and handling materials every day taught me to notice their subtle differences. Listening to customers taught me how personal a piece of jewelry can become.</p><p>Those years gradually shaped my understanding of jewelry and the philosophy behind Lansattic: respect for natural materials, thoughtful craftsmanship and pieces with meaning in everyday life.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "The original Guangzhou jewelry shop with customers at its counters.",
+            "image_asset": "lansattic-archive-guangzhou-shop.jpeg",
+            "image_asset_2": "lansattic-archive-guangzhou-counter.jpeg",
+            "image_alt_2": "Selecting jewelry at the Guangzhou shop counter.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "today": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Lansattic Today",
+            "text": "<p>Lansattic brings these experiences together through fine jade, natural jadeite, Baroque pearls and natural gemstones.</p><p>Nature, Eastern philosophy and years of working with natural materials guide the way I design and select jewelry. Each piece leaves room for the individuality of the material and the person who wears it.</p>",
+            "link_label": "Explore the collections",
+            "link": "/collections",
+            "uppercase_heading": false,
+            "mobile_image_order": "after_text",
+            "heading_font": "serif"
+          }
+        },
+        "two_shops": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Two Shops, One Evolving Story",
+            "subheading": "",
+            "text": "<p>In 2015, my journey became Lansattic in the United States. A small online shop gradually grew into jewelry worn by customers around the world.</p><p>Our online story developed through two distinct Etsy shops: <strong>Lansattic</strong>, primarily for pearls and fine jewelry, and <strong>StudioLibraArt</strong>, for jade, jadeite and natural gemstones.</p><p>Today, Lansattic.com brings these paths together as the complete home of the brand, with collections shaped by material, individuality and meaning.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false
+          }
+        },
+        "eastern": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Eastern Wisdom, Reimagined",
+            "subheading": "",
+            "text": "<p>My ongoing study of Traditional Chinese Medicine and the Five Elements adds another perspective to the way I think about nature, seasons, color and material.</p><p>These traditions influence my work as a jewelry designer. Balance and intention are expressed through design, cultural symbolism and the personal meaning of a piece.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-eastern-materials.png",
+            "image_alt": "Jade, gemstones, wood beads and botanical materials from the supplied design brief.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "pearls": {
+          "type": "chapter",
+          "settings": {
+            "heading": "From Material to Jewelry",
+            "subheading": "Stone → Hand → Jewelry",
+            "text": "<p>Working with a natural material begins with looking closely. The curves and luster of Baroque pearls guide the proportions of a piece, leaving room for the forms nature has already made.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-baroque-pearls.jpeg",
+            "image_alt": "Loose Baroque pearls resting in a shell.",
+            "image_asset_2": "lansattic-archive-pearl-ring.jpeg",
+            "image_alt_2": "A finished Baroque pearl ring worn on a hand.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "jade_craft": {
+          "type": "chapter",
+          "settings": {
+            "heading": "The Work of the Hands",
+            "subheading": "",
+            "text": "<p>From selecting a stone to considering its setting, color and shape, each decision is part of making a piece that feels personal.</p><p>The materials retain their own character: the movement in a pearl, the texture of jade, the differences that make one stone unlike another.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-jade-workbench.jpeg",
+            "image_alt": "Green stone beads, jewelry findings and tools on a work surface.",
+            "image_asset_2": "lansattic-archive-jade-pendant.jpeg",
+            "image_alt_2": "A finished green stone pendant held in the hand.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "materials": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Materials & Craft",
+            "subheading": "",
+            "text": "<p>Fine jade, natural jadeite, Baroque pearls and natural gemstones sit alongside fine woods and carefully selected metals.</p><p>Gold filled, gold vermeil, sterling silver and fine gold each have their place in the collection. Individual listings explain the materials used in each piece.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "link": "/pages/materials-jewelry-care",
+            "link_label": "Materials & Jewelry Care"
+          }
+        },
+        "jade_standard": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Our Jade Standard",
+            "subheading": "",
+            "text": "<p>Natural materials deserve honest descriptions. I select jade with attention to material identity, color, texture, translucency, craftsmanship and individual character.</p><p>Natural variations are part of what makes each piece its own. When independent gemological documentation is available for a specific piece, it is clearly noted in its listing.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "link": "/pages/our-jade-standard",
+            "link_label": "Explore our jade standard"
+          }
+        },
+        "california": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Rooted in California",
+            "subheading": "",
+            "text": "<p>Lansattic is an independent jewelry studio based in California, where these experiences continue to shape what I design and curate.</p><p>Pieces are thoughtfully packaged with recyclable and reusable materials, ready to become part of another person’s story.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-studio-packaging.png",
+            "image_alt": "Lansattic jewelry packaging with a box, fabric pouch and printed card.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "founder": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Behind Lansattic",
+            "subheading": "",
+            "text": "<p>Founded by a jewelry designer deeply influenced by Traditional Chinese Medicine, Eastern philosophy and contemplative traditions.</p><p>I am still studying, still looking closely and still learning from the materials in my hands. Those experiences shape Lansattic, and the jewelry I hope you will make your own.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-founder-jade.png",
+            "image_alt": "The supplied founder photograph showing jade selection.",
+            "caption": "From the Lansattic archive"
+          }
+        }
+      },
+      "block_order": [
+        "beginning",
+        "river",
+        "tibet",
+        "shangrila",
+        "guangzhou",
+        "two_shops",
+        "eastern",
+        "pearls",
+        "jade_craft",
+        "materials",
+        "jade_standard",
+        "california",
+        "founder",
+        "today"
+      ]
+    },
+    "etsy_history": {
+      "type": "lansattic-etsy-history",
+      "settings": {
+        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
+        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+      },
+      "blocks": {
+        "mary": {
+          "type": "review",
+          "settings": {
+            "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+            "customer": "Mary",
+            "shop": "Lansattic",
+            "source": "https://www.etsy.com/shop/Lansattic#reviews"
+          }
+        },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
+        "lia": {
+          "type": "review",
+          "settings": {
+            "quote": "First time buyer. The clip-on earrings are pretty and it's comfortable for daily wear.",
+            "customer": "Lia",
+            "shop": "unspecified",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "mary",
+        "elizabeth",
+        "lia"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "etsy_history"
+  ]
+}

@@ -1,0 +1,11 @@
+{%- if block.settings.text != blank -%}
+  <p class="subheading" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Subheading",
+  "tag": null,
+  "settings": [{ "type": "text", "id": "text", "label": "Text" }],
+  "presets": [{ "name": "Subheading" }]
+}
+{% endschema %}

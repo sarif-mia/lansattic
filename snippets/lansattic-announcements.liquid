@@ -1,0 +1,18 @@
+{% assign messages = section.blocks | where: 'type', 'announcement' %}
+{% if messages.size > 0 %}
+<lansattic-announcements class="la-carousel" role="region" aria-label="Store announcements" data-speed="{{ section.settings.announcement_speed | times: 1000 }}" data-autoplay="{{ section.settings.announcement_autoplay }}">
+  <div class="la-slides" aria-live="off">
+  {% for block in messages %}
+    <div class="la-slide" {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>
+    {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% else %}<span>{% endif %}
+      {% render 'lansattic-announcement-icon', icon: block.settings.icon %}<span>{{ block.settings.text | escape }}</span>
+    {% if block.settings.link != blank %}</a>{% else %}</span>{% endif %}
+    </div>
+  {% endfor %}
+  </div>
+</lansattic-announcements>
+<style>
+.la-carousel{display:flex;align-items:center;background:var(--lh-accent,#315c4d);color:white;min-height:44px;padding:0 max(0px,calc((100% - 1440px)/2));font-size:11px;letter-spacing:.07em;text-transform:uppercase;text-align:center}.la-slides{flex:1;min-width:0}.la-slide[hidden]{display:none}.la-slide>a,.la-slide>span{display:flex;gap:9px;align-items:center;justify-content:center;padding:8px 16px;line-height:1.4}.la-slide svg{flex-shrink:0}.la-slide a:focus-visible{outline:2px solid white;outline-offset:-3px}@media(max-width:749px){.la-carousel{font-size:9px;letter-spacing:.025em}.la-slide>a,.la-slide>span{gap:6px}.la-slide svg{width:16px;height:16px}}
+</style>
+<script src="{{ 'lansattic-announcements.js' | asset_url }}" defer></script>
+{% endif %}

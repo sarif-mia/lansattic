@@ -1,0 +1,189 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhs lhworld"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2></header><div class="lhworldgrid">{% assign wt="Jade & Heritage|Wisdom & Balance|Practice & Stillness|Nature & Individuality"|split:'|' %}{% for x in wt %}{% assign wik='world_image_'|append:forloop.index %}<div class="lhworlditem"><div class="lhworldimg">{% if section.settings[wik] != blank %}{{section.settings[wik]|image_url:width:900|image_tag:loading:'lazy'}}{% else %}{% assign wak = 'world_asset_' | append: forloop.index %}{% assign alt_key = 'wt_' | append: forloop.index %}{% render 'lansattic-archive-photo', asset: section.settings[wak], alt: section.settings[alt_key], loading: 'lazy' %}{% endif %}</div><div class="lhworldcopy"><span class="lhnum">0{{forloop.index}}</span><div><h3>{% assign editable_wt = 'wt_' | append: forloop.index %}{{ section.settings[editable_wt] | escape }}</h3><p>{% assign editable_wd = 'wd_' | append: forloop.index %}{{ section.settings[editable_wd] | escape }}</p></div></div></div>{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Brand world",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Explore the story"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "The world of Lansattic"
+    },
+    {
+      "type": "textarea",
+      "id": "wt_1",
+      "label": "Title 1",
+      "default": "Jade & Heritage"
+    },
+    {
+      "type": "textarea",
+      "id": "wt_2",
+      "label": "Title 2",
+      "default": "Wisdom & Balance"
+    },
+    {
+      "type": "textarea",
+      "id": "wt_3",
+      "label": "Title 3",
+      "default": "Practice & Stillness"
+    },
+    {
+      "type": "textarea",
+      "id": "wt_4",
+      "label": "Title 4",
+      "default": "Nature & Individuality"
+    },
+    {
+      "type": "textarea",
+      "id": "wd_1",
+      "label": "Description 1",
+      "default": "The natural beauty of jade, its cultural symbolism and quiet presence across generations."
+    },
+    {
+      "type": "textarea",
+      "id": "wd_2",
+      "label": "Description 2",
+      "default": "Inspired by the Five Elements and Eastern philosophy, exploring balance between people, nature, color and material."
+    },
+    {
+      "type": "textarea",
+      "id": "wd_3",
+      "label": "Description 3",
+      "default": "Influenced by years of personal practice and travel, expressed through beads, natural materials and everyday rituals of stillness."
+    },
+    {
+      "type": "textarea",
+      "id": "wd_4",
+      "label": "Description 4",
+      "default": "We respect the differences found in jade, pearls, gemstones and wood because nature never repeats itself."
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_1",
+      "label": "Jade & Heritage image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_2",
+      "label": "Wisdom & Balance image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_3",
+      "label": "Practice & Stillness image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_4",
+      "label": "Nature & Individuality image"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "text",
+      "id": "world_asset_1",
+      "label": "Included archive photo 1"
+    },
+    {
+      "type": "text",
+      "id": "world_asset_2",
+      "label": "Included archive photo 2"
+    },
+    {
+      "type": "text",
+      "id": "world_asset_3",
+      "label": "Included archive photo 3"
+    },
+    {
+      "type": "text",
+      "id": "world_asset_4",
+      "label": "Included archive photo 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Brand world"
+    }
+  ]
+}
+{% endschema %}

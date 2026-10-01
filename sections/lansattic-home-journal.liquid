@@ -1,0 +1,144 @@
+{% render 'lansattic-home-styles', section: section %}
+<style>
+#lh-{{ section.id }} .lhjournal-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 auto 36px;max-width:1180px}
+#lh-{{ section.id }} .lhjournal-nav a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:100px;padding:20px 14px;border:1px solid #d8d2c7;font-family:var(--heading-font-family);font-size:25px;line-height:1.2;transition:background .2s,color .2s}
+#lh-{{ section.id }} .lhjournal-nav a:hover{background:#315c4d;color:#fff}
+@media(max-width:749px){#lh-{{ section.id }} .lhjournal-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#lh-{{ section.id }} .lhjournal-nav a{font-size:22px}}
+</style>
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+{% assign journal = blogs[section.settings.journal_blog] %}
+<section class="lhs" id="journal"><div class="lhw">
+  <header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header>
+<nav class="lhjournal-nav" aria-label="Journal categories"><a href="/blogs/journal#jade-natural-materials">Jade &amp; Natural Materials</a><a href="/blogs/journal#five-elements">Five Elements</a><a href="/blogs/journal#jewelry-stories">Jewelry Stories</a><a href="/blogs/journal#eastern-wisdom-contemplative-living">Eastern Wisdom &amp; Contemplative Living</a><a href="/blogs/journal#travel-inspiration">Travel &amp; Inspiration</a><a href="/blogs/journal#care-knowledge">Care &amp; Knowledge</a></nav>
+  {% if journal.articles_count > 0 %}
+    <div class="lhjgrid">
+      {% for article in journal.articles limit: 3 %}
+        <a class="lhj" href="{{ article.url }}">
+          {% if article.image != blank %}<div class="lhjimg">{{ article.image | image_url: width: 1000 | image_tag: loading: 'lazy' }}</div>{% endif %}
+          <h3>{{ article.title | escape }}</h3><p>{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="lhcta"><a class="lhbtn" href="{{ journal.url | default: section.settings.journal_link }}">{{ section.settings.journal_cta_label | default: 'Explore the Journal' }}</a></div>
+</div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Journal",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "From the Journal"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "Natural Materials. Thoughtful Living."
+    },
+    {
+      "type": "textarea",
+      "id": "copy_3",
+      "label": "Text 3",
+      "default": "Reflections on jade, craftsmanship, Eastern wisdom and everyday moments of stillness."
+    },
+    {
+      "type": "blog",
+      "id": "journal_blog",
+      "label": "Journal blog"
+    },
+    {
+      "type": "text",
+      "id": "journal_cta_label",
+      "label": "Journal CTA text",
+      "default": "EXPLORE THE JOURNAL"
+    },
+    {
+      "type": "url",
+      "id": "journal_link",
+      "label": "Journal CTA link"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Journal"
+    }
+  ]
+}
+{% endschema %}

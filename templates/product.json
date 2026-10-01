@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h4"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "variant_image_show_underline": false,
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true,
+            "show_below_gallery": false
+          }
+        },
+        "lans_material": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Material",
+            "content": "",
+            "liquid": "{% if product.metafields.custom.material != blank %}{{ product.metafields.custom.material | metafield_tag }}{% endif %}",
+            "page": ""
+          }
+        },
+        "lans_dimensions": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Dimensions",
+            "content": "",
+            "liquid": "{% if product.metafields.custom.dimensions != blank %}{{ product.metafields.custom.dimensions | metafield_tag }}{% endif %}",
+            "page": ""
+          }
+        },
+        "lans_inspiration": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Meaning / Inspiration",
+            "content": "",
+            "liquid": "{% if product.metafields.custom.meaning_inspiration != blank %}{{ product.metafields.custom.meaning_inspiration | metafield_tag }}{% endif %}",
+            "page": ""
+          }
+        },
+        "lans_variation": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Natural Variation",
+            "content": "",
+            "liquid": "{% if product.metafields.custom.natural_variation != blank %}{{ product.metafields.custom.natural_variation | metafield_tag }}{% else %}<p>Because we work with natural materials, color, texture, pattern, shape, and translucency may vary slightly from piece to piece. These natural differences are part of the character of each piece.</p>{% endif %}",
+            "page": ""
+          }
+        },
+        "lans_care": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Care",
+            "content": "",
+            "liquid": "{% if product.metafields.custom.care != blank %}{{ product.metafields.custom.care | metafield_tag }}{% endif %}<p><a href=\"/pages/materials-jewelry-care\">Materials &amp; Jewelry Care</a></p>",
+            "page": ""
+          }
+        },
+        "lans_shipping": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Shipping & Returns",
+            "content": "<p>Read our <a href=\"/pages/shipping-returns\">shipping and returns information</a>, or <a href=\"/pages/contact\">contact us</a> with a question about your order.</p>",
+            "liquid": "",
+            "page": ""
+          }
+        },
+        "lans_certificate": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% if product.metafields.custom.gemological_documentation != blank %}<div style=\"margin-top:1rem;padding:1rem 1.1rem;background:#F7F5EF;border:1px solid #DDD6C9;font-size:.9rem;line-height:1.6\"><strong>Gemological documentation</strong><br>{{ product.metafields.custom.gemological_documentation | metafield_tag }}</div>{% endif %}"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "payment_terms",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "lans_material",
+        "lans_dimensions",
+        "lans_inspiration",
+        "lans_variation",
+        "lans_care",
+        "lans_shipping",
+        "lans_certificate"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "allow_transparent_header": false,
+        "transparent_header_use_primary_colors": false,
+        "container_size": "lg",
+        "product_info_size": 35,
+        "show_sticky_add_to_cart": false,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "recommendations_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "Related products",
+        "heading_style": "h2",
+        "content": ""
+      }
+    },
+    "etsy_product_review": {
+      "type": "lansattic-product-review",
+      "settings": {
+        "product_handle": "vintage-style-freshwater-pearl-filigree-necklace-art-nouveau-necklace-diamonds-necklace-victoria-style-necklace-gift-for-her",
+        "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+        "customer": "Mary",
+        "source": "https://www.etsy.com/listing/4370307939#reviews"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "etsy_product_review",
+    "related-products"
+  ]
+}

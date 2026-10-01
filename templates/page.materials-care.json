@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Customer Care",
+        "title": "Jewelry Care",
+        "intro": "<p>Natural materials are beautiful because each piece is unique. With proper care, your jewelry can remain beautiful for many years.</p>",
+        "layout": "simple",
+        "page_handle": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Jade & Jadeite",
+            "text": "<p>Jade and jadeite are durable but can still be damaged by strong impact. Avoid dropping jade jewelry onto hard surfaces. Clean gently with a soft cloth and mild soap with lukewarm water when needed. Avoid harsh chemicals, ultrasonic cleaners, and prolonged exposure to strong cleaning agents.</p>",
+            "show_image": false
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "heading": "Pearls",
+            "text": "<p>Pearls are organic gemstones and require gentle care. Avoid direct contact with perfume, hairspray, cosmetics, household cleaners, and other chemicals. After wearing, gently wipe pearls with a soft, clean cloth. Store pearl jewelry separately from harder gemstones and metals to prevent scratching. As a general rule: pearls should be the last thing you put on and the first thing you take off.</p>",
+            "show_image": false
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "heading": "Gemstones",
+            "text": "<p>Natural gemstones may vary in hardness and sensitivity. Avoid strong impact, extreme heat, harsh chemicals, and prolonged exposure to water unless the specific stone is known to tolerate it well.</p>",
+            "show_image": false
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "heading": "Gold, Gold-Filled & Sterling Silver",
+            "text": "<p>Avoid unnecessary contact with chemicals, chlorine, salt water, perfumes, and lotions. Sterling silver may naturally tarnish over time. This can usually be restored with a soft silver polishing cloth.</p>",
+            "show_image": false
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "heading": "Storage",
+            "text": "<p>Store jewelry in a dry place, preferably in a soft pouch or separate compartment. Keeping individual pieces separate can help prevent scratches, tangling, and surface wear.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

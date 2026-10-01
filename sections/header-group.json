@@ -1,0 +1,133 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "custom_header_lansattic": {
+      "type": "custom-header",
+      "blocks": {
+        "menu_shop": {
+          "type": "menu_link",
+          "settings": {
+            "label": "Shop",
+            "link": "/collections",
+            "open_mega": true
+          }
+        },
+        "mega_collections": {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Collections",
+            "links": "Collector's Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements Jewelry|/collections/five-elements-jewelry\nSacred Beads|/collections/sacred-beads\nOne of a Kind|/collections/one-of-a-kind"
+          }
+        },
+        "mega_materials": {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Materials",
+            "links": "Jade|/collections/all\nJadeite|/collections/all\nPearl|/collections/pearl-yin-energy\nCrystal & Gemstone|/collections/all\nFine Wood|/collections/all"
+          }
+        },
+        "mega_intentions": {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Intentions",
+            "links": "Calm|/collections/five-elements-jewelry\nGrounding|/collections/five-elements-jewelry\nBalance|/collections/five-elements-jewelry\nClarity|/collections/five-elements-jewelry\nVitality|/collections/five-elements-jewelry\nConnection|/collections/five-elements-jewelry"
+          }
+        },
+        "mega_promotion": {
+          "type": "promotion",
+          "settings": {
+            "image": "shopify://shop_images/il_fullxfull.5971620448_ng15.jpg",
+            "eyebrow": "DISCOVER",
+            "heading": "The Jade Collection",
+            "link": "shopify://collections/collectors-gallery"
+          }
+        },
+        "menu_collectors": {
+          "type": "menu_link",
+          "settings": {
+            "label": "Collector's Gallery",
+            "link": "/collections/collectors-gallery"
+          }
+        },
+        "menu_elements": {
+          "type": "menu_link",
+          "settings": {
+            "label": "Five Elements Jewelry",
+            "link": "/#five-elements"
+          }
+        },
+        "menu_journal": {
+          "type": "menu_link",
+          "settings": {
+            "label": "Journal",
+            "link": "/#journal"
+          }
+        },
+        "menu_about": {
+          "type": "menu_link",
+          "settings": {
+            "label": "About",
+            "link": "/pages/about-lansattic"
+          }
+        },
+        "announcement_1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Complimentary U.S. Economy Shipping on Orders $50+",
+            "link": "shopify://collections/all",
+            "icon": "truck"
+          }
+        },
+        "announcement_2": {
+          "type": "announcement",
+          "settings": {
+            "text": "Natural Materials · Jewelry with Meaning",
+            "link": "shopify://collections/all",
+            "icon": "leaf"
+          }
+        },
+        "announcement_3": {
+          "type": "announcement",
+          "settings": {
+            "text": "California-Based Independent Jewelry Studio",
+            "link": "shopify://pages/about-lansattic",
+            "icon": "pin"
+          }
+        }
+      },
+      "block_order": [
+        "menu_shop",
+        "menu_collectors",
+        "menu_elements",
+        "menu_journal",
+        "menu_about",
+        "mega_collections",
+        "mega_materials",
+        "mega_intentions",
+        "mega_promotion",
+        "announcement_1",
+        "announcement_2",
+        "announcement_3"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "logo": "shopify://shop_images/logo-lansattic.png",
+        "logo_text": "LANSATTIC",
+        "logo_width": 180,
+        "menu": "global-header",
+        "mega_trigger": "Shop",
+        "transparent_home": false,
+        "background": "#F7F5EF",
+        "text_color": "#24251F",
+        "border_color": "#D8D2C7",
+        "accent_color": "#315C4D",
+        "announcement_speed": 3,
+        "announcement_autoplay": true
+      }
+    }
+  },
+  "order": [
+    "custom_header_lansattic"
+  ]
+}

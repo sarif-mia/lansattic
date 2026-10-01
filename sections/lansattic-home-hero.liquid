@@ -1,0 +1,189 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhhero{% if section.settings.use_supplied_layout %} lhhero--provided{% endif %}" id="home-{{ section.id }}">{% if section.settings.hero_image != blank or section.settings.hero_image_mobile != blank %}<picture>{% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">{% endif %}{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% elsif section.settings.hero_image_mobile != blank %}{{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% endif %}</picture>{% elsif section.settings.hero_asset != blank %}<picture>{% render 'lansattic-archive-photo', asset: section.settings.hero_asset, alt: section.settings.hero_alt, loading: 'eager', sizes: '(max-width: 749px) 1200px, 100vw' %}</picture>{% endif %}<div class="lhheroc"><h1 class="lht">{{ section.settings.copy_1 | escape | newline_to_br }}</h1><p class="lhp">{{ section.settings.copy_2 | escape | newline_to_br }}</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Hero",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Heading 1",
+      "default": "Jewelry With Meaning"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Text 2",
+      "default": "Rooted in nature. Shaped by Eastern wisdom. Made to be lived with."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image - desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero image - mobile"
+    },
+    {
+      "type": "text",
+      "id": "shop_cta_label",
+      "label": "Shop CTA text",
+      "default": "SHOP THE COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "Shop CTA link"
+    },
+    {
+      "type": "text",
+      "id": "about_cta_label",
+      "label": "Story CTA text",
+      "default": "DISCOVER OUR STORY"
+    },
+    {
+      "type": "url",
+      "id": "about_link",
+      "label": "Story CTA link"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "label": "Hero height \u2014 desktop",
+      "min": 440,
+      "max": 1000,
+      "step": 20,
+      "default": 760,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "label": "Hero height \u2014 mobile",
+      "min": 440,
+      "max": 900,
+      "step": 20,
+      "default": 640,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "hero_position",
+      "label": "Hero crop position \u2014 desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "hero_position_mobile",
+      "label": "Hero crop position \u2014 mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "text",
+      "id": "hero_asset",
+      "label": "Included hero image asset"
+    },
+    {
+      "type": "text",
+      "id": "hero_alt",
+      "label": "Hero image description"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_supplied_layout",
+      "label": "Quiet editorial layout",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Hero"
+    }
+  ]
+}
+{% endschema %}

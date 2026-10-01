@@ -1,0 +1,487 @@
+{% comment %} Lansattic final homepage: approved preview + client brief. {% endcomment %}
+<style>
+#lh-{{section.id}}{--ivory:#f7f5ef;--cream:#f3f1ea;--ink:#24251f;--jade:#315c4d;--mist:#789086;--line:#d8d2c7;background:var(--ivory);color:var(--ink)}#lh-{{section.id}} *{box-sizing:border-box}#lh-{{section.id}} a{color:inherit;text-decoration:none}.lhw{width:min(100% - 56px,1440px);margin:auto}.lhs{padding:100px 0}.lhk{text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:600;margin:0 0 15px}.lht{font-family:var(--heading-font-family);font-weight:400;letter-spacing:-.035em;line-height:.98;margin:0}.lhp{font-size:15px;line-height:1.7;color:rgba(36,37,31,.78)}.lhhead{text-align:center;max-width:760px;margin:0 auto 48px}.lhhead .lht{font-size:clamp(38px,4.2vw,64px)}.lhbtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 25px;border:1px solid currentColor;text-transform:uppercase;letter-spacing:.13em;font-size:11px}.lhhero{position:relative;min-height:760px;display:grid;align-items:end;overflow:hidden;background:#dedbd2}.lhhero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.lhhero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.03) 35%,rgba(0,0,0,.48))}.lhheroc{position:relative;z-index:1;color:#fff;text-align:center;padding:80px 24px 74px;max-width:900px;margin:auto}.lhheroc .lht{font-size:clamp(56px,7.5vw,112px)}.lhheroc .lhp{color:#fff;font-size:17px;margin:22px 0 30px}.lhactions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.lhhero .lhbtn:first-child{background:#fff!important;color:#24251f!important;border-color:#fff!important;font-weight:700}.lhhero .lhbtn:first-child:hover{background:#f3f1ea!important;color:#24251f!important}.lhcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.lhcard{position:relative;min-height:430px;overflow:hidden;background:#e7e2d8}.lhcard img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s}.lhcard:hover img{transform:scale(1.02)}.lhcard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.58))}.lhcardtext{position:absolute;z-index:1;bottom:0;padding:28px;color:#fff}.lhcard h3{font-family:var(--heading-font-family);font-weight:400;font-size:29px;margin:0 0 8px}.lhcard p{margin:0;font-size:13px;line-height:1.5}.lhsplit{display:grid;grid-template-columns:1.05fr .95fr;min-height:650px;background:var(--cream)}.lhsplitmedia{min-height:520px;background:#ddd8ce}.lhsplitmedia img{width:100%;height:100%;object-fit:cover}.lhsplitbody{display:flex;flex-direction:column;justify-content:center;padding:70px 8vw}.lhsplitbody .lht{font-size:clamp(46px,5vw,76px)}.lhsplitbody .lhp{margin:26px 0 30px;max-width:560px}.lhworld{background:#f8f7f3}.lhworldgrid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}.lhworlditem{min-height:390px;display:flex;flex-direction:column;border-right:1px solid var(--line);overflow:hidden}.lhworldimg{height:190px;background:#e7e2d8}.lhworldimg img,.lhworldimg svg{width:100%;height:100%;object-fit:cover}.lhworldcopy{padding:28px 26px;display:flex;flex:1;flex-direction:column;justify-content:flex-end}.lhworlditem:last-child{border-right:0}.lhnum{font-size:12px;color:var(--mist)}.lhworlditem h3{font-family:var(--heading-font-family);font-size:27px;font-weight:400;margin:0 0 14px}.lhworlditem p{font-size:13px;line-height:1.6;margin:0}.lhworlditem:hover{background:var(--jade);color:#fff}.lhintentions{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.lhintent{padding:34px 12px;text-align:center;border-right:1px solid var(--line)}.lhintent:last-child{border:0}.lhintent span{display:block;color:var(--mist);font-size:10px;margin-bottom:12px}.lhintent b{font-family:var(--heading-font-family);font-size:22px;font-weight:400}.lhelements{background:var(--cream)}.lhegrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.lhe{position:relative;aspect-ratio:3/4;overflow:hidden;background:#ddd}.lhe img{width:100%;height:100%;object-fit:cover}.lhe:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.55))}.lhet{position:absolute;z-index:1;bottom:20px;left:20px;color:#fff}.lhet h3{font-family:var(--heading-font-family);font-size:28px;font-weight:400;margin:0}.lhet small{letter-spacing:.14em;text-transform:uppercase}.lhone{display:grid;grid-template-columns:1fr 1fr;background:var(--cream);color:var(--ink)}.lhonem{min-height:650px}.lhonem img{width:100%;height:100%;object-fit:cover}.lhoneb{padding:80px 9vw;display:flex;flex-direction:column;justify-content:center}.lhone .lht{font-size:clamp(48px,5vw,78px)}.lhone .lhp{color:rgba(36,37,31,.78);margin:25px 0 30px}.lhcta{text-align:center;margin-top:36px}.lhtrust{text-align:center;margin:28px 0 0;font-size:13px}.lhreviews{background:#fff}.lhrgrid,.lhjgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.lhr{background:var(--ivory);padding:36px;min-height:250px;display:flex;flex-direction:column}.lhstars{letter-spacing:.18em;font-size:13px}.lhr blockquote{font-family:var(--heading-font-family);font-size:22px;line-height:1.35;margin:28px 0;flex:1}.lhr small{font-size:11px;text-transform:uppercase;letter-spacing:.08em}.lhjimg{aspect-ratio:4/3;background:#ddd;overflow:hidden}.lhjimg img{width:100%;height:100%;object-fit:cover}.lhj h3{font-family:var(--heading-font-family);font-size:27px;font-weight:400;margin:20px 0 9px}.lhj p{font-size:13px;line-height:1.55;margin:0}.lhnews{background:var(--jade);color:#fff;text-align:center;padding:90px 24px}.lhnews .lht{font-size:clamp(42px,4vw,64px)}.lhnews .lhp{color:rgba(255,255,255,.82);max-width:600px;margin:20px auto 30px}.lhform{display:flex;max-width:560px;margin:auto;border-bottom:1px solid rgba(255,255,255,.65)}.lhform input{flex:1;background:transparent;border:0;padding:15px 0;color:#fff;outline:0}.lhform button{background:transparent;border:0;color:#fff;text-transform:uppercase;letter-spacing:.13em;font-size:11px}
+@media(max-width:989px){.lhcards{grid-template-columns:repeat(2,1fr)}.lhworldgrid{grid-template-columns:repeat(2,1fr)}.lhworlditem:nth-child(2){border-right:0}.lhworlditem{border-bottom:1px solid var(--line)}.lhintentions{grid-template-columns:repeat(3,1fr)}.lhegrid{grid-template-columns:repeat(2,1fr)}.lhe:last-child{grid-column:span 2;aspect-ratio:2/1}.lhrgrid,.lhjgrid{grid-template-columns:1fr}.lhsplit,.lhone{grid-template-columns:1fr}}@media(max-width:749px){.lhw{width:min(100% - 32px,1440px)}.lhs{padding:68px 0}.lhhero{min-height:690px}.lhheroc{padding-bottom:54px}.lhheroc .lht{font-size:55px}.lhcards{gap:10px}.lhcard{min-height:290px}.lhcardtext{padding:18px}.lhcard h3{font-size:21px}.lhcard p{font-size:11px}.lhsplitbody,.lhoneb{padding:58px 24px}.lhsplitmedia,.lhonem{min-height:460px}.lhworlditem{min-height:230px;padding:25px 18px}.lhworlditem h3{font-size:22px}.lhintent{padding:25px 8px}.lhintent b{font-size:18px}.lhet{left:14px;bottom:14px}.lhet h3{font-size:22px}.lhr{padding:26px}}
+
+/* Shop by Intention refinement: symbolic navigation, six independently editable destinations */
+#lh-{{section.id}} .lhintent-section{background:var(--ivory);padding-top:78px;padding-bottom:78px}
+#lh-{{section.id}} .lhintent-section .lhhead{margin-bottom:34px}
+#lh-{{section.id}} .lhintent{transition:background .25s ease,color .25s ease}
+#lh-{{section.id}} .lhintent:hover,#lh-{{section.id}} .lhintent:focus-visible{background:#e9eee9;color:var(--jade);outline:none}
+@media(max-width:749px){#lh-{{section.id}} .lhintent-section{padding-top:52px;padding-bottom:52px}#lh-{{section.id}} .lhintent-section .lhhead{margin-bottom:24px}}
+
+/* 28 Sep responsive refinement */
+#lh-{{section.id}} .lhhero picture{position:absolute;inset:0;width:100%;height:100%}
+#lh-{{section.id}} .lhhero picture img,#lh-{{section.id}} .lhheroimg{width:100%;height:100%;object-fit:cover}
+#lh-{{section.id}} .lhreviews{background:var(--ivory)}
+#lh-{{section.id}} .lhr{background:#fff;border:1px solid rgba(49,92,77,.10)}
+#lh-{{section.id}} .lhrdots{display:none}
+#lh-{{section.id}} .lhintent{padding:24px 10px}
+@media(max-width:749px){
+ #lh-{{section.id}} .lhs{padding:54px 0}
+ #lh-{{section.id}} #shop .lhhead{margin-bottom:26px}
+ #lh-{{section.id}} .lhworld .lhhead{margin-bottom:26px}
+ #lh-{{section.id}} .lhworlditem{min-height:0;padding:0}
+ #lh-{{section.id}} .lhworldimg{height:auto;aspect-ratio:4/5}
+ #lh-{{section.id}} .lhworldcopy{padding:14px 12px 18px;justify-content:flex-start;gap:7px}
+ #lh-{{section.id}} .lhworldcopy .lhnum{margin:0 0 4px;display:block}
+ #lh-{{section.id}} .lhworlditem h3{margin:0 0 8px;font-size:20px;line-height:1.15}
+ #lh-{{section.id}} .lhworlditem p{font-size:11px;line-height:1.45;margin:0}
+ #lh-{{section.id}} .lhcards{align-items:stretch}
+ #lh-{{section.id}} .lhcard{min-height:0;aspect-ratio:3/4}
+ #lh-{{section.id}} .lhcardtext{padding:14px;display:flex;flex-direction:column;justify-content:flex-end;min-height:100%}
+ #lh-{{section.id}} .lhcard h3{font-size:20px;line-height:1.12;margin:0 0 7px}
+ #lh-{{section.id}} .lhcard p{font-size:10px;line-height:1.4;margin:0}
+ #lh-{{section.id}} .lhintentions{grid-template-columns:repeat(2,1fr)}
+ #lh-{{section.id}} .lhintent{padding:18px 8px;min-height:92px;display:flex;flex-direction:column;justify-content:center}
+ #lh-{{section.id}} .lhintent b{font-size:18px}
+ #lh-{{section.id}} .lhreviews .lhhead{margin-bottom:28px}
+ #lh-{{section.id}} .lhrgrid{display:block;overflow:hidden;position:relative}
+ #lh-{{section.id}} .lhr{display:none;min-height:280px;padding:28px 24px}
+ #lh-{{section.id}} .lhr:first-child{display:flex}
+ #lh-{{section.id}} .lhrgrid.is-enhanced .lhr{display:none}
+ #lh-{{section.id}} .lhrgrid.is-enhanced .lhr.is-active{display:flex}
+ #lh-{{section.id}} .lhrdots{display:flex;justify-content:center;gap:9px;margin:18px 0 0}
+ #lh-{{section.id}} .lhrdots button{width:44px;height:44px;border:0;background:radial-gradient(circle,#c9c5bb 4px,transparent 5px);padding:0}
+ #lh-{{section.id}} .lhrdots button.is-active{background:radial-gradient(circle,var(--jade) 4px,transparent 5px)}
+ #lh-{{section.id}} .lhtrust{margin-top:18px;line-height:1.5}
+ #lh-{{section.id}} .lhreviews .lhcta{margin-top:22px}
+}
+
+/* Consistent image frames; controls are available in the theme editor. */
+#lh-{{ section.id }} { --card-ratio: {{ section.settings.card_image_ratio | default: '4/5' }}; --editorial-ratio: {{ section.settings.editorial_image_ratio | default: '4/5' }}; }
+#lh-{{ section.id }} .lhcard, #lh-{{ section.id }} .lhworldimg, #lh-{{ section.id }} .lhe, #lh-{{ section.id }} .lhjimg { position:relative; min-height:0; height:auto; aspect-ratio:var(--card-ratio); overflow:hidden; }
+#lh-{{ section.id }} .lhsplit, #lh-{{ section.id }} .lhone { min-height:0; align-items:center; }
+#lh-{{ section.id }} .lhsplitmedia, #lh-{{ section.id }} .lhonem { position:relative; min-height:0; width:100%; aspect-ratio:var(--editorial-ratio); overflow:hidden; background:var(--cream); }
+#lh-{{ section.id }} .lhcard img, #lh-{{ section.id }} .lhworldimg img, #lh-{{ section.id }} .lhe img, #lh-{{ section.id }} .lhjimg img, #lh-{{ section.id }} .lhsplitmedia img, #lh-{{ section.id }} .lhonem img { position:absolute; inset:0; display:block; width:100%; height:100%; object-fit:{{ section.settings.image_fit | default: 'cover' }}; }
+#lh-{{ section.id }} .lhhero { min-height:{{ section.settings.hero_height | default: 760 }}px; }
+#lh-{{ section.id }} .lhhero picture img { object-position:{{ section.settings.hero_position | default: 50 }}% center !important; }
+@media(max-width:989px) {
+  #lh-{{ section.id }} .lhe:last-child { grid-column:1/-1; width:calc((100% - 10px)/2); justify-self:center; aspect-ratio:var(--card-ratio); }
+}
+@media(max-width:749px) {
+  #lh-{{ section.id }} .lhhero { min-height:{{ section.settings.hero_height_mobile | default: 640 }}px; }
+  #lh-{{ section.id }} .lhhero picture img { object-position:{{ section.settings.hero_position_mobile | default: 100 }}% center !important; }
+}
+</style>
+<div id="lh-{{section.id}}">
+<section class="lhhero" id="home">{% if section.settings.hero_image != blank or section.settings.hero_image_mobile != blank %}<picture>{% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">{% endif %}{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% elsif section.settings.hero_image_mobile != blank %}{{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% endif %}</picture>{% endif %}<div class="lhheroc"><h1 class="lht">Jewelry With Meaning</h1><p class="lhp">Rooted in nature. Shaped by Eastern wisdom. Made to be lived with.</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
+<section class="lhs" id="shop"><div class="lhw"><header class="lhhead"><p class="lhk">Begin with what draws you</p><h2 class="lht">Shop by collection</h2><p class="lhp">Natural jade, luminous pearls and meaningful objects selected for character, balance and the life you bring to them.</p></header><div class="lhcards">{% assign titles="Collector's Gallery|Everyday Jade|The Pearl Garden|Five Elements Jewelry|Sacred Beads|One of a Kind"|split:'|' %}{% assign descs="Rare and exceptional pieces selected for beauty and individuality.|Timeless natural jade and jadeite for everyday life.|Organic pearls shaped by nature.|Color, material and Eastern balance.|Objects for stillness and intention.|Designed once. Never repeated."|split:'|' %}{% for i in (1..6) %}{% assign ik='collection_image_'|append:i %}{% assign lk='collection_link_'|append:i %}<a class="lhcard"{% if forloop.first %} id="collectors-gallery"{% endif %} href="{{section.settings[lk]}}">{% if section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:1000|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhcardtext"><h3>{{titles[forloop.index0]}}</h3><p>{{descs[forloop.index0]}}</p></div></a>{% endfor %}</div></div></section>
+<section class="lhsplit" id="about"><div class="lhsplitmedia">{% if section.settings.founder_image != blank %}{{section.settings.founder_image|image_url:width:1600|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}</div><div class="lhsplitbody"><p class="lhk">Founder story</p><h2 class="lht">A life shaped<br>by jade</h2><p class="lhp">My relationship with jade began long before Lansattic. From growing up surrounded by jade, to searching for natural stones by the river; from journeys through Tibet and years of personal practice, to learning to weave beads by hand and years behind the counter, Lansattic grew slowly through materials, journeys, cultures, design and the people met along the way.</p><div><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
+<section class="lhs lhworld"><div class="lhw"><header class="lhhead"><p class="lhk">Explore the story</p><h2 class="lht">The world of Lansattic</h2></header><div class="lhworldgrid">{% assign wt="Jade & Heritage|Wisdom & Balance|Practice & Stillness|Nature & Individuality"|split:'|' %}{% assign wd="The natural beauty of jade, its cultural symbolism and quiet presence across generations.|Inspired by the Five Elements and Eastern philosophy, exploring balance between people, nature, color and material.|Influenced by years of personal practice and travel, expressed through beads, natural materials and everyday rituals of stillness.|We respect the differences found in jade, pearls, gemstones and wood because nature never repeats itself."|split:'|' %}{% for x in wt %}{% assign wik='world_image_'|append:forloop.index %}<div class="lhworlditem"><div class="lhworldimg">{% if section.settings[wik] != blank %}{{section.settings[wik]|image_url:width:900|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}</div><div class="lhworldcopy"><span class="lhnum">0{{forloop.index}}</span><div><h3>{{x}}</h3><p>{{wd[forloop.index0]}}</p></div></div></div>{% endfor %}</div></div></section>
+<section class="lhs lhintent-section" id="shop-by-intention"><div class="lhw"><header class="lhhead"><p class="lhk">Choose what speaks to you</p><h2 class="lht">Shop by intention</h2><p class="lhp">Explore jewelry through intention — a personal way to find pieces that feel meaningful to wear and keep.</p></header><div class="lhintentions">{% assign ints='Calm|Grounding|Balance|Clarity|Vitality|Connection'|split:'|' %}{% for x in ints %}{% assign lk='intention_link_'|append:forloop.index %}<a class="lhintent" href="{{ section.settings[lk] | default: section.settings.elements_link }}"><span>0{{forloop.index}}</span><b>{{x}}</b></a>{% endfor %}</div></div></section>
+<section class="lhs lhelements" id="five-elements"><div class="lhw"><header class="lhhead"><p class="lhk">Discover the Five Elements</p><h2 class="lht">The Five Elements</h2></header><div class="lhegrid">{% assign et='Wood|Fire|Earth|Metal|Water'|split:'|' %}{% assign eq='Growth|Vitality|Grounding|Clarity|Stillness'|split:'|' %}{% for i in (1..5) %}{% assign ik='element_image_'|append:i %}<a class="lhe" href="{{section.settings.elements_link}}">{% if section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:800|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhet"><h3>{{et[forloop.index0]}}</h3><small>{{eq[forloop.index0]}}</small></div></a>{% endfor %}</div><div class="lhcta"><a class="lhbtn" href="{{section.settings.elements_link}}">{{ section.settings.elements_cta_label | default: 'Explore Five Elements' }}</a></div></div></section>
+<section class="lhone"><div class="lhonem">{% if section.settings.one_image != blank %}{{section.settings.one_image|image_url:width:1600|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}</div><div class="lhoneb"><p class="lhk">One of a Kind</p><h2 class="lht">Designed once.<br>Never repeated.</h2><p class="lhp">Natural jade, pearls, gemstones and woods carry their own variations in color, texture and form. Some Lansattic pieces exist only once. Once found, it may never appear again.</p><div><a class="lhbtn" href="{{section.settings.one_link}}">{{ section.settings.one_cta_label | default: 'Explore one of a kind' }}</a></div></div></section>
+<section class="lhs lhreviews"><div class="lhw"><header class="lhhead"><p class="lhk">Worn, Loved, Remembered</p><h2 class="lht">Our Etsy Story</h2><p class="lhp">Thousands of pieces have found their homes over the years.</p></header><div class="lhrgrid" data-review-slider><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>“A very dainty and gorgeous necklace! I love how vintage it feels.”</blockquote><small>Mary · Verified Etsy Customer · Lansattic</small></article><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>“Excellent seller and beautiful ring! The seller was really helpful and kind.”</blockquote><small>Elizabeth · Verified Etsy Customer · StudioLibraArt</small></article><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>“First time buyer. The clip-on earrings are pretty and comfortable for daily wear.”</blockquote><small>Lia · Verified Etsy Customer · Lansattic</small></article></div><div class="lhrdots" aria-label="Customer review slides"><button type="button" class="is-active" aria-label="Review 1"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button></div><p class="lhtrust">9+ Years on Etsy · 10,300+ Combined Sales Across Our Etsy Shops · 4.9★ in Each Shop</p><div class="lhcta"><a class="lhbtn" href="{{section.settings.reviews_link}}">{{ section.settings.reviews_cta_label | default: 'Read More Reviews on Etsy' }}</a></div></div></section>
+{% assign journal = blogs[section.settings.journal_blog] %}
+<section class="lhs" id="journal"><div class="lhw">
+  <header class="lhhead"><p class="lhk">From the Journal</p><h2 class="lht">Natural Materials. Thoughtful Living.</h2><p class="lhp">Reflections on jade, craftsmanship, Eastern wisdom and everyday moments of stillness.</p></header>
+  {% if journal.articles_count > 0 %}
+    <div class="lhjgrid">
+      {% for article in journal.articles limit: 3 %}
+        <a class="lhj" href="{{ article.url }}">
+          {% if article.image != blank %}<div class="lhjimg">{{ article.image | image_url: width: 1000 | image_tag: loading: 'lazy' }}</div>{% endif %}
+          <h3>{{ article.title | escape }}</h3><p>{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="lhcta"><a class="lhbtn" href="{{ journal.url | default: section.settings.journal_link }}">{{ section.settings.journal_cta_label | default: 'Explore the Journal' }}</a></div>
+</div></section>
+<section class="lhnews"><p class="lhk">Occasional notes from Lansattic</p><h2 class="lht">Stay in the world of Lansattic</h2><p class="lhp">Stories of natural materials, new pieces and quiet inspiration — delivered occasionally.</p>{% form 'customer', class:'lhform' %}{% if form.posted_successfully? %}<p class="lh-form-feedback" role="status">Thank you for joining the world of Lansattic.</p>{% else %}{% if form.errors %}<div class="lh-form-feedback" role="alert">{{ form.errors | default_errors }}</div>{% endif %}<label class="sr-only" for="newsletter-{{ section.id }}">Email address</label><input type="hidden" name="contact[tags]" value="newsletter"><input id="newsletter-{{ section.id }}" type="email" autocomplete="email" name="contact[email]" placeholder="Email address" required><button type="submit">{{ section.settings.newsletter_cta_label | default: 'Join the list' }}</button>{% endif %}{% endform %}</section>
+</div>
+<script>
+(function(){
+  const root=document.getElementById('lh-{{ section.id }}'); if(!root) return;
+  const slider=root.querySelector('[data-review-slider]'); if(!slider) return;
+  const slides=[...slider.querySelectorAll('.lhr')], dots=[...root.querySelectorAll('.lhrdots button')];
+  slider.classList.add('is-enhanced');
+  let current=0,timer; const AUTOPLAY_MS=5000;
+  function mobile(){return window.matchMedia('(max-width:749px)').matches}
+  function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('is-active',!mobile()||n===current));dots.forEach((d,n)=>d.classList.toggle('is-active',n===current))}
+  function start(){clearInterval(timer);show(current);if(mobile()&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),AUTOPLAY_MS)}
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);start()}));
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('focusin',()=>clearInterval(timer));
+  window.addEventListener('resize',start); start();
+})();
+</script>
+{% schema %}
+{
+  "name": "Lansattic final homepage",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image - desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero image - mobile"
+    },
+    {
+      "type": "text",
+      "id": "shop_cta_label",
+      "label": "Shop CTA text",
+      "default": "SHOP THE COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "Shop CTA link"
+    },
+    {
+      "type": "text",
+      "id": "about_cta_label",
+      "label": "Story CTA text",
+      "default": "DISCOVER OUR STORY"
+    },
+    {
+      "type": "url",
+      "id": "about_link",
+      "label": "Story CTA link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_1",
+      "label": "Collector's Gallery image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_1",
+      "label": "Collector's Gallery link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_2",
+      "label": "Everyday Jade image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_2",
+      "label": "Everyday Jade link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_3",
+      "label": "Pearl Garden image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_3",
+      "label": "Pearl Garden link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_4",
+      "label": "Five Elements image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_4",
+      "label": "Five Elements link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_5",
+      "label": "Sacred Beads image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_5",
+      "label": "Sacred Beads link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_6",
+      "label": "One of a Kind image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_6",
+      "label": "One of a Kind link"
+    },
+    {
+      "type": "image_picker",
+      "id": "founder_image",
+      "label": "Founder image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_1",
+      "label": "Jade & Heritage image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_2",
+      "label": "Wisdom & Balance image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_3",
+      "label": "Practice & Stillness image"
+    },
+    {
+      "type": "image_picker",
+      "id": "world_image_4",
+      "label": "Nature & Individuality image"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_1",
+      "label": "Calm intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_2",
+      "label": "Grounding intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_3",
+      "label": "Balance intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_4",
+      "label": "Clarity intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_5",
+      "label": "Vitality intention link"
+    },
+    {
+      "type": "url",
+      "id": "intention_link_6",
+      "label": "Connection intention link"
+    },
+    {
+      "type": "text",
+      "id": "elements_cta_label",
+      "label": "Five Elements CTA text",
+      "default": "EXPLORE FIVE ELEMENTS"
+    },
+    {
+      "type": "url",
+      "id": "elements_link",
+      "label": "Five Elements link"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_1",
+      "label": "Wood image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_2",
+      "label": "Fire image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_3",
+      "label": "Earth image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_4",
+      "label": "Metal image"
+    },
+    {
+      "type": "image_picker",
+      "id": "element_image_5",
+      "label": "Water image"
+    },
+    {
+      "type": "image_picker",
+      "id": "one_image",
+      "label": "One of a Kind feature image"
+    },
+    {
+      "type": "text",
+      "id": "one_cta_label",
+      "label": "One of a Kind CTA text",
+      "default": "EXPLORE ONE OF A KIND"
+    },
+    {
+      "type": "url",
+      "id": "one_link",
+      "label": "One of a Kind CTA link"
+    },
+    {
+      "type": "text",
+      "id": "reviews_cta_label",
+      "label": "Reviews CTA text",
+      "default": "READ MORE REVIEWS ON ETSY"
+    },
+    {
+      "type": "url",
+      "id": "reviews_link",
+      "label": "Reviews CTA link"
+    },
+    {
+      "type": "blog",
+      "id": "journal_blog",
+      "label": "Journal blog"
+    },
+    {
+      "type": "image_picker",
+      "id": "journal_image_1",
+      "label": "Journal image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "journal_image_2",
+      "label": "Journal image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "journal_image_3",
+      "label": "Journal image 3"
+    },
+    {
+      "type": "text",
+      "id": "journal_cta_label",
+      "label": "Journal CTA text",
+      "default": "EXPLORE THE JOURNAL"
+    },
+    {
+      "type": "url",
+      "id": "journal_link",
+      "label": "Journal CTA link"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_cta_label",
+      "label": "Newsletter button text",
+      "default": "JOIN THE LIST"
+    },
+    {
+      "type": "header",
+      "content": "Image format"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "paragraph",
+      "content": "Card ratio applies to collection, world, Five Elements and journal images. Set an image focal point in its image picker to control cropping."
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "label": "Hero height — desktop",
+      "min": 440,
+      "max": 1000,
+      "step": 20,
+      "default": 760,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "label": "Hero height — mobile",
+      "min": 440,
+      "max": 900,
+      "step": 20,
+      "default": 640,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "hero_position",
+      "label": "Hero crop position — desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "hero_position_mobile",
+      "label": "Hero crop position — mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 100,
+      "unit": "%"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic final homepage"
+    }
+  ]
+}
+{% endschema %}

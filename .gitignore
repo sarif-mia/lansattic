@@ -1,0 +1,8 @@
+.DS_Store
+.shopify/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+qa/

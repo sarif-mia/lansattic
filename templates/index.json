@@ -1,0 +1,216 @@
+{
+  "sections": {
+    "home_hero": {
+      "type": "lansattic-home-hero",
+      "settings": {
+        "copy_1": "Jewelry With Meaning",
+        "copy_2": "Rooted in nature. Shaped by Eastern wisdom. Made to be lived with.",
+        "shop_cta_label": "SHOP THE COLLECTION",
+        "shop_link": "shopify://collections/all",
+        "about_cta_label": "DISCOVER OUR STORY",
+        "about_link": "shopify://pages/about-lansattic",
+        "hero_asset": "lansattic-supplied-five-elements.png",
+        "hero_alt": "Pearl and purple gemstone earrings resting on a natural crystal surface.",
+        "hero_height": 680,
+        "hero_position": 50,
+        "use_supplied_layout": true
+      }
+    },
+    "home_collections": {
+      "type": "lansattic-home-collections",
+      "settings": {
+        "copy_1": "Begin with what draws you",
+        "copy_2": "Shop by collection",
+        "copy_3": "Fine jade, natural jadeite, Baroque pearls and natural gemstones, selected for character, individuality and everyday meaning.",
+        "titles_1": "Collector's Gallery",
+        "titles_2": "Everyday Jade",
+        "titles_3": "The Pearl Garden",
+        "titles_4": "Five Elements Jewelry",
+        "titles_5": "Sacred Beads",
+        "titles_6": "One of a Kind",
+        "descs_1": "Rare and exceptional pieces selected for beauty and individuality.",
+        "descs_2": "Timeless natural jade and jadeite for everyday life.",
+        "descs_3": "Organic pearls shaped by nature.",
+        "descs_4": "Color, material and Eastern balance.",
+        "descs_5": "Objects for stillness and intention.",
+        "descs_6": "Designed once. Never repeated.",
+        "collection_image_1": "shopify://shop_images/collector_gallary.png",
+        "collection_link_1": "shopify://collections/collectors-gallery",
+        "collection_image_2": "shopify://shop_images/everyday_jade.png",
+        "collection_link_2": "shopify://collections/everyday-jade",
+        "collection_image_3": "shopify://shop_images/il_fullxfull.5971620448_ng15.jpg",
+        "collection_link_3": "shopify://collections/pearl-yin-energy",
+        "collection_image_4": "shopify://shop_images/wood.png",
+        "collection_link_4": "shopify://collections/five-elements-jewelry",
+        "collection_image_5": "shopify://shop_images/sacred_beads.png",
+        "collection_link_5": "shopify://collections/sacred-beads",
+        "collection_image_6": "shopify://shop_images/one_of_a_kind.png",
+        "collection_link_6": "shopify://collections/one-of-a-kind"
+      }
+    },
+    "home_founder": {
+      "type": "lansattic-home-founder",
+      "settings": {
+        "copy_1": "Founder story",
+        "copy_2": "A life shaped\nby jade",
+        "copy_3": "My relationship with jade began long before Lansattic. From growing up surrounded by jade, to searching for natural stones by the river; from journeys through Tibet and years of personal practice, to learning to weave beads by hand and years behind the counter, Lansattic grew slowly through materials, journeys, cultures, design and the people met along the way.",
+        "about_cta_label": "DISCOVER OUR STORY",
+        "about_link": "shopify://pages/about-lansattic",
+        "founder_image": "shopify://shop_images/founder.png"
+      }
+    },
+    "home_world": {
+      "type": "lansattic-home-world",
+      "settings": {
+        "copy_1": "Explore the story",
+        "copy_2": "The world of Lansattic",
+        "wt_1": "Jade & Heritage",
+        "wt_2": "Wisdom & Balance",
+        "wt_3": "Practice & Stillness",
+        "wt_4": "Nature & Individuality",
+        "wd_1": "The natural beauty of jade, its cultural symbolism and quiet presence across generations.",
+        "wd_2": "Inspired by the Five Elements and Eastern philosophy, exploring balance between people, nature, color and material.",
+        "wd_3": "Influenced by years of personal practice and travel, expressed through beads, natural materials and everyday rituals of stillness.",
+        "wd_4": "We respect the differences found in jade, pearls, gemstones and wood because nature never repeats itself.",
+        "world_asset_1": "lansattic-supplied-jade-heritage.jpg",
+        "world_asset_2": "lansattic-archive-eastern-materials.png",
+        "world_asset_3": "lansattic-archive-jade-beads.jpeg",
+        "world_asset_4": "lansattic-archive-baroque-pearls.jpeg"
+      }
+    },
+    "home_intentions": {
+      "type": "lansattic-home-intentions",
+      "settings": {
+        "copy_1": "Choose what speaks to you",
+        "copy_2": "Shop by intention",
+        "copy_3": "Explore jewelry through intention — a personal way to find pieces that feel meaningful to wear and keep.",
+        "ints_1": "Calm",
+        "ints_2": "Grounding",
+        "ints_3": "Balance",
+        "ints_4": "Clarity",
+        "ints_5": "Vitality",
+        "ints_6": "Connection",
+        "intention_link_1": "",
+        "intention_link_2": "",
+        "intention_link_3": "",
+        "intention_link_4": "",
+        "intention_link_5": "",
+        "intention_link_6": "",
+        "elements_link": "shopify://collections/five-elements-jewelry"
+      }
+    },
+    "home_elements": {
+      "type": "lansattic-home-elements",
+      "settings": {
+        "copy_1": "Discover the Five Elements",
+        "copy_2": "The Five Elements",
+        "et_1": "Wood",
+        "et_2": "Fire",
+        "et_3": "Earth",
+        "et_4": "Metal",
+        "et_5": "Water",
+        "eq_1": "Growth",
+        "eq_2": "Vitality",
+        "eq_3": "Grounding",
+        "eq_4": "Clarity",
+        "eq_5": "Stillness",
+        "elements_cta_label": "EXPLORE FIVE ELEMENTS",
+        "elements_link": "shopify://collections/five-elements-jewelry",
+        "element_image_1": "shopify://shop_images/wood.png",
+        "element_image_2": "shopify://shop_images/fire.png",
+        "element_image_3": "shopify://shop_images/earth.png",
+        "element_image_4": "shopify://shop_images/metal.png",
+        "element_image_5": "shopify://shop_images/water.png",
+        "use_document_images": true
+      }
+    },
+    "home_one_of_a_kind": {
+      "type": "lansattic-home-one-of-a-kind",
+      "settings": {
+        "copy_1": "One of a Kind",
+        "copy_2": "Nature Never Repeats Itself",
+        "copy_3": "Natural jade, pearls, gemstones and woods carry their own variations in color, texture and form. Some Lansattic pieces exist only once. Once found, it may never appear again.",
+        "one_image": "shopify://shop_images/one_of_a_kinds.png",
+        "one_cta_label": "EXPLORE ONE OF A KIND",
+        "one_link": "shopify://collections/one-of-a-kind"
+      }
+    },
+    "home_reviews": {
+      "type": "lansattic-etsy-history",
+      "settings": {
+        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
+        "studio_link": "https://www.etsy.com/shop/StudiolibraArt",
+        "heading": "Worn, Loved, Remembered",
+        "intro": "Thousands of pieces have found their homes over the years. Our two Etsy shops are part of our history. Lansattic.com is the complete home of our collections, materials and stories.",
+        "reviews_link": "https://www.etsy.com/shop/Lansattic#reviews"
+      },
+      "blocks": {
+        "mary": {
+          "type": "review",
+          "settings": {
+            "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+            "customer": "Mary",
+            "shop": "Lansattic",
+            "source": "https://www.etsy.com/shop/Lansattic#reviews"
+          }
+        },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
+        "lia": {
+          "type": "review",
+          "settings": {
+            "quote": "First time buyer. The clip-on earrings are pretty and it's comfortable for daily wear.",
+            "customer": "Lia",
+            "shop": "unspecified",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "mary",
+        "elizabeth",
+        "lia"
+      ]
+    },
+    "home_journal": {
+      "type": "lansattic-home-journal",
+      "settings": {
+        "copy_1": "From the Journal",
+        "copy_2": "The Lansattic Journal",
+        "copy_3": "A quiet space for stories, materials, traditions, and the ideas that shape Lansattic.",
+        "journal_blog": "journal",
+        "journal_cta_label": "EXPLORE THE JOURNAL",
+        "journal_link": "/blogs/journal"
+      }
+    },
+    "home_newsletter": {
+      "type": "lansattic-home-newsletter",
+      "settings": {
+        "copy_1": "Occasional notes from Lansattic",
+        "copy_2": "Join the Lansattic Journal",
+        "copy_3": "Discover new collections, jade stories, Five Elements inspiration, meaningful jewelry and occasional special offers.",
+        "copy_4": "Thank you for joining the Lansattic Journal.",
+        "newsletter_cta_label": "JOIN THE LIST"
+      }
+    }
+  },
+  "order": [
+    "home_hero",
+    "home_collections",
+    "home_founder",
+    "home_world",
+    "home_intentions",
+    "home_elements",
+    "home_one_of_a_kind",
+    "home_reviews",
+    "home_journal",
+    "home_newsletter"
+  ]
+}

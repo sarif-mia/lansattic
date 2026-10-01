@@ -1,0 +1,319 @@
+{% if section.settings.page_handle == blank or page.handle == section.settings.page_handle %}
+{% style %}
+  #ls-{{ section.id }} { background: #f7f5ef; color: #24251f; }
+  #ls-{{ section.id }} .ls-wrap { max-width: 1180px; margin: auto; padding: 0 32px 72px; }
+  #ls-{{ section.id }} .ls-intro { position: relative; padding: 80px 0 56px; border-bottom: 1px solid #d8d2c7; }
+  #ls-{{ section.id }} .ls-intro--image { padding: 0; margin-bottom: 32px; }
+  #ls-{{ section.id }} .ls-intro-media { margin: 0 -32px 40px; max-height: 480px; overflow: hidden; }
+  #ls-{{ section.id }} .ls-intro-media img { width: 100%; height: auto; max-height: 480px; object-fit: cover; }
+  #ls-{{ section.id }} .ls-intro-inner { max-width: 720px; margin: auto; padding-bottom: 24px; }
+  #ls-{{ section.id }} .ls-k, #ls-{{ section.id }} .ls-eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #315c4d; }
+  #ls-{{ section.id }} .ls-title { font-family: var(--heading-font-family); font-size: clamp(42px, 5vw, 72px); font-weight: 400; line-height: 1.08; margin: 16px 0 24px; }
+  #ls-{{ section.id }} .ls-copy { font-size: 17px; line-height: 1.8; color: #454a43; max-width: 65ch; }
+  #ls-{{ section.id }} .ls-copy p + p { margin-top: 1em; }
+  #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: 42px 0; border-bottom: 1px solid #d8d2c7; max-width: 720px; margin: auto; scroll-margin-top: 110px; }
+  #ls-{{ section.id }} .ls-row--image { max-width: none; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
+  #ls-{{ section.id }} .ls-row--image:nth-of-type(even) .ls-media-wrap { order: 2; }
+  #ls-{{ section.id }} .ls-media { overflow: hidden; }
+  #ls-{{ section.id }} .ls-media img { width: 100%; height: auto; display: block; }
+  #ls-{{ section.id }} .ls-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-top: 12px; }
+  #ls-{{ section.id }} h2 { font-family: var(--heading-font-family); font-weight: 400; font-size: clamp(30px,3vw,42px); line-height: 1.15; margin: 10px 0 20px; }
+  #ls-{{ section.id }} .ls-cta { display: inline-flex; align-items: center; min-height: 44px; margin-top: 20px; border-bottom: 1px solid; font-size: 13px; }
+  @media (max-width:749px) {
+    #ls-{{ section.id }} .ls-wrap { padding: 0 22px 44px; }
+    #ls-{{ section.id }} .ls-intro { padding: 48px 0 24px; }
+    #ls-{{ section.id }} .ls-intro-media { margin: -48px -22px 28px; }
+    #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: 30px 0; }
+    #ls-{{ section.id }} .ls-row--image { grid-template-columns: minmax(0,1fr); gap: 24px; }
+    #ls-{{ section.id }} .ls-row--image:nth-of-type(even) .ls-media-wrap { order: 0; }
+    #ls-{{ section.id }} .ls-copy { font-size: 16px; line-height: 1.75; }
+  }
+
+  #ls-{{ section.id }} { --story-image-ratio: {{ section.settings.image_ratio | default: '4/5' }}; --story-image-fit: {{ section.settings.image_fit | default: 'cover' }}; }
+  #ls-{{ section.id }} .ls-media { position:relative; aspect-ratio:var(--story-image-ratio); background:#eeeae2; }
+  #ls-{{ section.id }} .ls-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:var(--story-image-fit); }
+  #ls-{{ section.id }} .ls-intro-media { position:relative; aspect-ratio:{{ section.settings.hero_image_ratio | default: '3/2' }}; max-height:none; }
+  #ls-{{ section.id }} .ls-intro-media img { position:absolute; inset:0; width:100%; height:100%; max-height:none; object-fit:var(--story-image-fit); }
+{% endstyle %}
+<section id="ls-{{ section.id }}">
+  <div class="ls-wrap">
+    <header class="ls-intro{% if section.settings.hero_image != blank %} ls-intro--image{% endif %}">
+      {% if section.settings.hero_image != blank %}<div class="ls-intro-media">{{ section.settings.hero_image | image_url: width: 2000 | image_tag: loading: 'eager', widths: '600, 1000, 1600, 2000', sizes: '100vw' }}</div>{% endif %}
+      <div class="ls-intro-inner">
+        <p class="ls-k">{{ section.settings.kicker | escape }}</p>
+        <h1 class="ls-title">{{ section.settings.title | escape }}</h1>
+        <div class="ls-copy">{{ section.settings.intro }}</div>
+      </div>
+    </header>
+    {% for block in section.blocks %}
+      {% liquid
+        assign has_media = false
+        if block.settings.show_image
+          if block.settings.image != blank or block.settings.image_2 != blank or block.settings.image_3 != blank
+            assign has_media = true
+          endif
+        endif
+      %}
+      <article id="story-{{ block.id }}" class="{% if section.settings.layout == 'editorial' %}ls-row{% if has_media %} ls-row--image{% endif %}{% else %}ls-simple{% endif %}" {{ block.shopify_attributes }}>
+        {% if has_media %}
+          <div class="ls-media-wrap" style="{% if block.settings.image_ratio != blank and block.settings.image_ratio != 'inherit' %}--story-image-ratio:{{ block.settings.image_ratio }};{% endif %}{% if block.settings.image_fit != blank and block.settings.image_fit != 'inherit' %}--story-image-fit:{{ block.settings.image_fit }};{% endif %}">
+            {% if block.settings.image != blank %}<div class="ls-media">{{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '400, 700, 1000, 1400', sizes: '(max-width: 749px) calc(100vw - 44px), 540px' }}</div>{% endif %}
+            {% if block.settings.image_2 != blank or block.settings.image_3 != blank %}
+              <div class="ls-gallery">
+                {% if block.settings.image_2 != blank %}<div class="ls-media">{{ block.settings.image_2 | image_url: width: 700 | image_tag: loading: 'lazy' }}</div>{% endif %}
+                {% if block.settings.image_3 != blank %}<div class="ls-media">{{ block.settings.image_3 | image_url: width: 700 | image_tag: loading: 'lazy' }}</div>{% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+        <div>
+          {% if block.settings.eyebrow != blank %}<p class="ls-eyebrow">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+          <h2>{{ block.settings.heading | escape }}</h2>
+          <div class="ls-copy">{{ block.settings.text }}</div>
+          {% if block.settings.link_label != blank and block.settings.link != blank %}<a class="ls-cta" href="{{ block.settings.link }}">{{ block.settings.link_label | escape }}</a>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% schema %}
+{
+  "name": "Lansattic story/page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Lansattic"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Page title",
+      "default": "Jewelry With Meaning"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Rooted in nature. Shaped by Eastern wisdom. Made to be lived with.</p>"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "editorial",
+          "label": "Alternating editorial"
+        },
+        {
+          "value": "simple",
+          "label": "Simple stacked"
+        }
+      ],
+      "default": "editorial"
+    },
+    {
+      "type": "text",
+      "id": "page_handle",
+      "label": "Show only on this page handle",
+      "info": "Leave blank when this section is used in a dedicated page template."
+    },
+    {
+      "type": "header",
+      "content": "Image format"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Story image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "hero_image_ratio",
+      "label": "Hero image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "3/2"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Editable content section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Section heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show image area",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Primary image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Additional image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Additional image 3"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "image_ratio",
+          "label": "Image ratio",
+          "options": [
+            {
+              "value": "inherit",
+              "label": "Use page setting"
+            },
+            {
+              "value": "4/5",
+              "label": "Portrait (4:5)"
+            },
+            {
+              "value": "1/1",
+              "label": "Square (1:1)"
+            },
+            {
+              "value": "3/4",
+              "label": "Tall portrait (3:4)"
+            },
+            {
+              "value": "4/3",
+              "label": "Landscape (4:3)"
+            },
+            {
+              "value": "3/2",
+              "label": "Landscape (3:2)"
+            }
+          ],
+          "default": "inherit"
+        },
+        {
+          "type": "select",
+          "id": "image_fit",
+          "label": "Image fit",
+          "options": [
+            {
+              "value": "inherit",
+              "label": "Use page setting"
+            },
+            {
+              "value": "cover",
+              "label": "Fill frame (crop)"
+            },
+            {
+              "value": "contain",
+              "label": "Fit entire image"
+            }
+          ],
+          "default": "inherit"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic story/page"
+    }
+  ]
+}
+{% endschema %}

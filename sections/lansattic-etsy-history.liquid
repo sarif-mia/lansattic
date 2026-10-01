@@ -1,0 +1,156 @@
+{% if section.settings.page_handle == blank or page.handle == section.settings.page_handle %}
+{% style %}
+#etsy-{{ section.id }} { background:#f3f1ea; color:#24251f; padding:64px 24px; }
+#etsy-{{ section.id }} .eth-wrap { max-width:1180px; margin:auto; }
+#etsy-{{ section.id }} .eth-head { text-align:center; max-width:780px; margin:0 auto 36px; }
+#etsy-{{ section.id }} .eth-kicker { font-size:11px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:16px; }
+#etsy-{{ section.id }} h2 { font-family:var(--heading-font-family); font-size:clamp(30px,3vw,42px); font-weight:400; margin:0 0 20px; }
+#etsy-{{ section.id }} .eth-head p { line-height:1.7; }
+#etsy-{{ section.id }} .eth-stats { font-size:14px; padding:20px 0; border-block:1px solid #d8d2c7; }
+#etsy-{{ section.id }} .eth-date { display:block; font-size:11px; margin-top:10px; color:#626459; }
+#etsy-{{ section.id }} .eth-reviews { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+#etsy-{{ section.id }} .eth-review { padding:28px; background:#fbfaf6; }
+#etsy-{{ section.id }} blockquote { font-family:var(--heading-font-family); font-size:22px; line-height:1.5; margin:16px 0; }
+#etsy-{{ section.id }} .eth-review a, #etsy-{{ section.id }} .eth-credit { font-size:12px; line-height:1.7; text-decoration:underline; text-underline-offset:3px; }
+#etsy-{{ section.id }} .eth-credit { text-decoration:none; display:block; }
+#etsy-{{ section.id }} .eth-shops { display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:850px; margin:40px auto 0; text-align:center; }
+#etsy-{{ section.id }} .eth-shops a { display:inline-block; padding:12px 0; border-bottom:1px solid; font-size:12px; letter-spacing:.05em; text-transform:uppercase; }
+#etsy-{{ section.id }} .eth-shops p { font-size:13px; line-height:1.6; margin-top:12px; }
+#etsy-{{ section.id }} .eth-cta { display:flex; justify-content:center; flex-wrap:wrap; gap:12px 28px; text-align:center; margin-top:36px; }
+#etsy-{{ section.id }} .eth-cta a { display:inline-flex; min-height:44px; align-items:center; border-bottom:1px solid; font-size:12px; }
+#etsy-{{ section.id }} lansattic-review-carousel { display:block; min-width:0; }
+#etsy-{{ section.id }} .eth-carousel-controls { display:none; }
+@media(max-width:749px) {
+ #etsy-{{ section.id }} .eth-reviews { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; }
+ #etsy-{{ section.id }} .eth-review { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
+ #etsy-{{ section.id }} lansattic-review-carousel[ready] .eth-reviews { scrollbar-width:none; }
+ #etsy-{{ section.id }} lansattic-review-carousel[ready] .eth-reviews::-webkit-scrollbar { display:none; }
+ #etsy-{{ section.id }} lansattic-review-carousel[ready] .eth-carousel-controls { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:12px; }
+ #etsy-{{ section.id }} .eth-dot { width:44px; height:44px; display:grid; place-items:center; }
+ #etsy-{{ section.id }} .eth-dot::before { content:""; width:7px; height:7px; border:1px solid #315c4d; border-radius:50%; }
+ #etsy-{{ section.id }} .eth-dot[aria-current="true"]::before { background:#315c4d; }
+}
+@media(max-width:749px) { #etsy-{{ section.id }} { padding:44px 20px; } #etsy-{{ section.id }} .eth-reviews, #etsy-{{ section.id }} .eth-shops { grid-template-columns:1fr; gap:20px; } }
+{% endstyle %}
+<section id="etsy-{{ section.id }}" aria-labelledby="etsy-title-{{ section.id }}"><div class="eth-wrap">
+ <header class="eth-head"><p class="eth-kicker">Our Etsy History</p><h2 id="etsy-title-{{ section.id }}">{{ section.settings.heading | escape }}</h2><p>{{ section.settings.intro | escape }}</p><p class="eth-stats">{{ section.settings.stats | escape }}<small class="eth-date">{{ section.settings.stats_note | escape }}</small></p></header>
+ <lansattic-review-carousel role="region" aria-roledescription="carousel" aria-label="Customer reviews">
+ <div class="eth-reviews" tabindex="0" aria-label="Swipe to browse reviews">{% for block in section.blocks %}<article class="eth-review" {{ block.shopify_attributes }}><span aria-label="5 out of 5 stars">★★★★★</span><blockquote>“{{ block.settings.quote | escape }}”</blockquote>{% capture review_credit %}{{ block.settings.customer | escape }} · Verified Etsy Customer{% if block.settings.shop != 'unspecified' %} · {{ block.settings.shop | escape }}{% endif %}{% endcapture %}{% if block.settings.source != blank %}<a href="{{ block.settings.source }}">{{ review_credit }}</a>{% else %}<span class="eth-credit">{{ review_credit }}</span>{% endif %}</article>{% endfor %}</div>
+ {% if section.blocks.size > 1 %}<div class="eth-carousel-controls">
+ {% for block in section.blocks %}<button type="button" class="eth-dot" aria-label="Show review {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}
+ </div>{% endif %}
+ </lansattic-review-carousel>
+ <script src="{{ 'lansattic-review-carousel.js' | asset_url }}" defer></script>
+ <div class="eth-shops"><div><a href="{{ section.settings.lansattic_link }}">Shop Lansattic on Etsy</a><p>Pearls &amp; Fine Jewelry</p></div><div><a href="{{ section.settings.studio_link }}">Visit StudioLibraArt on Etsy</a><p>Jade, Jadeite &amp; Natural Gemstones</p></div></div>
+ {% if section.settings.reviews_link != blank or section.settings.show_stories_link %}<div class="eth-cta">
+ {% if section.settings.reviews_link != blank %}<a href="{{ section.settings.reviews_link }}">Read more reviews on Etsy</a>{% endif %}
+ {% if section.settings.show_stories_link %}<a href="/pages/customer-stories">Read customer stories</a>{% endif %}
+ </div>{% endif %}
+</div></section>
+{% endif %}
+{% schema %}
+{
+  "name": "Lansattic Etsy history",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_handle",
+      "label": "Show only on page handle",
+      "info": "Leave empty to show on any page."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Two Shops, One Evolving Story"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "Our Etsy shops are part of our history. Lansattic.com is the complete home of our collections, materials and stories."
+    },
+    {
+      "type": "textarea",
+      "id": "stats",
+      "label": "Trust statement",
+      "default": "9+ Years on Etsy \u00b7 10,300+ Combined Sales Across Our Etsy Shops \u00b7 4.9\u2605 in Each Shop"
+    },
+    {
+      "type": "text",
+      "id": "stats_note",
+      "label": "Statistics context",
+      "default": "Lansattic: 9,802 sales \u00b7 StudioLibraArt: 521 sales. Checked September 30, 2026."
+    },
+    {
+      "type": "url",
+      "id": "lansattic_link",
+      "label": "Lansattic shop"
+    },
+    {
+      "type": "url",
+      "id": "studio_link",
+      "label": "StudioLibraArt shop"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stories_link",
+      "label": "Show customer stories link",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "reviews_link",
+      "label": "Etsy reviews link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Etsy customer review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Review excerpt"
+        },
+        {
+          "type": "text",
+          "id": "customer",
+          "label": "Customer name"
+        },
+        {
+          "type": "select",
+          "id": "shop",
+          "label": "Source shop",
+          "options": [
+            {
+              "value": "Lansattic",
+              "label": "Lansattic"
+            },
+            {
+              "value": "StudioLibraArt",
+              "label": "StudioLibraArt"
+            },
+            {
+              "value": "unspecified",
+              "label": "Shop not specified in source"
+            }
+          ],
+          "default": "Lansattic"
+        },
+        {
+          "type": "url",
+          "id": "source",
+          "label": "Original review link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Etsy history"
+    }
+  ]
+}
+{% endschema %}

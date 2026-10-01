@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_image": false,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": true,
+        "content_width": "sm"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "lansattic_story": {
+      "type": "lansattic-collection-story",
+      "settings": {},
+      "blocks": {
+        "elements": {
+          "type": "story",
+          "settings": {
+            "collection_handle": "five-elements-jewelry",
+            "heading": "Color, Material & Meaning",
+            "text": "<p>Wood, Fire, Earth, Metal and Water offer a way to explore color, texture and the rhythms of nature.</p><p>Our Five Elements jewelry draws on Eastern philosophy as design inspiration. Choose a piece for its natural materials, the colors you are drawn to and the meaning you bring to it.</p>",
+            "image_asset": "lansattic-supplied-five-elements.png",
+            "image_alt": "Pearl and purple gemstone earrings from the supplied Five Elements image."
+          }
+        },
+        "beads": {
+          "type": "story",
+          "settings": {
+            "collection_handle": "sacred-beads",
+            "heading": "Objects for Stillness & Intention",
+            "text": "<p>Natural beads carry the traces of the material and the hands that work with it. Wood, jade and gemstones offer different textures, colors and rhythms.</p><p>This collection explores their place in contemplative traditions and the personal meaning of objects we choose to keep close.</p>",
+            "image_asset": "lansattic-supplied-bead-making.png",
+            "image_alt": "A quiet moment working with natural beads, from the supplied lifestyle imagery."
+          }
+        }
+      },
+      "block_order": [
+        "elements",
+        "beads"
+      ]
+    }
+  },
+  "order": [
+    "collection-banner",
+    "lansattic_story",
+    "main"
+  ]
+}

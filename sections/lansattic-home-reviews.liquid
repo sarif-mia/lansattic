@@ -1,0 +1,175 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhs lhreviews"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhrgrid" data-review-slider><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>{{ section.settings.copy_4 | escape | newline_to_br }}</blockquote><small>{{ section.settings.copy_5 | escape | newline_to_br }}</small></article><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>{{ section.settings.copy_6 | escape | newline_to_br }}</blockquote><small>{{ section.settings.copy_7 | escape | newline_to_br }}</small></article><article class="lhr"><div class="lhstars">★★★★★</div><blockquote>{{ section.settings.copy_8 | escape | newline_to_br }}</blockquote><small>{{ section.settings.copy_9 | escape | newline_to_br }}</small></article></div><div class="lhrdots" aria-label="Customer review slides"><button type="button" class="is-active" aria-label="Review 1"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button></div><p class="lhtrust">{{ section.settings.copy_10 | escape | newline_to_br }}</p><div class="lhcta"><a class="lhbtn" href="{{section.settings.reviews_link}}">{{ section.settings.reviews_cta_label | default: 'Read More Reviews on Etsy' }}</a></div></div></section>
+</div>
+<script>
+(function(){
+  const root=document.getElementById('lh-{{ section.id }}'); if(!root) return;
+  const slider=root.querySelector('[data-review-slider]'); if(!slider) return;
+  const slides=[...slider.querySelectorAll('.lhr')], dots=[...root.querySelectorAll('.lhrdots button')];
+  slider.classList.add('is-enhanced');
+  let current=0,timer; const AUTOPLAY_MS=5000;
+  function mobile(){return window.matchMedia('(max-width:749px)').matches}
+  function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('is-active',!mobile()||n===current));dots.forEach((d,n)=>d.classList.toggle('is-active',n===current))}
+  function start(){clearInterval(timer);show(current);if(mobile()&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),AUTOPLAY_MS)}
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{show(i);start()}));
+  slider.addEventListener('mouseenter',()=>clearInterval(timer));
+  slider.addEventListener('focusin',()=>clearInterval(timer));
+  window.addEventListener('resize',start); start();
+})();
+</script>
+{% schema %}
+{
+  "name": "Lansattic Reviews",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Worn, Loved, Remembered"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "Our Etsy Story"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_3",
+      "label": "Text 3",
+      "default": "Thousands of pieces have found their homes over the years."
+    },
+    {
+      "type": "textarea",
+      "id": "copy_4",
+      "label": "Text 4",
+      "default": "“A very dainty and gorgeous necklace! I love how vintage it feels.”"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_5",
+      "label": "Text 5",
+      "default": "Mary · Verified Etsy Customer · Lansattic"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_6",
+      "label": "Text 6",
+      "default": "“Excellent seller and beautiful ring! The seller was really helpful and kind.”"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_7",
+      "label": "Text 7",
+      "default": "Elizabeth · Verified Etsy Customer · StudioLibraArt"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_8",
+      "label": "Text 8",
+      "default": "“First time buyer. The clip-on earrings are pretty and comfortable for daily wear.”"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_9",
+      "label": "Text 9",
+      "default": "Lia · Verified Etsy Customer · Lansattic"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_10",
+      "label": "Text 10",
+      "default": "9+ Years on Etsy · 10,300+ Combined Sales Across Our Etsy Shops · 4.9★ in Each Shop"
+    },
+    {
+      "type": "text",
+      "id": "reviews_cta_label",
+      "label": "Reviews CTA text",
+      "default": "READ MORE REVIEWS ON ETSY"
+    },
+    {
+      "type": "url",
+      "id": "reviews_link",
+      "label": "Reviews CTA link"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Reviews"
+    }
+  ]
+}
+{% endschema %}

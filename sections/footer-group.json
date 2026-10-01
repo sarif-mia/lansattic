@@ -1,0 +1,16 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "lansattic_footer": {
+      "type": "lansattic-footer-final",
+      "settings": {
+        "etsy_lansattic": "https://www.etsy.com/shop/Lansattic",
+        "etsy_studio": "https://www.etsy.com/shop/StudioLibraArt"
+      }
+    }
+  },
+  "order": [
+    "lansattic_footer"
+  ]
+}

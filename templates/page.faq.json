@@ -1,0 +1,95 @@
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "Are your stones natural?",
+            "answer": "<p>We work primarily with natural jade, jadeite, pearls, gemstones, and other natural materials. Because natural materials are formed by nature, variations in color, texture, inclusions, shape, and pattern are normal and part of their individuality. Please review each product description carefully for specific material details.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "Will the item I receive look exactly like the photo?",
+            "answer": "<p>For one-of-a-kind items, the product shown is generally the exact piece you will receive. For items made with natural materials, slight variations may occur because no two stones or pearls are exactly alike.</p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "Is your jade real?",
+            "answer": "<p>We carefully source and describe our jade and jadeite based on the information available to us and our material knowledge. If a listing includes specific certification or testing information, it will be stated in the product description.</p>"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "question": "What is the difference between jade and jadeite?",
+            "answer": "<p>The word “jade” commonly refers to two different mineral materials: nephrite and jadeite. Both have long histories in jewelry and decorative arts, but they differ in mineral composition, appearance, and value. Product descriptions will identify the material whenever possible.</p>"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer gift packaging?",
+            "answer": "<p>Yes. Lansattic jewelry is carefully packaged and suitable for gifting. Packaging may vary by product and collection.</p>"
+          }
+        },
+        "question-6": {
+          "type": "question",
+          "settings": {
+            "question": "Can I send a gift directly to someone?",
+            "answer": "<p>Yes. You may enter the recipient’s address at checkout. If you would like us to include a short gift message, please add a note during checkout or contact us after placing your order.</p>"
+          }
+        },
+        "question-7": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer custom jewelry?",
+            "answer": "<p>Custom work may be available depending on the design, material, and schedule. Please contact us with your idea, preferred material, size, and any reference images.</p>"
+          }
+        },
+        "question-8": {
+          "type": "question",
+          "settings": {
+            "question": "Can you resize a piece?",
+            "answer": "<p>Some pieces can be resized or adjusted, while others cannot due to their construction or materials. Please contact us before ordering if you need a specific size.</p>"
+          }
+        },
+        "question-9": {
+          "type": "question",
+          "settings": {
+            "question": "How quickly will my order ship?",
+            "answer": "<p>Processing time depends on whether the item is ready to ship, made to order, or customized. Please refer to the individual product page for the most accurate processing estimate.</p>"
+          }
+        },
+        "question-10": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, international shipping may be available to selected destinations. International customers are responsible for any customs duties, taxes, or import charges required by their country.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question-3",
+        "question-4",
+        "question-5",
+        "question-6",
+        "question-7",
+        "question-8",
+        "question-9",
+        "question-10"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "faq"
+  ]
+}

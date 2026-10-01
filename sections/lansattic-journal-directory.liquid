@@ -1,0 +1,121 @@
+{% if blog.handle == 'journal' %}
+{% style %}
+#lj-{{ section.id }}{background:#f7f5ef;color:#24251f;padding:72px 0 80px}
+#lj-{{ section.id }} .lj-wrap{width:min(100% - 64px,1180px);margin:auto}
+#lj-{{ section.id }} .lj-intro{max-width:900px;margin:0 auto 48px;text-align:center}
+#lj-{{ section.id }} .lj-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:22px}
+#lj-{{ section.id }} h1{font-family:var(--heading-font-family);font-size:clamp(40px,5vw,68px);font-weight:400;line-height:1.08;letter-spacing:-.025em;margin-bottom:24px}
+#lj-{{ section.id }} .lj-intro p:not(.lj-kicker){max-width:740px;margin:16px auto 0;font-size:16px;line-height:1.75}
+#lj-{{ section.id }} .lj-nav{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center;margin:32px 0 44px}
+#lj-{{ section.id }} .lj-nav a{display:inline-flex;align-items:center;min-height:44px;border-bottom:1px solid #789086;font-size:13px;text-decoration:none}
+#lj-{{ section.id }} .lj-note{font-size:13px;line-height:1.7;text-align:center;color:#626459;max-width:700px;margin:0 auto 36px}
+#lj-{{ section.id }} .lj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+#lj-{{ section.id }} .lj-category{padding:36px;background:#f3f1ea;border:1px solid #ded9cf;scroll-margin-top:140px}
+#lj-{{ section.id }} h2{font-family:var(--heading-font-family);font-size:32px;line-height:1.15;margin-bottom:18px;font-weight:400}
+#lj-{{ section.id }} .lj-description{font-size:15px;line-height:1.7;margin-bottom:26px}
+#lj-{{ section.id }} .lj-topic-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;color:#626459}
+#lj-{{ section.id }} ul{list-style:none;padding:0;margin:0}
+#lj-{{ section.id }} li{padding:12px 0;border-top:1px solid #d8d2c7;font-size:15px;line-height:1.6}
+#lj-{{ section.id }} li a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:749px){#lj-{{ section.id }}{padding:44px 0 52px}#lj-{{ section.id }} .lj-wrap{width:calc(100% - 40px)}#lj-{{ section.id }} .lj-grid{grid-template-columns:1fr;gap:20px}#lj-{{ section.id }} .lj-category{padding:28px 22px}#lj-{{ section.id }} h2{font-size:29px}#lj-{{ section.id }} .lj-nav{gap:8px 18px}}
+{% endstyle %}
+<section id="lj-{{ section.id }}">
+ <div class="lj-wrap">
+  <header class="lj-intro"><h1>{{ section.settings.heading | escape }}</h1><p>{{ section.settings.intro | escape }}</p><p>{{ section.settings.description | escape }}</p>{% if section.settings.closing != blank %}<p>{{ section.settings.closing | escape }}</p>{% endif %}</header>
+  <nav class="lj-nav" aria-label="Journal categories">{% for block in section.blocks %}<a href="#{{ block.settings.anchor | handleize }}">{{ block.settings.title | escape }}</a>{% endfor %}</nav>
+  <div class="lj-grid">
+   {% for block in section.blocks %}
+    <article class="lj-category" id="{{ block.settings.anchor | handleize }}" {{ block.shopify_attributes }}>
+     <h2>{{ block.settings.title | escape }}</h2><p class="lj-description">{{ block.settings.description | escape }}</p>{% if block.settings.topics != blank %}<p class="lj-topic-label">Topics to explore</p>
+     <ul>
+      {% assign topics = block.settings.topics | newline_to_br | split: '<br />' %}
+      {% for topic_line in topics %}
+       {% assign topic = topic_line | strip %}
+       {% if topic != blank %}
+        {% liquid
+          assign topic_key = topic | handleize
+          assign topic_article = blank
+          for article in blog.articles
+            assign article_key = article.title | handleize
+            if article_key == topic_key
+              assign topic_article = article
+              break
+            endif
+          endfor
+        %}
+        <li>{% if topic_article != blank %}<a href="{{ topic_article.url }}">{{ topic | escape }}</a>{% else %}<span>{{ topic | escape }}</span>{% endif %}</li>
+       {% endif %}
+      {% endfor %}
+     </ul>{% endif %}
+    </article>
+   {% endfor %}
+  </div>
+ </div>
+</section>
+{% endif %}
+{% schema %}
+{
+  "name": "Lansattic Journal Guide",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Lansattic Journal"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "A quiet space for stories, materials, traditions, and the ideas that shape Lansattic."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Here, we share reflections on jade, pearls, natural gemstones, the Five Elements, Eastern philosophy, contemplative living, craftsmanship, travel, and the meaning we attach to the objects we choose to keep close."
+    },
+    {
+      "type": "textarea",
+      "id": "closing",
+      "label": "Closing introduction",
+      "default": "The Journal is not only about jewelry. It is also about slowing down, noticing natural beauty, understanding materials more deeply, and exploring the connection between tradition and modern life."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Journal category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Category link ID",
+          "info": "Use a unique short ID, such as jewelry-stories."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "topics",
+          "label": "Topics",
+          "info": "One topic per line. A topic links to a published article when its title matches."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Journal Guide"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,43 @@
+{% if product.handle == section.settings.product_handle %}
+{% style %}
+#lpr-{{ section.id }}{padding:48px 24px;background:#f3f1ea;text-align:center;color:#24251f}
+#lpr-{{ section.id }} .lpr-inner{max-width:720px;margin:auto}
+#lpr-{{ section.id }} h2{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+#lpr-{{ section.id }} blockquote{font-family:var(--heading-font-family);font-size:clamp(24px,3vw,34px);line-height:1.45;margin:0 0 20px}
+#lpr-{{ section.id }} p,#lpr-{{ section.id }} a{font-size:12px;line-height:1.7}
+#lpr-{{ section.id }} a{display:inline-block;min-height:44px;padding-top:12px;text-decoration:underline;text-underline-offset:4px}
+{% endstyle %}
+<section id="lpr-{{ section.id }}"><div class="lpr-inner"><h2>A Customer’s Experience on Etsy</h2><blockquote>“{{ section.settings.quote | escape }}”</blockquote><p>{{ section.settings.customer | escape }} · Verified Etsy Customer · Lansattic</p><a href="{{ section.settings.source }}">View the original Etsy listing</a></div></section>
+{% endif %}
+{% schema %}
+{
+  "name": "Lansattic Product Review",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_handle",
+      "label": "Matching product handle"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Verified review excerpt"
+    },
+    {
+      "type": "text",
+      "id": "customer",
+      "label": "Customer name"
+    },
+    {
+      "type": "url",
+      "id": "source",
+      "label": "Original Etsy listing"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Product Review"
+    }
+  ]
+}
+{% endschema %}

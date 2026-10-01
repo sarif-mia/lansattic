@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Lansattic",
+        "title": "Our Jade Standard",
+        "intro": "<p>Natural materials deserve honest descriptions.</p>",
+        "layout": "editorial"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Material identity",
+            "heading": "Selected with care",
+            "text": "<p>Jade is selected with attention to material identity, color, texture, translucency, craftsmanship and individual character.</p>",
+            "show_image": true
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Natural variation",
+            "heading": "Nature never repeats itself",
+            "text": "<p>Variations in color, texture, translucency, inclusions and pattern are expected and are part of each piece\u2019s individuality.</p>",
+            "show_image": true
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Documentation",
+            "heading": "When available",
+            "text": "<p>Independent gemological documentation is shown only when it is actually available for the specific piece.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

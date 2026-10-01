@@ -1,0 +1,676 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "lansattic_about_lansattic": {
+      "type": "lansattic-about-reference",
+      "settings": {
+        "page_handle": "about-lansattic",
+        "kicker": "About Us",
+        "title": "Jewelry With\nMeaning",
+        "intro": "<p>Rooted in nature. Shaped by Eastern wisdom.<br>Made to be lived with.</p><p>Lansattic is an independent California-based jewelry studio working with fine jade, natural jadeite, Baroque pearls and natural gemstones.</p>",
+        "hero_asset": "lansattic-archive-founder-archive.jpeg",
+        "hero_alt": "The founder selecting jewelry, from the Lansattic archive.",
+        "hero_height": 540,
+        "hero_height_mobile": 440,
+        "hero_background": "#eeebe2",
+        "hero_text_color": "#24251f",
+        "section_gap": 64
+      },
+      "blocks": {
+        "beginning": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Where It Began",
+            "subheading": "",
+            "text": "<p>Lansattic grew from a lifelong curiosity about natural materials and the meaning we give the things we wear.</p><p>Jade, travel, Eastern philosophy and years of making and selecting jewelry have each shaped this story.</p><h3>A Childhood Surrounded by Jade</h3><p>I grew up surrounded by jade. Its colors, textures and quiet presence became familiar long before I began working with jewelry.</p><p>That early connection stayed with me, growing into a lasting interest in the individuality of natural stones.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "Natural jade stones in varied colors and textures from the founder’s archive.",
+            "image_asset": "lansattic-archive-childhood-jade.jpeg",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "river": {
+          "type": "chapter",
+          "settings": {
+            "heading": "2007 — A Deeper Encounter with Jade",
+            "subheading": "",
+            "text": "<p>In 2007, searching for natural jade by the river brought me closer to the material itself.</p><p>It deepened my appreciation for the journey of a stone before it reaches our hands, and for the character that makes each piece different.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "A strand of white beads with a colorful tassel on blue patterned fabric, from the founder’s archive.",
+            "image_asset": "lansattic-archive-jade-beads.jpeg",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "tibet": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Tibet — A Journey Inward",
+            "subheading": "",
+            "text": "<p>Travel through Tibet and time spent in personal contemplative practice gradually changed how I understood the objects we keep close.</p><p>A piece of jewelry could hold a memory, mark an intention or offer a quiet reminder to pause.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "A personal travel photograph of contemplative practice in Tibet.",
+            "image_asset": "lansattic-archive-tibet-practice.jpeg",
+            "image_asset_2": "lansattic-archive-tibet-prayer-wheels.jpeg",
+            "image_alt_2": "A traveler turning prayer wheels, from the founder’s travel archive.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "shangrila": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Shangri-La",
+            "subheading": "Where My Hands Began to Create",
+            "text": "<p>Before opening my jewelry shop, I spent about six months volunteering in Shangri-La, working mainly with a local elementary school and a youth hostel.</p><p>There, an art teacher taught me to weave beads by hand. Bringing color and natural materials together became a new way to express what I had been discovering.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "Friends gathered around a table in Shangri-La.",
+            "image_asset": "lansattic-archive-shangrila-friends.jpeg",
+            "image_asset_2": "lansattic-archive-shangrila-school.jpeg",
+            "image_alt_2": "An archival photograph of time spent with children during the founder’s travels.",
+            "image_asset_3": "lansattic-archive-shangrila-music.jpeg",
+            "image_alt_3": "Sharing music in Shangri-La, from the founder’s archive.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "guangzhou": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Guangzhou",
+            "subheading": "Ten Years Behind the Counter",
+            "text": "<p>That first experience of making grew into a jewelry shop in Guangzhou, where I spent approximately ten years working closely with jade, pearls, beads and other natural materials.</p><p>Selecting stones, developing jewelry designs and handling materials every day taught me to notice their subtle differences. Listening to customers taught me how personal a piece of jewelry can become.</p><p>Those years gradually shaped my understanding of jewelry and the philosophy behind Lansattic: respect for natural materials, thoughtful craftsmanship and pieces with meaning in everyday life.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "cover",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_alt": "The original Guangzhou jewelry shop with customers at its counters.",
+            "image_asset": "lansattic-archive-guangzhou-shop.jpeg",
+            "image_asset_2": "lansattic-archive-guangzhou-counter.jpeg",
+            "image_alt_2": "Selecting jewelry at the Guangzhou shop counter.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "today": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Lansattic Today",
+            "text": "<p>Lansattic brings these experiences together through fine jade, natural jadeite, Baroque pearls and natural gemstones.</p><p>Nature, Eastern philosophy and years of working with natural materials guide the way I design and select jewelry. Each piece leaves room for the individuality of the material and the person who wears it.</p>",
+            "link_label": "Explore the collections",
+            "link": "/collections",
+            "uppercase_heading": false,
+            "mobile_image_order": "after_text",
+            "heading_font": "serif"
+          }
+        },
+        "two_shops": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Two Shops, One Evolving Story",
+            "subheading": "",
+            "text": "<p>In 2015, my journey became Lansattic in the United States. A small online shop gradually grew into jewelry worn by customers around the world.</p><p>Our online story developed through two distinct Etsy shops: <strong>Lansattic</strong>, primarily for pearls and fine jewelry, and <strong>StudioLibraArt</strong>, for jade, jadeite and natural gemstones.</p><p>Today, Lansattic.com brings these paths together as the complete home of the brand, with collections shaped by material, individuality and meaning.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false
+          }
+        },
+        "eastern": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Eastern Wisdom, Reimagined",
+            "subheading": "",
+            "text": "<p>My ongoing study of Traditional Chinese Medicine and the Five Elements adds another perspective to the way I think about nature, seasons, color and material.</p><p>These traditions influence my work as a jewelry designer. Balance and intention are expressed through design, cultural symbolism and the personal meaning of a piece.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-eastern-materials.png",
+            "image_alt": "Jade, gemstones, wood beads and botanical materials from the supplied design brief.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "pearls": {
+          "type": "chapter",
+          "settings": {
+            "heading": "From Material to Jewelry",
+            "subheading": "Stone → Hand → Jewelry",
+            "text": "<p>Working with a natural material begins with looking closely. The curves and luster of Baroque pearls guide the proportions of a piece, leaving room for the forms nature has already made.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-baroque-pearls.jpeg",
+            "image_alt": "Loose Baroque pearls resting in a shell.",
+            "image_asset_2": "lansattic-archive-pearl-ring.jpeg",
+            "image_alt_2": "A finished Baroque pearl ring worn on a hand.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "jade_craft": {
+          "type": "chapter",
+          "settings": {
+            "heading": "The Work of the Hands",
+            "subheading": "",
+            "text": "<p>From selecting a stone to considering its setting, color and shape, each decision is part of making a piece that feels personal.</p><p>The materials retain their own character: the movement in a pearl, the texture of jade, the differences that make one stone unlike another.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-jade-workbench.jpeg",
+            "image_alt": "Green stone beads, jewelry findings and tools on a work surface.",
+            "image_asset_2": "lansattic-archive-jade-pendant.jpeg",
+            "image_alt_2": "A finished green stone pendant held in the hand.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "materials": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Materials & Craft",
+            "subheading": "",
+            "text": "<p>Fine jade, natural jadeite, Baroque pearls and natural gemstones sit alongside fine woods and carefully selected metals.</p><p>Gold filled, gold vermeil, sterling silver and fine gold each have their place in the collection. Individual listings explain the materials used in each piece.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "link": "/pages/materials-jewelry-care",
+            "link_label": "Materials & Jewelry Care"
+          }
+        },
+        "jade_standard": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Our Jade Standard",
+            "subheading": "",
+            "text": "<p>Natural materials deserve honest descriptions. I select jade with attention to material identity, color, texture, translucency, craftsmanship and individual character.</p><p>Natural variations are part of what makes each piece its own. When independent gemological documentation is available for a specific piece, it is clearly noted in its listing.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "link": "/pages/our-jade-standard",
+            "link_label": "Explore our jade standard"
+          }
+        },
+        "california": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Rooted in California",
+            "subheading": "",
+            "text": "<p>Lansattic is an independent jewelry studio based in California, where these experiences continue to shape what I design and curate.</p><p>Pieces are thoughtfully packaged with recyclable and reusable materials, ready to become part of another person’s story.</p>",
+            "image_side": "right",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-studio-packaging.png",
+            "image_alt": "Lansattic jewelry packaging with a box, fabric pouch and printed card.",
+            "caption": "From the Lansattic archive"
+          }
+        },
+        "founder": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Behind Lansattic",
+            "subheading": "",
+            "text": "<p>Founded by a jewelry designer deeply influenced by Traditional Chinese Medicine, Eastern philosophy and contemplative traditions.</p><p>I am still studying, still looking closely and still learning from the materials in my hands. Those experiences shape Lansattic, and the jewelry I hope you will make your own.</p>",
+            "image_side": "left",
+            "mobile_image_order": "after_text",
+            "image_ratio": "reference",
+            "image_fit": "contain",
+            "heading_font": "serif",
+            "uppercase_heading": false,
+            "image_asset": "lansattic-archive-founder-jade.png",
+            "image_alt": "The supplied founder photograph showing jade selection.",
+            "caption": "From the Lansattic archive"
+          }
+        }
+      },
+      "block_order": [
+        "beginning",
+        "river",
+        "tibet",
+        "shangrila",
+        "guangzhou",
+        "two_shops",
+        "eastern",
+        "pearls",
+        "jade_craft",
+        "materials",
+        "jade_standard",
+        "california",
+        "founder",
+        "today"
+      ]
+    },
+    "lansattic_jade_standard": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Lansattic",
+        "title": "Our Jade Standard",
+        "intro": "<p>Natural materials deserve honest descriptions.</p>",
+        "layout": "editorial",
+        "page_handle": "our-jade-standard"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Material identity",
+            "heading": "Selected with care",
+            "text": "<p>Jade is selected with attention to material identity, color, texture, translucency, craftsmanship and individual character.</p>",
+            "show_image": true
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Natural variation",
+            "heading": "Nature never repeats itself",
+            "text": "<p>Variations in color, texture, translucency, inclusions and pattern are expected and are part of each piece’s individuality.</p>",
+            "show_image": true
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Documentation",
+            "heading": "When available",
+            "text": "<p>Independent gemological documentation is shown only when it is actually available for the specific piece.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "lansattic_materials_care": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Customer Care",
+        "title": "Jewelry Care",
+        "intro": "<p>Natural materials are beautiful because each piece is unique. With proper care, your jewelry can remain beautiful for many years.</p>",
+        "layout": "simple",
+        "page_handle": "materials-jewelry-care"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Jade & Jadeite",
+            "text": "<p>Jade and jadeite are durable but can still be damaged by strong impact. Avoid dropping jade jewelry onto hard surfaces. Clean gently with a soft cloth and mild soap with lukewarm water when needed. Avoid harsh chemicals, ultrasonic cleaners, and prolonged exposure to strong cleaning agents.</p>",
+            "show_image": false
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "heading": "Pearls",
+            "text": "<p>Pearls are organic gemstones and require gentle care. Avoid direct contact with perfume, hairspray, cosmetics, household cleaners, and other chemicals. After wearing, gently wipe pearls with a soft, clean cloth. Store pearl jewelry separately from harder gemstones and metals to prevent scratching. As a general rule: pearls should be the last thing you put on and the first thing you take off.</p>",
+            "show_image": false
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "heading": "Gemstones",
+            "text": "<p>Natural gemstones may vary in hardness and sensitivity. Avoid strong impact, extreme heat, harsh chemicals, and prolonged exposure to water unless the specific stone is known to tolerate it well.</p>",
+            "show_image": false
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "heading": "Gold, Gold-Filled & Sterling Silver",
+            "text": "<p>Avoid unnecessary contact with chemicals, chlorine, salt water, perfumes, and lotions. Sterling silver may naturally tarnish over time. This can usually be restored with a soft silver polishing cloth.</p>",
+            "show_image": false
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "heading": "Storage",
+            "text": "<p>Store jewelry in a dry place, preferably in a soft pouch or separate compartment. Keeping individual pieces separate can help prevent scratches, tangling, and surface wear.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "lansattic_customer_stories": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Lansattic",
+        "title": "Customer Stories",
+        "intro": "<p>Jewelry becomes part of the lives of the people who wear it.</p>",
+        "layout": "editorial",
+        "page_handle": "customer-stories"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Our Etsy Community",
+            "text": "<p>Our story has grown through two distinct Etsy shops. Lansattic is home to pearls and fine jewelry; StudioLibraArt focuses on jade, jadeite and natural gemstones.</p><p>The selected reviews below are attributed to the shop where each customer purchased their piece. Together, they are part of the history behind Lansattic.com.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1"
+      ]
+    },
+    "lansattic_faq": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Customer Care",
+        "title": "FAQ",
+        "intro": "",
+        "layout": "simple",
+        "page_handle": "faq"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Are your stones natural?",
+            "text": "<p>We work primarily with natural jade, jadeite, pearls, gemstones, and other natural materials. Because natural materials are formed by nature, variations in color, texture, inclusions, shape, and pattern are normal and part of their individuality. Please review each product description carefully for specific material details.</p>",
+            "show_image": false
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "heading": "Will the item I receive look exactly like the photo?",
+            "text": "<p>For one-of-a-kind items, the product shown is generally the exact piece you will receive. For items made with natural materials, slight variations may occur because no two stones or pearls are exactly alike.</p>",
+            "show_image": false
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "heading": "Is your jade real?",
+            "text": "<p>We carefully source and describe our jade and jadeite based on the information available to us and our material knowledge. If a listing includes specific certification or testing information, it will be stated in the product description.</p>",
+            "show_image": false
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "heading": "What is the difference between jade and jadeite?",
+            "text": "<p>The word “jade” commonly refers to two different mineral materials: nephrite and jadeite. Both have long histories in jewelry and decorative arts, but they differ in mineral composition, appearance, and value. Product descriptions will identify the material whenever possible.</p>",
+            "show_image": false
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "heading": "Do you offer gift packaging?",
+            "text": "<p>Yes. Lansattic jewelry is carefully packaged and suitable for gifting. Packaging may vary by product and collection.</p>",
+            "show_image": false
+          }
+        },
+        "b6": {
+          "type": "story",
+          "settings": {
+            "heading": "Can I send a gift directly to someone?",
+            "text": "<p>Yes. You may enter the recipient’s address at checkout. If you would like us to include a short gift message, please add a note during checkout or contact us after placing your order.</p>",
+            "show_image": false
+          }
+        },
+        "b7": {
+          "type": "story",
+          "settings": {
+            "heading": "Do you offer custom jewelry?",
+            "text": "<p>Custom work may be available depending on the design, material, and schedule. Please contact us with your idea, preferred material, size, and any reference images.</p>",
+            "show_image": false
+          }
+        },
+        "b8": {
+          "type": "story",
+          "settings": {
+            "heading": "Can you resize a piece?",
+            "text": "<p>Some pieces can be resized or adjusted, while others cannot due to their construction or materials. Please contact us before ordering if you need a specific size.</p>",
+            "show_image": false
+          }
+        },
+        "b9": {
+          "type": "story",
+          "settings": {
+            "heading": "How quickly will my order ship?",
+            "text": "<p>Processing time depends on whether the item is ready to ship, made to order, or customized. Please refer to the individual product page for the most accurate processing estimate.</p>",
+            "show_image": false
+          }
+        },
+        "b10": {
+          "type": "story",
+          "settings": {
+            "heading": "Do you ship internationally?",
+            "text": "<p>Yes, international shipping may be available to selected destinations. International customers are responsible for any customs duties, taxes, or import charges required by their country.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10"
+      ]
+    },
+    "about_etsy_history": {
+      "type": "lansattic-etsy-history",
+      "settings": {
+        "page_handle": "about-lansattic",
+        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
+        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+      },
+      "blocks": {
+        "mary": {
+          "type": "review",
+          "settings": {
+            "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+            "customer": "Mary",
+            "shop": "Lansattic",
+            "source": "https://www.etsy.com/shop/Lansattic#reviews"
+          }
+        },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
+        "lia": {
+          "type": "review",
+          "settings": {
+            "quote": "First time buyer. The clip-on earrings are pretty and it's comfortable for daily wear.",
+            "customer": "Lia",
+            "shop": "unspecified",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "mary",
+        "elizabeth",
+        "lia"
+      ]
+    },
+    "customer_etsy_history": {
+      "type": "lansattic-etsy-history",
+      "settings": {
+        "page_handle": "customer-stories",
+        "show_stories_link": false,
+        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
+        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+      },
+      "blocks": {
+        "mary": {
+          "type": "review",
+          "settings": {
+            "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+            "customer": "Mary",
+            "shop": "Lansattic",
+            "source": "https://www.etsy.com/shop/Lansattic#reviews"
+          }
+        },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
+        "lia": {
+          "type": "review",
+          "settings": {
+            "quote": "First time buyer. The clip-on earrings are pretty and it's comfortable for daily wear.",
+            "customer": "Lia",
+            "shop": "unspecified",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "mary",
+        "elizabeth",
+        "lia"
+      ]
+    },
+    "lansattic_shipping_returns": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Customer Care",
+        "title": "Shipping & Returns",
+        "intro": "",
+        "layout": "simple",
+        "page_handle": "shipping-returns"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Shipping",
+            "text": "<p>Each order is carefully prepared and packaged before shipment. Processing times may vary by item. Ready-to-ship pieces are generally processed within a few business days, while made-to-order or customized pieces may require additional time. Estimated delivery times shown at checkout are provided by the shipping carrier and may vary due to weather, holidays, customs, or other carrier-related delays. For international orders, customers are responsible for any applicable customs duties, taxes, or import fees charged by the destination country. Once an order has been shipped, tracking information will be provided when available.</p>",
+            "show_image": false
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "heading": "Address Accuracy",
+            "text": "<p>Please make sure your shipping address is correct before placing your order. If you notice an address error, contact us as soon as possible. Once an order has shipped, we may not be able to change the delivery address.</p>",
+            "show_image": false
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "heading": "Returns",
+            "text": "<p>We want you to feel confident about your purchase. Eligible items may be returned within 14 days of delivery, provided that they are unworn, unused, undamaged, and returned in their original packaging. Please contact us before sending any return. Customers are generally responsible for return shipping costs unless the item arrived damaged, defective, or incorrect. Original shipping charges are non-refundable unless the return is due to an error on our part.</p>",
+            "show_image": false
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "heading": "Non-Returnable Items",
+            "text": "<ul><li>Custom or personalized jewelry</li><li>Made-to-order pieces</li><li>Earrings, where hygiene restrictions apply</li><li>Items marked as final sale</li><li>Items that have been worn, altered, damaged, or returned without original packaging</li></ul><p>If you are unsure whether your item is eligible for return, please contact us before sending it back.</p>",
+            "show_image": false
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "heading": "Exchanges",
+            "text": "<p>If you would like to exchange an eligible item, please contact us first. Because many Lansattic pieces are limited, one-of-a-kind, or available in small quantities, we cannot guarantee that the same item will still be available.</p>",
+            "show_image": false
+          }
+        },
+        "b6": {
+          "type": "story",
+          "settings": {
+            "heading": "Damaged or Incorrect Orders",
+            "text": "<p>If your order arrives damaged or incorrect, please contact us within 3 days of delivery with clear photos of the item and packaging. We will review the issue and work with you to find an appropriate solution.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "lansattic_about_lansattic",
+    "about_etsy_history",
+    "lansattic_jade_standard",
+    "lansattic_materials_care",
+    "lansattic_customer_stories",
+    "customer_etsy_history",
+    "lansattic_faq",
+    "lansattic_shipping_returns"
+  ]
+}

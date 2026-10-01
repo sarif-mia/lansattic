@@ -1,0 +1,7 @@
+{%- case filter.param_name -%}
+  {%- when 'filter.v.availability' -%}Availability
+  {%- when 'filter.p.vendor' -%}Brand
+  {%- when 'filter.p.product_type' -%}Product type
+  {%- else -%}
+    {%- if filter.type == 'price_range' -%}Price{%- else -%}{{- filter.label | escape -}}{%- endif -%}
+{%- endcase -%}

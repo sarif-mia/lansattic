@@ -1,0 +1,70 @@
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Lansattic",
+        "title": "Discover the Five Elements",
+        "intro": "<p>Wood, Fire, Earth, Metal and Water inspire a way of exploring color, natural materials and personal meaning.</p>",
+        "layout": "editorial"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Wood",
+            "heading": "Growth",
+            "text": "<p>Explore Wood through color, material and symbolism.</p>",
+            "show_image": true
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Fire",
+            "heading": "Vitality",
+            "text": "<p>Explore Fire through color, material and symbolism.</p>",
+            "show_image": true
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Earth",
+            "heading": "Grounding",
+            "text": "<p>Explore Earth through color, material and symbolism.</p>",
+            "show_image": true
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Metal",
+            "heading": "Clarity",
+            "text": "<p>Explore Metal through color, material and symbolism.</p>",
+            "show_image": true
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "eyebrow": "Water",
+            "heading": "Stillness",
+            "text": "<p>Explore Water through color, material and symbolism.</p>",
+            "show_image": true
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

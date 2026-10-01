@@ -1,0 +1,681 @@
+{% comment %}
+  Lansattic Header + Mega Menu
+  Install as: sections/lansattic-header-mega-menu.liquid
+  Use once in the Header group. Disable the theme's original header.
+{% endcomment %}
+
+{% liquid
+  assign header_id = 'lansattic-header-' | append: section.id
+  assign main_menu = section.settings.menu
+  assign trigger_handle = section.settings.mega_trigger | handleize
+  assign custom_menu_links = section.blocks | where: 'type', 'menu_link'
+  assign mega_column_blocks = section.blocks | where: 'type', 'mega_column'
+  assign promotion_blocks = section.blocks | where: 'type', 'promotion'
+%}
+
+<div id="{{ header_id }}" class="lh-wrap{% if section.settings.transparent_home and template.name == 'index' %} lh-wrap--transparent{% endif %}" data-lansattic-header>
+  {% if section.settings.show_announcement %}
+    {% render 'lansattic-announcements', section: section %}
+  {% endif %}
+
+  <header class="lh-header" data-header-main>
+    <div class="lh-container">
+      <button class="lh-icon-button lh-mobile-trigger" type="button" aria-label="Open menu" aria-controls="lh-drawer-{{ section.id }}" aria-expanded="false" data-drawer-open>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="lh-desktop-nav" aria-label="Primary navigation">
+        {% if custom_menu_links.size > 0 %}
+          {% for block in custom_menu_links %}
+            <div class="lh-nav-item{% if block.settings.open_mega %} lh-nav-item--mega{% endif %}" {{ block.shopify_attributes }}>
+              {% if block.settings.open_mega %}
+                <a data-mega-toggle class="lh-nav-link lh-mega-trigger" href="{{ block.settings.link | default: routes.root_url }}" aria-expanded="false">{{ block.settings.label | escape }}</a>
+                <div class="lh-mega" aria-label="{{ block.settings.label | escape }} menu">
+                  <div class="lh-mega-inner{% if promotion_blocks.size == 0 %} lh-mega-inner--links-only{% endif %}">
+                    <div class="lh-mega-links lh-mega-links--{{ mega_column_blocks.size }}">
+                      {% for column in mega_column_blocks %}
+                        <div class="lh-mega-column" {{ column.shopify_attributes }}>
+                          <p class="lh-mega-title">{{ column.settings.heading | escape }}</p>
+                          {% assign menu_lines = column.settings.links | newline_to_br | split: '<br />' %}
+                          {% for line in menu_lines %}
+                            {% assign clean_line = line | strip %}
+                            {% assign link_parts = clean_line | split: '|' %}
+                            {% assign item_label = link_parts[0] | strip %}
+                            {% assign item_url = link_parts[1] | strip %}
+                            {% if item_label != blank %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                          {% endfor %}
+                        </div>
+                      {% endfor %}
+                    </div>
+                    {% if promotion_blocks.size > 0 %}
+                      <div class="lh-mega-promos">
+                        {% for promo in promotion_blocks limit: 1 %}
+                          <a class="lh-promo" href="{{ promo.settings.link | default: routes.all_products_collection_url }}" {{ promo.shopify_attributes }}>
+                            <div class="lh-promo-media">
+                              {% if promo.settings.image != blank %}
+                                {{ promo.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '280px', class: 'lh-promo-image', alt: promo.settings.heading }}
+                              {% else %}
+                                {{ 'collection-1' | placeholder_svg_tag: 'lh-promo-placeholder' }}
+                              {% endif %}
+                            </div>
+                            {% if promo.settings.eyebrow != blank %}<span class="lh-promo-eyebrow">{{ promo.settings.eyebrow | escape }}</span>{% endif %}
+                            {% if promo.settings.heading != blank %}<span class="lh-promo-heading">{{ promo.settings.heading | escape }}</span>{% endif %}
+                          </a>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% else %}
+                <a class="lh-nav-link" href="{{ block.settings.link | default: routes.root_url }}">{{ block.settings.label | escape }}</a>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+        {% for link in main_menu.links %}
+          {% liquid
+            assign is_mega = false
+            assign link_handle = link.title | handleize
+            if link_handle == trigger_handle
+              assign is_mega = true
+            endif
+          %}
+          <div class="lh-nav-item{% if is_mega %} lh-nav-item--mega{% endif %}">
+            <a class="lh-nav-link" href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+
+            {% if is_mega %}
+              <div class="lh-mega" aria-label="{{ link.title | escape }} menu">
+                <div class="lh-mega-inner{% if promotion_blocks.size == 0 %} lh-mega-inner--links-only{% endif %}">
+                  <div class="lh-mega-links">
+                    {% for childlink in link.links limit: 4 %}
+                      <div class="lh-mega-column">
+                        <a class="lh-mega-title" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                        {% for grandchildlink in childlink.links %}
+                          <a href="{{ grandchildlink.url }}"{% if grandchildlink.current %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+                  </div>
+
+                  {% if promotion_blocks.size > 0 %}<div class="lh-mega-promos">
+                    {% for block in promotion_blocks %}
+                      <a class="lh-promo" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+                        <div class="lh-promo-media">
+                          {% if block.settings.image != blank %}
+                            {{ block.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360, 540, 720, 900', sizes: '260px', class: 'lh-promo-image', alt: block.settings.heading }}
+                          {% else %}
+                            {{ 'collection-1' | placeholder_svg_tag: 'lh-promo-placeholder' }}
+                          {% endif %}
+                        </div>
+                        {% if block.settings.eyebrow != blank %}<span class="lh-promo-eyebrow">{{ block.settings.eyebrow | escape }}</span>{% endif %}
+                        {% if block.settings.heading != blank %}<span class="lh-promo-heading">{{ block.settings.heading | escape }}</span>{% endif %}
+                      </a>
+                    {% endfor %}
+                  </div>{% endif %}
+                </div>
+              </div>
+            {% elsif link.links != blank %}
+              <div class="lh-dropdown">
+                {% for childlink in link.links %}<a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>{% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% endif %}
+      </nav>
+
+      <a class="lh-logo" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }} home">
+        {% if section.settings.logo != blank %}
+          {{ section.settings.logo | image_url: width: 560 | image_tag: loading: 'eager', widths: '180, 280, 420, 560', sizes: '220px', class: 'lh-logo-image', alt: shop.name }}
+        {% else %}
+          <span>{{ section.settings.logo_text | default: shop.name | escape }}</span>
+        {% endif %}
+      </a>
+
+      <div class="lh-utilities">
+        <a href="{{ routes.search_url }}" aria-label="Search" class="lh-utility lh-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg><span>Search</span>
+        </a>
+        {% if shop.customer_accounts_enabled %}
+          <a href="{{ routes.account_url }}" aria-label="Account" class="lh-utility lh-account">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5.5 20c.8-4 3-6 6.5-6s5.7 2 6.5 6"></path></svg><span>Account</span>
+          </a>
+        {% endif %}
+        <a href="{{ routes.cart_url }}" aria-label="Cart with {{ cart.item_count }} items" class="lh-utility lh-cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg><span>Bag</span><b>{{ cart.item_count }}</b>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="lh-overlay" data-drawer-close></div>
+  <aside id="lh-drawer-{{ section.id }}" class="lh-drawer" aria-hidden="true" role="dialog" aria-modal="true" inert aria-label="Mobile navigation">
+    <div class="lh-drawer-head">
+      <span class="lh-drawer-logo">{{ section.settings.logo_text | default: shop.name | escape }}</span>
+      <button type="button" class="lh-close" aria-label="Close menu" data-drawer-close>×</button>
+    </div>
+    <nav class="lh-mobile-nav">
+      {% if custom_menu_links.size > 0 %}
+        {% for block in custom_menu_links %}
+          <div class="lh-mobile-item" {{ block.shopify_attributes }}>
+            {% if block.settings.open_mega %}
+              <button type="button" class="lh-mobile-parent" aria-expanded="false" data-mobile-submenu>
+                <span>{{ block.settings.label | escape }}</span><span aria-hidden="true">+</span>
+              </button>
+              <div class="lh-mobile-submenu">
+                {% for column in mega_column_blocks %}
+                  <strong class="lh-mobile-group-title">{{ column.settings.heading | escape }}</strong>
+                  {% assign menu_lines = column.settings.links | newline_to_br | split: '<br />' %}
+                  {% for line in menu_lines %}
+                    {% assign clean_line = line | strip %}
+                    {% assign link_parts = clean_line | split: '|' %}
+                    {% assign item_label = link_parts[0] | strip %}
+                    {% assign item_url = link_parts[1] | strip %}
+                    {% if item_label != blank %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                  {% endfor %}
+                {% endfor %}
+              </div>
+            {% else %}
+              <a class="lh-mobile-parent" href="{{ block.settings.link | default: routes.root_url }}">{{ block.settings.label | escape }}</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% else %}
+      {% for link in main_menu.links %}
+        <div class="lh-mobile-item">
+          {% if link.links != blank %}
+            <button type="button" class="lh-mobile-parent" aria-expanded="false" data-mobile-submenu>
+              <span>{{ link.title | escape }}</span><span aria-hidden="true">+</span>
+            </button>
+            <div class="lh-mobile-submenu">
+              <a class="lh-mobile-all" href="{{ link.url }}">Shop all {{ link.title | escape }}</a>
+              {% for childlink in link.links %}
+                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                {% for grandchildlink in childlink.links %}<a class="lh-mobile-grandchild" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>{% endfor %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <a class="lh-mobile-parent" href="{{ link.url }}">{{ link.title | escape }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+      {% endif %}
+    </nav>
+    <div class="lh-drawer-footer">
+      <a href="{{ routes.search_url }}">Search</a>
+      {% if shop.customer_accounts_enabled %}<a href="{{ routes.account_url }}">Account</a>{% endif %}
+      <a href="{{ routes.cart_url }}">Bag ({{ cart.item_count }})</a>
+    </div>
+  </aside>
+</div>
+
+{% style %}
+  #{{ header_id }} { --lh-bg: {{ section.settings.background }}; --lh-text: {{ section.settings.text_color }}; --lh-line: {{ section.settings.border_color }}; --lh-accent: {{ section.settings.accent_color }}; position: relative; z-index: 50; color: var(--lh-text); }
+  #{{ header_id }} * { box-sizing: border-box; }
+  #{{ header_id }} a { color: inherit; text-decoration: none; }
+  #{{ header_id }} .lh-announcement { height: 32px; padding: 0 20px; position: relative; overflow: hidden; background: var(--lh-accent); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: .14em; line-height: 32px; text-align: center; text-transform: uppercase; }
+  #{{ header_id }} .lh-announcement-message { position: absolute; inset: 0 20px; display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; opacity: 0; transform: translateY(100%); transition: opacity .35s ease, transform .35s ease; }
+  #{{ header_id }} .lh-announcement-message.is-active { opacity: 1; transform: translateY(0); }
+  #{{ header_id }} .lh-header { height: 82px; background: var(--lh-bg); border-bottom: 1px solid var(--lh-line); transition: background .25s, color .25s, box-shadow .25s; }
+  #{{ header_id }}.lh-wrap--transparent .lh-header { position: absolute; left: 0; right: 0; background: transparent; color: #fff; border-color: rgb(255 255 255 / 35%); }
+  #{{ header_id }}.is-scrolled .lh-header { position: fixed; top: 0; left: 0; right: 0; background: color-mix(in srgb, var(--lh-bg) 96%, transparent); color: var(--lh-text); border-color: var(--lh-line); box-shadow: 0 10px 30px rgb(0 0 0 / 6%); backdrop-filter: blur(14px); }
+  #{{ header_id }} .lh-container { width: min(1480px, calc(100% - 64px)); height: 100%; margin: auto; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 34px; }
+  #{{ header_id }} .lh-desktop-nav { grid-column:2; grid-row:1; height: 100%; display: flex; align-items: stretch; gap: 28px; }
+  #{{ header_id }} .lh-nav-item { height: 100%; display: flex; align-items: center; position: relative; }
+  #{{ header_id }} .lh-nav-link, #{{ header_id }} .lh-utility { font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+  #{{ header_id }} .lh-mega-trigger { padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; font-family: inherit; }
+  #{{ header_id }} .lh-nav-link { height: 100%; display: flex; align-items: center; position: relative; }
+  #{{ header_id }} .lh-nav-link:after { content: ''; position: absolute; left: 0; right: 100%; bottom: 25px; height: 1px; background: currentColor; transition: right .25s; }
+  #{{ header_id }} .lh-nav-item:hover .lh-nav-link:after, #{{ header_id }} .lh-nav-item--mega.is-open .lh-nav-link:after { right: 0; }
+  #{{ header_id }} .lh-logo { grid-column:1; grid-row:1; justify-self:start; display: block; font-family: var(--heading-font-family, Georgia, serif); font-size: 27px; line-height: 1; letter-spacing: .14em; text-transform: uppercase; }
+  #{{ header_id }} .lh-logo-image { width: auto; max-width: {{ section.settings.logo_width }}px; max-height: 48px; display: block; object-fit: contain; }
+  #{{ header_id }} .lh-utilities { grid-column:3; grid-row:1; justify-self: end; display: flex; align-items: center; gap: 22px; }
+  #{{ header_id }} .lh-utility { display: inline-flex; align-items: center; gap: 6px; }
+  #{{ header_id }} .lh-utility svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+  #{{ header_id }} .lh-cart b { min-width: 17px; height: 17px; padding: 0 4px; display: grid; place-items: center; border-radius: 20px; background: var(--lh-accent); color: #fff; font-size: 10px; }
+  #{{ header_id }} .lh-cart b:empty { display: none; }
+  #{{ header_id }} .lh-mega { position: fixed; left: 0; right: 0; top: var(--lh-mega-top, 114px); background: var(--lh-bg); color: var(--lh-text); border-top: 1px solid var(--lh-line); box-shadow: 0 25px 40px rgb(0 0 0 / 10%); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: .22s ease; }
+  #{{ header_id }} .lh-nav-item--mega.is-open .lh-mega { opacity: 1; visibility: visible; transform: translateY(0); }
+  #{{ header_id }} .lh-mega-inner { width: min(1180px, calc(100% - 80px)); margin: auto; padding: 42px 44px 44px; display: grid; grid-template-columns: 1fr minmax(240px, 280px); gap: 54px; background: #fff; }
+  #{{ header_id }} .lh-mega-inner--links-only { grid-template-columns: 1fr; }
+  #{{ header_id }} .lh-mega-links { display: grid; grid-template-columns: repeat(3, minmax(140px, 1fr)); gap: 40px; }
+  #{{ header_id }} .lh-mega-column a { display: block; padding: 7px 0; font-size: 15px; font-weight: 500; letter-spacing: .04em; line-height: 1.35; text-transform: uppercase; opacity: .88; }
+  #{{ header_id }} .lh-mega-column .lh-mega-title { margin: 0 0 14px; padding: 0 0 10px; color: #819080; border-bottom: 0; font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; opacity: 1; }
+  #{{ header_id }} .lh-mega-column a:hover { opacity: 1; }
+  #{{ header_id }} .lh-mega-promos { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  #{{ header_id }} .lh-promo-media { aspect-ratio: 4 / 3; overflow: hidden; background: #e9e4da; }
+  #{{ header_id }} .lh-promo-image, #{{ header_id }} .lh-promo-placeholder { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s ease; }
+  #{{ header_id }} .lh-promo:hover .lh-promo-image { transform: scale(1.025); }
+  #{{ header_id }} .lh-promo-eyebrow { display: block; margin-top: 13px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
+  #{{ header_id }} .lh-promo-heading { display: block; margin-top: 3px; font-family: var(--heading-font-family, Georgia, serif); font-size: 22px; }
+  #{{ header_id }} .lh-dropdown { min-width: 210px; padding: 18px; position: absolute; top: calc(100% + 1px); left: -18px; background: var(--lh-bg); color: var(--lh-text); border: 1px solid var(--lh-line); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: .2s; box-shadow: 0 18px 30px rgb(0 0 0 / 8%); }
+  #{{ header_id }} .lh-nav-item:hover .lh-dropdown, #{{ header_id }} .lh-nav-item:focus-within .lh-dropdown { opacity: 1; visibility: visible; transform: none; }
+  #{{ header_id }} .lh-dropdown a { display: block; padding: 7px 5px; font-size: 13px; }
+  #{{ header_id }} .lh-mobile-trigger, #{{ header_id }} .lh-drawer, #{{ header_id }} .lh-overlay { display: none; }
+
+  @media screen and (max-width: 1199px) {
+    #{{ header_id }} .lh-header { height: 64px; }
+    #{{ header_id }} .lh-container { width: calc(100% - 28px); grid-template-columns: 42px 1fr auto; gap: 10px; }
+    #{{ header_id }} .lh-desktop-nav { display: none; }
+    #{{ header_id }} .lh-mobile-trigger { grid-column: 1; grid-row: 1; justify-self: start; width: 38px; height: 34px; padding: 8px 4px; display: grid; align-content: center; gap: 5px; border: 0; background: none; color: inherit; }
+    #{{ header_id }} .lh-mobile-trigger span { width: 23px; height: 1px; display: block; background: currentColor; }
+    #{{ header_id }} .lh-logo { grid-column: 2; grid-row: 1; justify-self: center; font-size: 21px; letter-spacing: .1em; white-space: nowrap; }
+    #{{ header_id }} .lh-logo-image { max-width: min({{ section.settings.logo_width }}px, 160px); max-height: 38px; }
+    #{{ header_id }} .lh-utilities { grid-column: 3; grid-row: 1; justify-self: end; gap: 12px; }
+    #{{ header_id }} .lh-utility span, #{{ header_id }} .lh-account { display: none; }
+    #{{ header_id }} .lh-utility svg { width: 20px; height: 20px; }
+    #{{ header_id }} .lh-cart b { display: none; }
+    #{{ header_id }} .lh-announcement { height: 32px; padding-inline: 8px; font-size: 9px; letter-spacing: .11em; line-height: 32px; }
+    #{{ header_id }} .lh-announcement-message { inset-inline: 8px; }
+    #{{ header_id }} .lh-overlay { position: fixed; inset: 0; z-index: 100; display: block; background: rgb(0 0 0 / 38%); opacity: 0; visibility: hidden; transition: .3s; }
+    #{{ header_id }} .lh-drawer { width: min(90vw, 390px); height: 100dvh; padding: 0 24px 28px; position: fixed; inset: 0 auto 0 0; z-index: 101; display: flex; flex-direction: column; background: var(--lh-bg); color: var(--lh-text); transform: translateX(-102%); transition: transform .35s cubic-bezier(.22,.61,.36,1); overflow-y: auto; }
+    #{{ header_id }}.drawer-open .lh-overlay { opacity: 1; visibility: visible; }
+    #{{ header_id }}.drawer-open .lh-drawer { transform: translateX(0); }
+    #{{ header_id }} .lh-drawer-head { min-height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--lh-line); }
+    #{{ header_id }} .lh-drawer-logo { font-family: var(--heading-font-family, Georgia, serif); font-size: 22px; letter-spacing: .12em; text-transform: uppercase; }
+    #{{ header_id }} .lh-close { width: 40px; height: 40px; border: 0; background: none; color: inherit; font-size: 31px; font-weight: 200; line-height: 1; }
+    #{{ header_id }} .lh-mobile-nav { flex: 1; padding-top: 18px; }
+    #{{ header_id }} .lh-mobile-item { border-bottom: 1px solid var(--lh-line); }
+    #{{ header_id }} .lh-mobile-parent { width: 100%; min-height: 58px; padding: 0; display: flex; align-items: center; justify-content: space-between; border: 0; background: none; color: inherit; font-family: var(--heading-font-family, Georgia, serif); font-size: 24px; text-align: left; }
+    #{{ header_id }} .lh-mobile-parent span:last-child { font-family: Arial, sans-serif; font-size: 22px; font-weight: 300; transition: transform .25s; }
+    #{{ header_id }} .lh-mobile-parent[aria-expanded='true'] span:last-child { transform: rotate(45deg); }
+    #{{ header_id }} .lh-mobile-submenu { max-height: 0; padding: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease; }
+    #{{ header_id }} .lh-mobile-submenu.is-open { max-height: 1000px; padding: 0 0 20px 14px; }
+    #{{ header_id }} .lh-mobile-submenu a { display: block; padding: 7px 0; font-size: 14px; opacity: .78; }
+    #{{ header_id }} .lh-mobile-submenu .lh-mobile-all { margin-bottom: 6px; font-weight: 700; opacity: 1; }
+    #{{ header_id }} .lh-mobile-submenu .lh-mobile-grandchild { padding-left: 14px; font-size: 13px; }
+    #{{ header_id }} .lh-mobile-group-title { display: block; margin: 18px 0 5px; color: var(--lh-accent); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    #{{ header_id }} .lh-drawer-footer { padding-top: 24px; display: flex; gap: 18px; border-top: 1px solid var(--lh-line); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  }
+{% endstyle %}
+
+<script>
+  (() => {
+    const root = document.getElementById({{ header_id | json }});
+    if (!root || root.dataset.ready === 'true') return;
+    root.dataset.ready = 'true';
+
+    const drawer = root.querySelector('.lh-drawer');
+    const opener = root.querySelector('[data-drawer-open]');
+    const closers = root.querySelectorAll('[data-drawer-close]');
+
+    const setDrawer = (open) => {
+      root.classList.toggle('drawer-open', open);
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+      opener?.setAttribute('aria-expanded', String(open));
+      drawer?.setAttribute('aria-hidden', String(!open));
+      if (drawer) drawer.inert = !open;
+      if (open) drawer?.querySelector('button')?.focus();
+      else if (drawer?.contains(document.activeElement)) opener?.focus();
+    };
+
+    opener?.addEventListener('click', () => setDrawer(true));
+    closers.forEach((button) => button.addEventListener('click', () => setDrawer(false)));
+
+    const closeMega = () => {
+      root.querySelectorAll('.lh-nav-item--mega.is-open').forEach((item) => {
+        item.classList.remove('is-open');
+        item.querySelector('[data-mega-toggle]')?.setAttribute('aria-expanded', 'false');
+      });
+    };
+
+    root.querySelectorAll('[data-mega-toggle]').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const item = button.closest('.lh-nav-item--mega');
+        const shouldOpen = !item?.classList.contains('is-open');
+        closeMega();
+        if (shouldOpen && item) {
+          const headerBottom = root.querySelector('[data-header-main]')?.getBoundingClientRect().bottom || 114;
+          root.style.setProperty('--lh-mega-top', `${Math.max(0, headerBottom)}px`);
+          item.classList.add('is-open');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => { if (!root.contains(event.target)) closeMega(); });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab' && root.classList.contains('drawer-open')) {
+        const focusable = [...drawer.querySelectorAll('a[href], button')].filter(el => el.getClientRects().length && !el.closest('.lh-mobile-submenu:not(.is-open)'));
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
+      if (event.key === 'Escape') {
+        setDrawer(false);
+        closeMega();
+      }
+    });
+
+    root.querySelectorAll('.lh-mobile-submenu').forEach(el => el.inert = true);
+    root.querySelectorAll('[data-mobile-submenu]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const submenu = button.nextElementSibling;
+        const open = button.getAttribute('aria-expanded') !== 'true';
+        button.setAttribute('aria-expanded', String(open));
+        submenu?.classList.toggle('is-open', open);
+        if (submenu) submenu.inert = !open;
+      });
+    });
+
+    root.querySelectorAll('a[href*="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        closeMega();
+        const destination = new URL(link.href, window.location.href);
+        const samePage = destination.origin === window.location.origin && destination.pathname === window.location.pathname;
+        if (!samePage || !destination.hash) return;
+        const target = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
+        if (!target) return;
+        event.preventDefault();
+        setDrawer(false);
+        target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+        window.history.pushState({}, '', destination.hash);
+      });
+    });
+
+    root.querySelectorAll('.lh-mega a').forEach((link) => link.addEventListener('click', closeMega));
+
+    const onScroll = () => root.classList.toggle('is-scrolled', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lansattic mega header",
+  "tag": "section",
+  "class": "section-lansattic-header",
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  },
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "announcement_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Rotation speed",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "LANSATTIC"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 100,
+      "max": 280,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 200
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "mega_trigger",
+      "label": "Mega menu trigger",
+      "info": "Must exactly match a top-level menu title.",
+      "default": "Shop"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_home",
+      "label": "Transparent over homepage hero",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Header background",
+      "default": "#F5F1E9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Header text",
+      "default": "#242820"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Divider",
+      "default": "#D8D2C7"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Announcement background",
+      "default": "#315C4E"
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_autoplay",
+      "label": "Auto-rotate announcements",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_link",
+      "name": "Homepage menu link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "About"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Use a homepage anchor or page URL. For About use /pages/about-lansattic."
+        },
+        {
+          "type": "checkbox",
+          "id": "open_mega",
+          "label": "Open mega menu",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "mega_column",
+      "name": "Mega menu column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Column heading",
+          "default": "Collections"
+        },
+        {
+          "type": "textarea",
+          "id": "links",
+          "label": "Links",
+          "info": "One per line using Label|URL",
+          "default": "Collector's Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements Jewelry|/collections/five-elements-jewelry\nOne of a Kind|/collections/one-of-a-kind"
+        }
+      ]
+    },
+    {
+      "type": "promotion",
+      "name": "Mega menu promotion",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "DISCOVER"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The Jade Collection"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Message",
+          "default": "Jewelry with meaning"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "truck",
+              "label": "Shipping"
+            },
+            {
+              "value": "leaf",
+              "label": "Nature"
+            },
+            {
+              "value": "pin",
+              "label": "Location"
+            },
+            {
+              "value": "sparkle",
+              "label": "Sparkle"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "leaf"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic mega header",
+      "blocks": [
+        {
+          "type": "menu_link",
+          "settings": {
+            "label": "Shop",
+            "link": "/collections",
+            "open_mega": true
+          }
+        },
+        {
+          "type": "menu_link",
+          "settings": {
+            "label": "About",
+            "link": "/pages/about-lansattic"
+          }
+        },
+        {
+          "type": "menu_link",
+          "settings": {
+            "label": "Five Elements Jewelry",
+            "link": "/#five-elements"
+          }
+        },
+        {
+          "type": "menu_link",
+          "settings": {
+            "label": "Journal",
+            "link": "/#journal"
+          }
+        },
+        {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Collections"
+          }
+        },
+        {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Materials",
+            "links": "Jade|/collections/all\nJadeite|/collections/all\nPearl|/collections/pearl-yin-energy\nCrystal & Gemstone|/collections/all\nFine Wood|/collections/all"
+          }
+        },
+        {
+          "type": "mega_column",
+          "settings": {
+            "heading": "Intentions",
+            "links": "Calm|/collections/five-elements-jewelry\nGrounding|/collections/five-elements-jewelry\nBalance|/collections/five-elements-jewelry\nClarity|/collections/five-elements-jewelry\nVitality|/collections/five-elements-jewelry\nConnection|/collections/five-elements-jewelry"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

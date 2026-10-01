@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Lansattic",
+        "title": "Customer Stories",
+        "intro": "<p>Jewelry becomes part of the lives of the people who wear it.</p>",
+        "layout": "editorial"
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Our Etsy Community",
+            "text": "<p>Our story has grown through two distinct Etsy shops. Lansattic is home to pearls and fine jewelry; StudioLibraArt focuses on jade, jadeite and natural gemstones.</p><p>The selected reviews below are attributed to the shop where each customer purchased their piece. Together, they are part of the history behind Lansattic.com.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1"
+      ]
+    },
+    "etsy_history": {
+      "type": "lansattic-etsy-history",
+      "settings": {
+        "show_stories_link": false,
+        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
+        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+      },
+      "blocks": {
+        "mary": {
+          "type": "review",
+          "settings": {
+            "quote": "A very dainty and gorgeous necklace! I love how vintage it feels.",
+            "customer": "Mary",
+            "shop": "Lansattic",
+            "source": "https://www.etsy.com/shop/Lansattic#reviews"
+          }
+        },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
+        "lia": {
+          "type": "review",
+          "settings": {
+            "quote": "First time buyer. The clip-on earrings are pretty and it's comfortable for daily wear.",
+            "customer": "Lia",
+            "shop": "unspecified",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "mary",
+        "elizabeth",
+        "lia"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "etsy_history"
+  ]
+}

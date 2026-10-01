@@ -1,0 +1,45 @@
+{% comment %} Lansattic — editorial World of Lansattic {% endcomment %}
+{%- style -%}
+#WorldLansattic-{{ section.id }}{--bg:{{ section.settings.background_color }};--text:{{ section.settings.text_color }};--accent:{{ section.settings.accent_color }};background:var(--bg);color:var(--text);padding:{{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px}
+#WorldLansattic-{{ section.id }} .world__inner{width:min(100% - 48px,{{ section.settings.max_width }}px);margin:auto}
+#WorldLansattic-{{ section.id }} .world__header{max-width:900px;margin:0 auto 72px;text-align:center}
+#WorldLansattic-{{ section.id }} .world__eyebrow{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+#WorldLansattic-{{ section.id }} .world__title{margin:0;font-family:var(--heading-font-family);font-size:clamp(44px,5vw,78px);font-weight:400;letter-spacing:-.035em;line-height:1.04}
+#WorldLansattic-{{ section.id }} .world__stories{display:flex;flex-direction:column;gap:96px}
+#WorldLansattic-{{ section.id }} .world__story{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:clamp(48px,7vw,120px);align-items:center}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(even){grid-template-columns:minmax(320px,.88fr) minmax(0,1.12fr)}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(even) .world__media{order:2}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(even) .world__copy{order:1;padding-left:clamp(20px,5vw,90px)}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(odd) .world__copy{padding-right:clamp(20px,5vw,90px)}
+#WorldLansattic-{{ section.id }} .world__media{position:relative;overflow:hidden;background:#e9e4da;aspect-ratio:16/10}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(2) .world__media,#WorldLansattic-{{ section.id }} .world__story:nth-child(4) .world__media{aspect-ratio:4/3}
+#WorldLansattic-{{ section.id }} .world__image,#WorldLansattic-{{ section.id }} .world__placeholder{width:100%;height:100%;display:block;object-fit:cover}
+#WorldLansattic-{{ section.id }} .world__number{display:block;margin-bottom:18px;color:var(--accent);font-size:12px;letter-spacing:.12em}
+#WorldLansattic-{{ section.id }} .world__card-title{margin:0 0 18px;font-family:var(--heading-font-family);font-size:clamp(32px,3.2vw,54px);font-weight:400;letter-spacing:-.025em;line-height:1.08}
+#WorldLansattic-{{ section.id }} .world__description{max-width:520px;font-size:17px;line-height:1.65}
+#WorldLansattic-{{ section.id }} .world__description p{margin:0}
+#WorldLansattic-{{ section.id }} .world__link{display:inline-flex;margin-top:26px;color:inherit;font-size:12px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:5px}
+@media(max-width:749px){
+#WorldLansattic-{{ section.id }}{padding:{{ section.settings.mobile_padding_top }}px 0 {{ section.settings.mobile_padding_bottom }}px}
+#WorldLansattic-{{ section.id }} .world__inner{width:min(100% - 28px,{{ section.settings.max_width }}px)}
+#WorldLansattic-{{ section.id }} .world__header{margin-bottom:34px}
+#WorldLansattic-{{ section.id }} .world__title{font-size:clamp(36px,11vw,50px)}
+#WorldLansattic-{{ section.id }} .world__stories{gap:48px}
+#WorldLansattic-{{ section.id }} .world__story,#WorldLansattic-{{ section.id }} .world__story:nth-child(even){grid-template-columns:1fr;gap:16px}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(even) .world__media,#WorldLansattic-{{ section.id }} .world__story:nth-child(even) .world__copy{order:initial}
+#WorldLansattic-{{ section.id }} .world__story:nth-child(even) .world__copy,#WorldLansattic-{{ section.id }} .world__story:nth-child(odd) .world__copy{padding:0 4px}
+#WorldLansattic-{{ section.id }} .world__media,#WorldLansattic-{{ section.id }} .world__story:nth-child(2) .world__media,#WorldLansattic-{{ section.id }} .world__story:nth-child(4) .world__media{aspect-ratio:4/3}
+#WorldLansattic-{{ section.id }} .world__number{margin-bottom:8px}
+#WorldLansattic-{{ section.id }} .world__card-title{font-size:clamp(27px,8vw,36px);margin-bottom:10px}
+#WorldLansattic-{{ section.id }} .world__description{font-size:14px;line-height:1.55}
+#WorldLansattic-{{ section.id }} .world__link{margin-top:16px}
+}
+{%- endstyle -%}
+<section id="WorldLansattic-{{ section.id }}" aria-labelledby="WorldTitle-{{ section.id }}">
+<div{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | handle }}"{% endif %} class="world__inner" style="scroll-margin-top:116px">
+<header class="world__header">{% if section.settings.eyebrow != blank %}<p class="world__eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}{% if section.settings.heading != blank %}<h2 id="WorldTitle-{{ section.id }}" class="world__title">{{ section.settings.heading | escape }}</h2>{% endif %}</header>
+<div class="world__stories">{% for block in section.blocks %}<article class="world__story" {{ block.shopify_attributes }}><div class="world__media">{% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 1600 | image_tag: loading:'lazy', widths:'480,720,960,1200,1600', sizes:'(max-width: 749px) calc(100vw - 28px), 55vw', class:'world__image', alt:block.settings.title }}{% else %}{{ 'image' | placeholder_svg_tag:'world__placeholder' }}{% endif %}</div><div class="world__copy"><span class="world__number">{{ forloop.index | prepend:'0' }}</span><h3 class="world__card-title">{{ block.settings.title | escape }}</h3>{% if block.settings.description != blank %}<div class="world__description">{{ block.settings.description }}</div>{% endif %}{% if block.settings.link != blank %}<a class="world__link" href="{{ block.settings.link }}">{{ block.settings.link_label | default:'Explore' | escape }} →</a>{% endif %}</div></article>{% endfor %}</div>
+</div></section>
+{% schema %}
+{"name":"World of Lansattic","tag":"section","class":"section-world-lansattic","max_blocks":4,"settings":[{"type":"text","id":"anchor_id","label":"Homepage anchor ID","default":"world"},{"type":"text","id":"eyebrow","label":"Eyebrow","default":"EXPLORE THE STORY"},{"type":"text","id":"heading","label":"Heading","default":"The World of Lansattic"},{"type":"color","id":"background_color","label":"Background","default":"#F7F5EF"},{"type":"color","id":"text_color","label":"Text","default":"#25251F"},{"type":"color","id":"accent_color","label":"Number accent","default":"#789086"},{"type":"range","id":"max_width","min":1000,"max":1800,"step":20,"unit":"px","label":"Maximum width","default":1640},{"type":"range","id":"padding_top","min":40,"max":160,"step":4,"unit":"px","label":"Desktop top spacing","default":88},{"type":"range","id":"padding_bottom","min":40,"max":160,"step":4,"unit":"px","label":"Desktop bottom spacing","default":104},{"type":"range","id":"mobile_padding_top","min":28,"max":100,"step":4,"unit":"px","label":"Mobile top spacing","default":48},{"type":"range","id":"mobile_padding_bottom","min":28,"max":100,"step":4,"unit":"px","label":"Mobile bottom spacing","default":56}],"blocks":[{"type":"story_card","name":"Editorial story","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"title","label":"Title","default":"Jade & Heritage"},{"type":"richtext","id":"description","label":"Description","default":"<p>The natural beauty of jade, its cultural symbolism, and its quiet presence across generations.</p>"},{"type":"text","id":"link_label","label":"Link label","default":"Explore"},{"type":"url","id":"link","label":"Link"}]}],"presets":[{"name":"World of Lansattic","blocks":[{"type":"story_card","settings":{"title":"Jade & Heritage","description":"<p>The natural beauty of jade, its cultural symbolism, and its quiet presence across generations.</p>"}},{"type":"story_card","settings":{"title":"Wisdom & Balance","description":"<p>Inspired by the Five Elements and Eastern philosophy, exploring balance between people, nature, color, and material.</p>"}},{"type":"story_card","settings":{"title":"Practice & Stillness","description":"<p>Influenced by years of personal practice and travel, expressed through beads, natural materials, and everyday rituals of stillness.</p>"}},{"type":"story_card","settings":{"title":"Nature & Individuality","description":"<p>We respect the differences found in jade, pearls, gemstones, and wood — because nature never repeats itself.</p>"}}]}]}
+{% endschema %}

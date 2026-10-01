@@ -1,0 +1,18 @@
+{% comment %}Show the photo area of each panel from the original PDF artwork; no recreated imagery.{% endcomment %}
+{% liquid
+  case index
+    when 1
+      assign photo_view = '560 186 448 235'
+    when 2
+      assign photo_view = '560 423 448 234'
+    when 3
+      assign photo_view = '550 660 448 238'
+    when 4
+      assign photo_view = '496 901 448 233'
+    when 5
+      assign photo_view = '560 1137 448 232'
+  endcase
+%}
+<svg class="lhe-reference" viewBox="{{ photo_view }}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" style="position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden">
+  <image href="{{ 'lansattic-five-elements-reference.png' | asset_url }}" width="1024" height="1536" />
+</svg>

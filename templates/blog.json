@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {}
+    },
+    "journal_directory": {
+      "type": "lansattic-journal-directory",
+      "settings": {
+        "heading": "The Lansattic Journal",
+        "intro": "A quiet space for stories, materials, traditions, and the ideas that shape Lansattic.",
+        "description": "Here, we share reflections on jade, pearls, natural gemstones, the Five Elements, Eastern philosophy, contemplative living, craftsmanship, travel, and the meaning we attach to the objects we choose to keep close.",
+        "closing": "The Journal is not only about jewelry. It is also about slowing down, noticing natural beauty, understanding materials more deeply, and exploring the connection between tradition and modern life."
+      },
+      "blocks": {
+        "jade-natural-materials": {
+          "type": "category",
+          "settings": {
+            "anchor": "jade-natural-materials",
+            "title": "Jade & Natural Materials",
+            "description": "Stories about jade, jadeite, pearls, gemstones, wood, and the natural character of each material.",
+            "topics": ""
+          }
+        },
+        "five-elements": {
+          "type": "category",
+          "settings": {
+            "anchor": "five-elements",
+            "title": "Five Elements",
+            "description": "Reflections inspired by the Five Elements and their relationship to balance, nature, color, season, and personal symbolism.",
+            "topics": ""
+          }
+        },
+        "jewelry-stories": {
+          "type": "category",
+          "settings": {
+            "anchor": "jewelry-stories",
+            "title": "Jewelry Stories",
+            "description": "Behind-the-scenes stories about design, craftsmanship, meaningful pieces, and the people who wear them.",
+            "topics": ""
+          }
+        },
+        "eastern-wisdom-contemplative-living": {
+          "type": "category",
+          "settings": {
+            "anchor": "eastern-wisdom-contemplative-living",
+            "title": "Eastern Wisdom & Contemplative Living",
+            "description": "Gentle reflections on Eastern philosophy, mindfulness, meditation, and living with greater intention.",
+            "topics": ""
+          }
+        },
+        "travel-inspiration": {
+          "type": "category",
+          "settings": {
+            "anchor": "travel-inspiration",
+            "title": "Travel & Inspiration",
+            "description": "Places, landscapes, traditions, and experiences that have shaped the visual and cultural world of Lansattic.",
+            "topics": ""
+          }
+        },
+        "care-knowledge": {
+          "type": "category",
+          "settings": {
+            "anchor": "care-knowledge",
+            "title": "Care & Knowledge",
+            "description": "Practical guidance on caring for jade, pearls, gemstones, and fine jewelry.",
+            "topics": ""
+          }
+        }
+      },
+      "block_order": [
+        "jade-natural-materials",
+        "five-elements",
+        "jewelry-stories",
+        "eastern-wisdom-contemplative-living",
+        "travel-inspiration",
+        "care-knowledge"
+      ]
+    }
+  },
+  "order": [
+    "journal_directory",
+    "main"
+  ]
+}

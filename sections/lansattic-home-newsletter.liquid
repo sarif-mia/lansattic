@@ -1,0 +1,119 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhnews"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p>{% form 'customer', class:'lhform' %}{% if form.posted_successfully? %}<p class="lh-form-feedback" role="status">{{ section.settings.copy_4 | escape | newline_to_br }}</p>{% else %}{% if form.errors %}<div class="lh-form-feedback" role="alert">{{ form.errors | default_errors }}</div>{% endif %}<label class="sr-only" for="newsletter-{{ section.id }}">Email address</label><input type="hidden" name="contact[tags]" value="newsletter"><input id="newsletter-{{ section.id }}" type="email" autocomplete="email" name="contact[email]" placeholder="Email address" required><button type="submit">{{ section.settings.newsletter_cta_label | default: 'Join the list' }}</button>{% endif %}{% endform %}</section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Newsletter",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Occasional notes from Lansattic"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "Join the Lansattic Journal"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_3",
+      "label": "Text 3",
+      "default": "Discover new collections, jade stories, Five Elements inspiration, meaningful jewelry and occasional special offers."
+    },
+    {
+      "type": "textarea",
+      "id": "copy_4",
+      "label": "Text 4",
+      "default": "Thank you for joining the Lansattic Journal."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_cta_label",
+      "label": "Newsletter button text",
+      "default": "JOIN THE LIST"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Newsletter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,30 @@
+{%- doc -%}
+  Display a photo region from the client-provided About-page reference. Original pixels are unchanged.
+  @param {string} scene - the reference photograph to show
+  @param {string} fit - cover or contain
+  @param {string} alt - accessible photograph description
+{%- enddoc -%}
+{% liquid
+ case scene
+  when 'hero'
+   assign viewport = '392 103 348 274'
+  when 'jade'
+   assign viewport = '412 402 295 274'
+  when 'river'
+   assign viewport = '47 707 296 162'
+  when 'tibet'
+   assign viewport = '432 890 275 157'
+  when 'shangrila'
+   assign viewport = '52 1075 280 195'
+  when 'shop'
+   assign viewport = '407 1295 303 225'
+ endcase
+ assign scaling = 'xMidYMid slice'
+ if fit == 'contain'
+  assign scaling = 'xMidYMid meet'
+ endif
+ if scene == 'hero'
+  assign scaling = 'xMinYMin slice'
+ endif
+%}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="{{ viewport }}" preserveAspectRatio="{{ scaling }}" role="img" aria-label="{{ alt | escape }}" focusable="false"><image href="{{ 'lansattic-about-client-reference.jpg' | asset_url }}" width="1024" height="1536" /></svg>

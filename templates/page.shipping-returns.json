@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "main": {
+      "type": "lansattic-story-page",
+      "settings": {
+        "kicker": "Customer Care",
+        "title": "Shipping & Returns",
+        "intro": "",
+        "layout": "simple",
+        "page_handle": ""
+      },
+      "blocks": {
+        "b1": {
+          "type": "story",
+          "settings": {
+            "heading": "Shipping",
+            "text": "<p>Each order is carefully prepared and packaged before shipment. Processing times may vary by item. Ready-to-ship pieces are generally processed within a few business days, while made-to-order or customized pieces may require additional time. Estimated delivery times shown at checkout are provided by the shipping carrier and may vary due to weather, holidays, customs, or other carrier-related delays. For international orders, customers are responsible for any applicable customs duties, taxes, or import fees charged by the destination country. Once an order has been shipped, tracking information will be provided when available.</p>",
+            "show_image": false
+          }
+        },
+        "b2": {
+          "type": "story",
+          "settings": {
+            "heading": "Address Accuracy",
+            "text": "<p>Please make sure your shipping address is correct before placing your order. If you notice an address error, contact us as soon as possible. Once an order has shipped, we may not be able to change the delivery address.</p>",
+            "show_image": false
+          }
+        },
+        "b3": {
+          "type": "story",
+          "settings": {
+            "heading": "Returns",
+            "text": "<p>We want you to feel confident about your purchase. Eligible items may be returned within 14 days of delivery, provided that they are unworn, unused, undamaged, and returned in their original packaging. Please contact us before sending any return. Customers are generally responsible for return shipping costs unless the item arrived damaged, defective, or incorrect. Original shipping charges are non-refundable unless the return is due to an error on our part.</p>",
+            "show_image": false
+          }
+        },
+        "b4": {
+          "type": "story",
+          "settings": {
+            "heading": "Non-Returnable Items",
+            "text": "<ul><li>Custom or personalized jewelry</li><li>Made-to-order pieces</li><li>Earrings, where hygiene restrictions apply</li><li>Items marked as final sale</li><li>Items that have been worn, altered, damaged, or returned without original packaging</li></ul><p>If you are unsure whether your item is eligible for return, please contact us before sending it back.</p>",
+            "show_image": false
+          }
+        },
+        "b5": {
+          "type": "story",
+          "settings": {
+            "heading": "Exchanges",
+            "text": "<p>If you would like to exchange an eligible item, please contact us first. Because many Lansattic pieces are limited, one-of-a-kind, or available in small quantities, we cannot guarantee that the same item will still be available.</p>",
+            "show_image": false
+          }
+        },
+        "b6": {
+          "type": "story",
+          "settings": {
+            "heading": "Damaged or Incorrect Orders",
+            "text": "<p>If your order arrives damaged or incorrect, please contact us within 3 days of delivery with clear photos of the item and packaging. We will review the issue and work with you to find an appropriate solution.</p>",
+            "show_image": false
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

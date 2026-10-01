@@ -1,0 +1,239 @@
+{% render 'lansattic-home-styles', section: section %}
+<div id="lh-{{section.id}}" class="lansattic-home-section">
+<section class="lhs" id="shop"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhcards">{% for i in (1..6) %}{% assign ik='collection_image_'|append:i %}{% assign lk='collection_link_'|append:i %}<a class="lhcard"{% if forloop.first %} id="collectors-gallery"{% endif %} href="{{section.settings[lk]}}">{% if section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:1000|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhcardtext"><h3>{% assign editable_titles = 'titles_' | append: forloop.index %}{{ section.settings[editable_titles] | escape }}</h3><p>{% assign editable_descs = 'descs_' | append: forloop.index %}{{ section.settings[editable_descs] | escape }}</p></div></a>{% endfor %}</div></div></section>
+</div>
+
+{% schema %}
+{
+  "name": "Lansattic Collections",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "copy_1",
+      "label": "Text 1",
+      "default": "Begin with what draws you"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_2",
+      "label": "Heading 2",
+      "default": "Shop by collection"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_3",
+      "label": "Text 3",
+      "default": "Natural jade, luminous pearls and meaningful objects selected for character, balance and the life you bring to them."
+    },
+    {
+      "type": "textarea",
+      "id": "titles_1",
+      "label": "Title 1",
+      "default": "Collector's Gallery"
+    },
+    {
+      "type": "textarea",
+      "id": "titles_2",
+      "label": "Title 2",
+      "default": "Everyday Jade"
+    },
+    {
+      "type": "textarea",
+      "id": "titles_3",
+      "label": "Title 3",
+      "default": "The Pearl Garden"
+    },
+    {
+      "type": "textarea",
+      "id": "titles_4",
+      "label": "Title 4",
+      "default": "Five Elements"
+    },
+    {
+      "type": "textarea",
+      "id": "titles_5",
+      "label": "Title 5",
+      "default": "Sacred Beads"
+    },
+    {
+      "type": "textarea",
+      "id": "titles_6",
+      "label": "Title 6",
+      "default": "One of a Kind"
+    },
+    {
+      "type": "textarea",
+      "id": "descs_1",
+      "label": "Description 1",
+      "default": "Rare and exceptional pieces selected for beauty and individuality."
+    },
+    {
+      "type": "textarea",
+      "id": "descs_2",
+      "label": "Description 2",
+      "default": "Timeless natural jade and jadeite for everyday life."
+    },
+    {
+      "type": "textarea",
+      "id": "descs_3",
+      "label": "Description 3",
+      "default": "Organic pearls shaped by nature."
+    },
+    {
+      "type": "textarea",
+      "id": "descs_4",
+      "label": "Description 4",
+      "default": "Color, material and Eastern balance."
+    },
+    {
+      "type": "textarea",
+      "id": "descs_5",
+      "label": "Description 5",
+      "default": "Objects for stillness and intention."
+    },
+    {
+      "type": "textarea",
+      "id": "descs_6",
+      "label": "Description 6",
+      "default": "Designed once. Never repeated."
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_1",
+      "label": "Collector's Gallery image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_1",
+      "label": "Collector's Gallery link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_2",
+      "label": "Everyday Jade image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_2",
+      "label": "Everyday Jade link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_3",
+      "label": "Pearl Garden image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_3",
+      "label": "Pearl Garden link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_4",
+      "label": "Five Elements image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_4",
+      "label": "Five Elements link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_5",
+      "label": "Sacred Beads image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_5",
+      "label": "Sacred Beads link"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_6",
+      "label": "One of a Kind image"
+    },
+    {
+      "type": "url",
+      "id": "collection_link_6",
+      "label": "One of a Kind link"
+    },
+    {
+      "type": "select",
+      "id": "card_image_ratio",
+      "label": "Card image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "editorial_image_ratio",
+      "label": "Feature image ratio",
+      "options": [
+        {
+          "value": "4/5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "1/1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Tall portrait (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "3/2",
+          "label": "Landscape (3:2)"
+        }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Fill frame (crop)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit entire image"
+        }
+      ],
+      "default": "cover"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic Collections"
+    }
+  ]
+}
+{% endschema %}
