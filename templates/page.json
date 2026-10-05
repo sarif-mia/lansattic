@@ -525,6 +525,15 @@
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
           }
         },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
         "lia": {
           "type": "review",
           "settings": {
@@ -537,6 +546,7 @@
       },
       "block_order": [
         "mary",
+        "elizabeth",
         "lia"
       ]
     },
@@ -558,6 +568,15 @@
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
           }
         },
+        "elizabeth": {
+          "type": "review",
+          "settings": {
+            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
+            "customer": "Elizabeth",
+            "shop": "StudioLibraArt",
+            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
+          }
+        },
         "lia": {
           "type": "review",
           "settings": {
@@ -570,6 +589,7 @@
       },
       "block_order": [
         "mary",
+        "elizabeth",
         "lia"
       ]
     },
