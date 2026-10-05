@@ -1,9 +1,29 @@
 <style>#lf-{{section.id}}{background:#f3f1ea;color:#24251f;padding:72px 0 28px}.lfw{width:min(100% - 48px,1440px);margin:auto}.lfgrid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;padding-bottom:60px}.lfbrand{font-family:var(--heading-font-family);font-size:34px;letter-spacing:.08em;margin-bottom:18px}.lfcopy{max-width:330px;font-size:13px;line-height:1.7;opacity:.75}.lfcol h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin:8px 0 20px}.lfcol a{display:block;color:inherit;text-decoration:none;font-size:13px;margin:0 0 12px}.lfbottom{border-top:1px solid #d8d2c7;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.75}@media(max-width:900px){.lfgrid{grid-template-columns:1fr 1fr}.lfgrid>div:first-child{grid-column:1/-1}.lfbottom{flex-direction:column}}@media(max-width:520px){#lf-{{section.id}}{padding-top:52px}.lfw{width:min(100% - 32px,1440px)}.lfgrid{gap:32px 20px}}.lfcol small{display:block;font-size:11px;line-height:1.5;opacity:.75;margin-top:4px}</style>
+<style>
+  #lf-{{ section.id }} .lf-social { display: flex; gap: 12px; margin-top: 24px; }
+  #lf-{{ section.id }} .lf-social__link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #c9d1c6; border-radius: 50%; background: #e9ece3; color: #315c4d; text-decoration: none; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+  #lf-{{ section.id }} .lf-social__link svg { width: 20px; height: 20px; }
+  #lf-{{ section.id }} .lf-social__link:hover { background: #315c4d; border-color: #315c4d; color: #fff; }
+  #lf-{{ section.id }} .lf-social__link:focus-visible { outline: 2px solid #315c4d; outline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) { #lf-{{ section.id }} .lf-social__link { transition: none; } }
+</style>
 <footer id="lf-{{ section.id }}"><div class="lfw">
   <div class="lfgrid">
     <div><div class="lfbrand">LANSATTIC</div><div class="lfcopy">{{ section.settings.brand_copy }}</div>
-      {% if section.settings.instagram != blank %}<p><a href="{{ section.settings.instagram | escape }}">Instagram</a></p>{% endif %}
-      {% if section.settings.pinterest != blank %}<p><a href="{{ section.settings.pinterest | escape }}">Pinterest</a></p>{% endif %}
+      {% if section.settings.instagram != blank or section.settings.pinterest != blank %}
+        <div class="lf-social">
+          {% if section.settings.instagram != blank %}
+            <a class="lf-social__link" href="{{ section.settings.instagram | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Follow Lansattic on Instagram" title="Instagram">
+              {% render 'icon' with 'instagram' %}
+            </a>
+          {% endif %}
+          {% if section.settings.pinterest != blank %}
+            <a class="lf-social__link" href="{{ section.settings.pinterest | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Follow Lansattic on Pinterest" title="Pinterest">
+              {% render 'icon' with 'pinterest' %}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
     {% for group in section.blocks %}
       <div class="lfcol" {{ group.shopify_attributes }}><h3>{{ group.settings.heading | escape }}</h3>
