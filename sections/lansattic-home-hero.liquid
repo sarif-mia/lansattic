@@ -1,6 +1,26 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhhero{% if section.settings.use_supplied_layout %} lhhero--provided{% endif %}" id="home-{{ section.id }}">{% if section.settings.hero_image != blank or section.settings.hero_image_mobile != blank %}<picture>{% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">{% endif %}{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% elsif section.settings.hero_image_mobile != blank %}{{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% endif %}</picture>{% elsif section.settings.hero_asset != blank %}<picture>{% render 'lansattic-archive-photo', asset: section.settings.hero_asset, alt: section.settings.hero_alt, loading: 'eager', sizes: '(max-width: 749px) 1200px, 100vw' %}</picture>{% endif %}<div class="lhheroc"><h1 class="lht">{{ section.settings.copy_1 | escape | newline_to_br }}</h1><p class="lhp">{{ section.settings.copy_2 | escape | newline_to_br }}</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a>{% if section.settings.show_story_link %}<a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a>{% endif %}</div></div></section>
+<section class="lhhero{% if section.settings.use_supplied_layout %} lhhero--provided{% endif %}" id="home-{{ section.id }}">
+  {% if section.settings.hero_image != blank or section.settings.hero_asset != blank or section.settings.hero_image_mobile != blank or section.settings.hero_asset_mobile != blank %}
+    <picture>
+      {% if section.settings.hero_image_mobile != blank %}
+        <source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">
+      {% elsif section.settings.hero_asset_mobile != blank %}
+        <source media="(max-width: 749px)" srcset="{{ section.settings.hero_asset_mobile | asset_img_url: '400x' }} 400w, {{ section.settings.hero_asset_mobile | asset_img_url: '800x' }} 800w, {{ section.settings.hero_asset_mobile | asset_img_url: '1000x' }} 1000w" sizes="100vw">
+      {% endif %}
+      {% if section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg', alt: section.settings.hero_alt }}
+      {% elsif section.settings.hero_asset != blank %}
+        {% render 'lansattic-archive-photo', asset: section.settings.hero_asset, alt: section.settings.hero_alt, loading: 'eager', sizes: '100vw' %}
+      {% elsif section.settings.hero_image_mobile != blank %}
+        {{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg', alt: section.settings.hero_alt }}
+      {% else %}
+        {% render 'lansattic-archive-photo', asset: section.settings.hero_asset_mobile, alt: section.settings.hero_alt, loading: 'eager', sizes: '100vw' %}
+      {% endif %}
+    </picture>
+  {% endif %}
+  <div class="lhheroc"><h1 class="lht">{{ section.settings.copy_1 | escape | newline_to_br }}</h1><p class="lhp">{{ section.settings.copy_2 | escape | newline_to_br }}</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a>{% if section.settings.show_story_link %}<a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a>{% endif %}</div></div>
+</section>
 </div>
 
 {% schema %}
@@ -167,6 +187,11 @@
       "type": "text",
       "id": "hero_asset",
       "label": "Included hero image asset"
+    },
+    {
+      "type": "text",
+      "id": "hero_asset_mobile",
+      "label": "Included mobile hero image asset"
     },
     {
       "type": "text",

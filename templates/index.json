@@ -14,8 +14,9 @@
         "hero_height": 680,
         "hero_position": 50,
         "use_supplied_layout": true,
-        "hero_position_mobile": 85,
-        "show_story_link": false
+        "hero_position_mobile": 50,
+        "show_story_link": false,
+        "hero_asset_mobile": "lansattic-maker-hero-mobile.png"
       }
     },
     "home_collections": {
