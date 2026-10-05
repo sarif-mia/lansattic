@@ -1,6 +1,23 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhs lhintent-section" id="shop-by-intention"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header><div class="lhintentions">{% assign ints='Calm|Grounding|Balance|Clarity|Vitality|Connection'|split:'|' %}{% for x in ints %}{% assign lk='intention_link_'|append:forloop.index %}<a class="lhintent" href="{{ section.settings[lk] | default: section.settings.elements_link }}"><span>0{{forloop.index}}</span><b>{% assign editable_ints = 'ints_' | append: forloop.index %}{{ section.settings[editable_ints] | escape }}</b></a>{% endfor %}</div></div></section>
+<section class="lhs lhintent-section" id="shop-by-intention">
+  <div class="lhw">
+    <header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p></header>
+    <div class="lhintentions">
+      {% for i in (1..6) %}
+        {% assign link_key = 'intention_link_' | append: i %}
+        {% assign label_key = 'ints_' | append: i %}
+        {% capture intention_label %}<span>0{{ i }}</span><b>{{ section.settings[label_key] | escape }}</b>{% endcapture %}
+        {% if section.settings[link_key] != blank %}
+          <a class="lhintent" href="{{ section.settings[link_key] | escape }}">{{ intention_label }}</a>
+        {% else %}
+          <div class="lhintent">{{ intention_label }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.settings.elements_link != blank %}<div class="lhcta"><a class="lhbtn" href="{{ section.settings.elements_link | escape }}">Explore Five Elements</a></div>{% endif %}
+  </div>
+</section>
 </div>
 
 {% schema %}

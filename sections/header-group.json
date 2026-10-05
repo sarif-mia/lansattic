@@ -24,14 +24,14 @@
           "type": "mega_column",
           "settings": {
             "heading": "Materials",
-            "links": "Jade|/collections/all\nJadeite|/collections/all\nPearl|/collections/pearl-yin-energy\nCrystal & Gemstone|/collections/all\nFine Wood|/collections/all"
+            "links": "Jade|/search?type=product&q=jade\nJadeite|/search?type=product&q=jadeite\nPearl|/collections/pearl-yin-energy\nCrystal & Gemstone|/search?type=product&q=crystal+OR+gemstone+OR+quartz+OR+lapis+OR+amethyst+OR+turquoise\nFine Wood|/search?type=product&q=agarwood+OR+sandalwood+OR+wood"
           }
         },
         "mega_intentions": {
           "type": "mega_column",
           "settings": {
             "heading": "Intentions",
-            "links": "Calm|/collections/five-elements-jewelry\nGrounding|/collections/five-elements-jewelry\nBalance|/collections/five-elements-jewelry\nClarity|/collections/five-elements-jewelry\nVitality|/collections/five-elements-jewelry\nConnection|/collections/five-elements-jewelry"
+            "links": "Explore Five Elements|/collections/five-elements-jewelry"
           }
         },
         "mega_promotion": {
@@ -82,7 +82,7 @@
         "announcement_2": {
           "type": "announcement",
           "settings": {
-            "text": "Natural Materials \u00b7 Jewelry with Meaning",
+            "text": "Natural Materials · Jewelry with Meaning",
             "link": "shopify://collections/all",
             "icon": "leaf"
           }

@@ -85,3 +85,26 @@ are configured in the local theme's social media settings and footer.
 Gmail was confirmed uninstalled during this session. No email thread was read
 or sent. The review used the supplied brief, attached reference, and exact
 original images found in the Downloads folder.
+
+## Link verification — 5 October 2026
+
+- Checked 133 existing internal destinations across navigation, collections,
+  products, customer care, policies and the footer. Browser retries resolved
+  automated-request rate limits and the account authentication redirect.
+- Materials menu links now search for the named materials instead of opening
+  all products. Verified products on all five material destinations.
+- Each Five Elements card links to its corresponding introduction in the
+  existing Five Elements collection. The unlinked `/pages/five-elements` route
+  does not exist in Shopify; navigation uses the existing collection.
+- Unconfigured intentions remain visible as labels with one explicit
+  **Explore Five Elements** button. Assign individual intention links in the
+  theme editor when their product collections are ready.
+- Verified mobile navigation, filters, the Add to cart button and Checkout;
+  cleared the isolated test cart. No order was placed.
+- Instagram and Pinterest reached the correct profiles. Etsy blocked automated
+  access, so its shop links were preserved and require a manual check.
+- Newsletter email validation and the native customer form are correct. The
+  authorized signup test stopped at Shopify hCaptcha before submission; signup
+  and confirmation email delivery remain unverified.
+- Theme Check: 0 errors, 10 existing warnings. Browser evidence is saved in the
+  ignored `qa/link-audit/` directory. Changes are in the unpublished draft.
