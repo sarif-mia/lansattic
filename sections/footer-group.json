@@ -5,9 +5,37 @@
     "lansattic_footer": {
       "type": "lansattic-footer-final",
       "settings": {
-        "etsy_lansattic": "https://www.etsy.com/shop/Lansattic",
-        "etsy_studio": "https://www.etsy.com/shop/StudioLibraArt"
-      }
+        "instagram": "https://www.instagram.com/libra_lansattic?stkn=MXBkYTQ1ZTE0d2s5aA%3D%3D&utm_source=qr",
+        "pinterest": "https://pin.it/5m1XEavXd"
+      },
+      "blocks": {
+        "shop": {
+          "type": "link_group",
+          "settings": {
+            "heading": "Shop",
+            "links": "Collector’s Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nOne of a Kind|/collections/one-of-a-kind\nSacred Beads|/collections/sacred-beads\nFive Elements|/collections/five-elements-jewelry"
+          }
+        },
+        "about": {
+          "type": "link_group",
+          "settings": {
+            "heading": "About",
+            "links": "Our Story|/pages/about-lansattic\nOur Jade Standard|/pages/our-jade-standard\nJournal|/blogs/journal\nCustomer Stories|/pages/customer-stories"
+          }
+        },
+        "care": {
+          "type": "link_group",
+          "settings": {
+            "heading": "Customer Care",
+            "links": "Contact|/pages/contact\nShipping|/pages/shipping-returns\nReturns & Refunds|/pages/shipping-returns\nJewelry Care|/pages/materials-jewelry-care\nFAQ|/pages/faq\nPrivacy Policy|/policies/privacy-policy\nTerms|/policies/terms-of-service"
+          }
+        }
+      },
+      "block_order": [
+        "shop",
+        "about",
+        "care"
+      ]
     }
   },
   "order": [

@@ -1,3 +1,4 @@
+{%- capture lansattic_description -%}{%- render 'lansattic-brand-copy', content: product.description -%}{%- endcapture -%}
 {%- liquid
   assign has_product_page_disclosures = false
 
@@ -26,7 +27,7 @@
     if block.type == 'accordion' and block.settings.title != blank and block.settings.content != blank or block.settings.liquid != blank or block.settings.page.content != blank
       assign has_content_below_gallery = true
       break
-    elsif block.type == 'description' and product.description != blank
+    elsif block.type == 'description' and lansattic_description != blank
       assign has_content_below_gallery = true
       break
     elsif block.type == 'disclosures' and has_product_page_disclosures
@@ -119,13 +120,13 @@
 
               {%- case block.type -%}
                 {%- when 'description' -%}
-                  {%- if product.description != blank -%}
+                  {%- if lansattic_description != blank -%}
                     {%- if block.settings.collapse_content -%}
                       {%- assign accordion_title = 'product.general.description' | t -%}
-                      {%- render 'accordion', title: accordion_title, content: product.description, prose_content: true, size: 'lg', block: block -%}
+                      {%- render 'accordion', title: accordion_title, content: lansattic_description, prose_content: true, size: 'lg', block: block -%}
                     {%- else -%}
                       <div class="product-content-below-gallery__description prose">
-                        {{- product.description -}}
+                        {{- lansattic_description -}}
                       </div>
                     {%- endif -%}
                   {%- endif -%}

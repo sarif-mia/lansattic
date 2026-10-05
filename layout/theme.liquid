@@ -7,8 +7,12 @@
 
     {% liquid
       if request.page_type == 'index'
-        assign page_title = 'Lansattic | Jade, Pearls & Jewelry with Meaning'
-        assign page_description = 'Discover natural jade and jadeite, pearls, gemstones, Five Elements jewelry and sacred beads. Rooted in nature. Shaped by Eastern wisdom. Made to be lived with.'
+        assign page_title = settings.home_seo_title | default: page_title
+        assign page_description = settings.home_seo_description | default: page_description
+      elsif request.page_type == 'collection'
+        capture page_title
+          render 'lansattic-collection-title', collection: collection
+        endcapture
       elsif page.handle == 'about-lansattic'
         assign page_title = 'Our Story | Lansattic'
         assign page_description = 'Follow the story of Lansattic, shaped by jade, travel, Eastern wisdom and years of working with pearls, natural materials, jewelry design and customers.'
@@ -17,6 +21,7 @@
         assign page_description = 'Find guidance on natural jewelry, care, ordering and contacting Lansattic, an independent jewelry studio based in California, United States.'
       endif
     %}
+    {%- capture page_description -%}{%- render 'lansattic-brand-copy', content: page_description -%}{%- endcapture -%}
     <title>
       {% if page_title == blank -%}
         {{- shop.name -}}
@@ -35,6 +40,8 @@
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
       <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- else -%}
+      <link rel="icon" type="image/svg+xml" href="{{ 'lansattic-favicon.svg' | asset_url }}">
     {%- endif -%}
 
     {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
@@ -119,7 +126,11 @@
     {%- endif -%}
 
     <main id="main" class="anchor">
-      {{ content_for_layout }}
+      {% if request.path == '/policies/privacy-policy' %}
+        {{ content_for_layout | replace: 'please call  or email us at', 'please email us at' }}
+      {% else %}
+        {{ content_for_layout }}
+      {% endif %}
 
       {%- comment -%}
         IMPLEMENTATION NOTE: For best semantics, having the footer group outside the main would be slightly better, but

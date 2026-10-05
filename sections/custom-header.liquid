@@ -27,6 +27,7 @@
       <nav class="lh-desktop-nav" aria-label="Primary navigation">
         {% if custom_menu_links.size > 0 %}
           {% for block in custom_menu_links %}
+{% capture link_visible %}{% render 'lansattic-link-visible', url: block.settings.link %}{% endcapture %}{% if link_visible != 'true' %}{% continue %}{% endif %}
             <div class="lh-nav-item{% if block.settings.open_mega %} lh-nav-item--mega{% endif %}" {{ block.shopify_attributes }}>
               {% if block.settings.open_mega %}
                 <a data-mega-toggle class="lh-nav-link lh-mega-trigger" href="{{ block.settings.link | default: routes.root_url }}" aria-expanded="false">{{ block.settings.label | escape }}</a>
@@ -42,7 +43,7 @@
                             {% assign link_parts = clean_line | split: '|' %}
                             {% assign item_label = link_parts[0] | strip %}
                             {% assign item_url = link_parts[1] | strip %}
-                            {% if item_label != blank %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                            {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
                           {% endfor %}
                         </div>
                       {% endfor %}
@@ -72,7 +73,7 @@
             </div>
           {% endfor %}
         {% else %}
-        {% for link in main_menu.links %}
+        {% for link in main_menu.links %}{% if link.type == 'collection_link' and link.object.all_products_count == 0 %}{% continue %}{% endif %}
           {% liquid
             assign is_mega = false
             assign link_handle = link.title | handleize
@@ -87,10 +88,10 @@
               <div class="lh-mega" aria-label="{{ link.title | escape }} menu">
                 <div class="lh-mega-inner{% if promotion_blocks.size == 0 %} lh-mega-inner--links-only{% endif %}">
                   <div class="lh-mega-links">
-                    {% for childlink in link.links limit: 4 %}
+                    {% for childlink in link.links limit: 4 %}{% if childlink.type == 'collection_link' and childlink.object.all_products_count == 0 %}{% continue %}{% endif %}
                       <div class="lh-mega-column">
                         <a class="lh-mega-title" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                        {% for grandchildlink in childlink.links %}
+                        {% for grandchildlink in childlink.links %}{% if grandchildlink.type == 'collection_link' and grandchildlink.object.all_products_count == 0 %}{% continue %}{% endif %}
                           <a href="{{ grandchildlink.url }}"{% if grandchildlink.current %} aria-current="page"{% endif %}>{{ grandchildlink.title | escape }}</a>
                         {% endfor %}
                       </div>
@@ -116,7 +117,7 @@
               </div>
             {% elsif link.links != blank %}
               <div class="lh-dropdown">
-                {% for childlink in link.links %}<a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>{% endfor %}
+                {% for childlink in link.links %}{% if childlink.type == 'collection_link' and childlink.object.all_products_count == 0 %}{% continue %}{% endif %}<a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>{% endfor %}
               </div>
             {% endif %}
           </div>
@@ -157,6 +158,7 @@
     <nav class="lh-mobile-nav">
       {% if custom_menu_links.size > 0 %}
         {% for block in custom_menu_links %}
+{% capture link_visible %}{% render 'lansattic-link-visible', url: block.settings.link %}{% endcapture %}{% if link_visible != 'true' %}{% continue %}{% endif %}
           <div class="lh-mobile-item" {{ block.shopify_attributes }}>
             {% if block.settings.open_mega %}
               <button type="button" class="lh-mobile-parent" aria-expanded="false" data-mobile-submenu>
@@ -171,7 +173,7 @@
                     {% assign link_parts = clean_line | split: '|' %}
                     {% assign item_label = link_parts[0] | strip %}
                     {% assign item_url = link_parts[1] | strip %}
-                    {% if item_label != blank %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                    {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
                   {% endfor %}
                 {% endfor %}
               </div>
@@ -181,7 +183,7 @@
           </div>
         {% endfor %}
       {% else %}
-      {% for link in main_menu.links %}
+      {% for link in main_menu.links %}{% if link.type == 'collection_link' and link.object.all_products_count == 0 %}{% continue %}{% endif %}
         <div class="lh-mobile-item">
           {% if link.links != blank %}
             <button type="button" class="lh-mobile-parent" aria-expanded="false" data-mobile-submenu>
@@ -189,9 +191,9 @@
             </button>
             <div class="lh-mobile-submenu">
               <a class="lh-mobile-all" href="{{ link.url }}">Shop all {{ link.title | escape }}</a>
-              {% for childlink in link.links %}
+              {% for childlink in link.links %}{% if childlink.type == 'collection_link' and childlink.object.all_products_count == 0 %}{% continue %}{% endif %}
                 <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-                {% for grandchildlink in childlink.links %}<a class="lh-mobile-grandchild" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>{% endfor %}
+                {% for grandchildlink in childlink.links %}{% if grandchildlink.type == 'collection_link' and grandchildlink.object.all_products_count == 0 %}{% continue %}{% endif %}<a class="lh-mobile-grandchild" href="{{ grandchildlink.url }}">{{ grandchildlink.title | escape }}</a>{% endfor %}
               {% endfor %}
             </div>
           {% else %}
@@ -539,7 +541,7 @@
           "id": "links",
           "label": "Links",
           "info": "One per line using Label|URL",
-          "default": "Collector's Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements Jewelry|/collections/five-elements-jewelry\nOne of a Kind|/collections/one-of-a-kind"
+          "default": "Collector’s Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements|/collections/five-elements-jewelry\nOne of a Kind|/collections/one-of-a-kind"
         }
       ]
     },
@@ -643,7 +645,7 @@
         {
           "type": "menu_link",
           "settings": {
-            "label": "Five Elements Jewelry",
+            "label": "Five Elements",
             "link": "/#five-elements"
           }
         },

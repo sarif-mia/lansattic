@@ -1,0 +1,15 @@
+{%- liquid
+  assign visible = true
+  if url == blank
+    assign visible = false
+  elsif url contains '/collections/'
+    assign collection_handle = url | split: '/collections/' | last | split: '/' | first | split: '?' | first | split: '#' | first
+    unless collection_handle == 'all'
+      assign linked_collection = collections[collection_handle]
+      if linked_collection == blank or linked_collection.all_products_count == 0
+        assign visible = false
+      endif
+    endunless
+  endif
+  echo visible
+-%}

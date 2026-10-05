@@ -3,17 +3,19 @@
     "home_hero": {
       "type": "lansattic-home-hero",
       "settings": {
-        "copy_1": "Jewelry With Meaning",
-        "copy_2": "Rooted in nature. Shaped by Eastern wisdom. Made to be lived with.",
+        "copy_1": "A More Meaningful\nEveryday",
+        "copy_2": "Jade · Pearls · Gemstones\nInspired by Nature and Tradition",
         "shop_cta_label": "SHOP THE COLLECTION",
         "shop_link": "shopify://collections/all",
         "about_cta_label": "DISCOVER OUR STORY",
         "about_link": "shopify://pages/about-lansattic",
-        "hero_asset": "lansattic-supplied-five-elements.png",
-        "hero_alt": "Pearl and purple gemstone earrings resting on a natural crystal surface.",
+        "hero_asset": "lansattic-maker-hero.png",
+        "hero_alt": "Making jade jewelry by hand in warm afternoon light.",
         "hero_height": 680,
         "hero_position": 50,
-        "use_supplied_layout": true
+        "use_supplied_layout": true,
+        "hero_position_mobile": 85,
+        "show_story_link": false
       }
     },
     "home_collections": {
@@ -25,7 +27,7 @@
         "titles_1": "Collector's Gallery",
         "titles_2": "Everyday Jade",
         "titles_3": "The Pearl Garden",
-        "titles_4": "Five Elements Jewelry",
+        "titles_4": "Five Elements",
         "titles_5": "Sacred Beads",
         "titles_6": "One of a Kind",
         "descs_1": "Rare and exceptional pieces selected for beauty and individuality.",
@@ -53,12 +55,13 @@
     "home_founder": {
       "type": "lansattic-home-founder",
       "settings": {
-        "copy_1": "Founder story",
+        "copy_1": "Jewelry With Meaning",
         "copy_2": "A life shaped\nby jade",
         "copy_3": "My relationship with jade began long before Lansattic. From growing up surrounded by jade, to searching for natural stones by the river; from journeys through Tibet and years of personal practice, to learning to weave beads by hand and years behind the counter, Lansattic grew slowly through materials, journeys, cultures, design and the people met along the way.",
         "about_cta_label": "DISCOVER OUR STORY",
         "about_link": "shopify://pages/about-lansattic",
-        "founder_image": "shopify://shop_images/founder.png"
+        "founder_asset": "lansattic-supplied-jade-heritage.jpg",
+        "founder_alt": "Two generations wearing jade bangles, with their hands resting together."
       }
     },
     "home_world": {
@@ -74,7 +77,7 @@
         "wd_2": "Inspired by the Five Elements and Eastern philosophy, exploring balance between people, nature, color and material.",
         "wd_3": "Influenced by years of personal practice and travel, expressed through beads, natural materials and everyday rituals of stillness.",
         "wd_4": "We respect the differences found in jade, pearls, gemstones and wood because nature never repeats itself.",
-        "world_asset_1": "lansattic-supplied-jade-heritage.jpg",
+        "world_asset_1": "lansattic-jade-tray.png",
         "world_asset_2": "lansattic-collection-colorful-beads.jpg",
         "world_asset_3": "lansattic-collection-bead-maker.jpg",
         "world_asset_4": "lansattic-archive-baroque-pearls.jpeg"
@@ -85,7 +88,7 @@
       "settings": {
         "copy_1": "Choose what speaks to you",
         "copy_2": "Shop by intention",
-        "copy_3": "Explore jewelry through intention \u2014 a personal way to find pieces that feel meaningful to wear and keep.",
+        "copy_3": "Explore jewelry through intention — a personal way to find pieces that feel meaningful to wear and keep.",
         "ints_1": "Calm",
         "ints_2": "Grounding",
         "ints_3": "Balance",
@@ -140,11 +143,9 @@
     "home_reviews": {
       "type": "lansattic-etsy-history",
       "settings": {
-        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
-        "studio_link": "https://www.etsy.com/shop/StudiolibraArt",
         "heading": "Worn, Loved, Remembered",
-        "intro": "Thousands of pieces have found their homes over the years. Our two Etsy shops are part of our history. Lansattic.com is the complete home of our collections, materials and stories.",
-        "reviews_link": "https://www.etsy.com/shop/Lansattic#reviews"
+        "intro": "Jewelry becomes part of the lives of the people who wear it.",
+        "reviews_link": ""
       },
       "blocks": {
         "mary": {
@@ -154,15 +155,6 @@
             "customer": "Mary",
             "shop": "Lansattic",
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
-          }
-        },
-        "elizabeth": {
-          "type": "review",
-          "settings": {
-            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
-            "customer": "Elizabeth",
-            "shop": "StudioLibraArt",
-            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
           }
         },
         "lia": {
@@ -177,7 +169,6 @@
       },
       "block_order": [
         "mary",
-        "elizabeth",
         "lia"
       ]
     },

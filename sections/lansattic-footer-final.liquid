@@ -1,3 +1,87 @@
-<style>#lf-{{section.id}}{background:#f3f1ea;color:#24251f;padding:72px 0 28px}.lfw{width:min(100% - 48px,1440px);margin:auto}.lfgrid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;padding-bottom:60px}.lfbrand{font-family:var(--heading-font-family);font-size:34px;letter-spacing:.08em;margin-bottom:18px}.lfcopy{max-width:330px;font-size:13px;line-height:1.7;opacity:.75}.lfcol h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin:8px 0 20px}.lfcol a{display:block;color:inherit;text-decoration:none;font-size:13px;margin:0 0 12px}.lfbottom{border-top:1px solid #d8d2c7;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.75}@media(max-width:900px){.lfgrid{grid-template-columns:1fr 1fr}.lfgrid>div:first-child{grid-column:1/-1}.lfbottom{flex-direction:column}}@media(max-width:520px){#lf-{{section.id}}{padding-top:52px}.lfw{width:min(100% - 32px,1440px)}.lfgrid{gap:32px 20px}}.lfcol small{display:block;font-size:11px;line-height:1.5;opacity:.75;margin-top:4px}</style>
-<footer id="lf-{{section.id}}"><div class="lfw"><div class="lfgrid"><div><div class="lfbrand">LANSATTIC</div><p class="lfcopy">Natural jewelry, Eastern wisdom and a quieter way of choosing what becomes yours.</p></div><div class="lfcol"><h3>Shop</h3><a href="/collections/collectors-gallery">Collector's Gallery</a><a href="/collections/everyday-jade">Everyday Jade</a><a href="/collections/pearl-yin-energy">The Pearl Garden</a><a href="/collections/five-elements-jewelry">Five Elements Jewelry</a><a href="/collections/sacred-beads">Sacred Beads</a><a href="/collections/one-of-a-kind">One of a Kind</a></div><div class="lfcol"><h3>About</h3><a href="/pages/about-lansattic">Our Story</a><a href="/pages/our-jade-standard">Our Jade Standard</a><a href="/blogs/journal">Journal</a><a href="/pages/customer-stories">Customer Stories</a></div><div class="lfcol"><h3>Customer Care</h3><a href="/pages/contact">Contact Us</a><a href="/pages/shipping-returns">Shipping & Returns</a><a href="/pages/materials-jewelry-care">Jewelry Care</a><a href="/pages/faq">FAQ</a><a href="{{ shop.privacy_policy.url | default: "/policies/privacy-policy" }}">Privacy Policy</a><a href="{{ shop.terms_of_service.url | default: "/policies/terms-of-service" }}">Terms of Service</a></div><div class="lfcol"><h3>Our Etsy History</h3>{% if section.settings.instagram != blank %}<a href="{{section.settings.instagram}}">Instagram</a>{% endif %}{% if section.settings.pinterest != blank %}<a href="{{section.settings.pinterest}}">Pinterest</a>{% endif %}{% if section.settings.etsy_lansattic != blank %}<a href="{{section.settings.etsy_lansattic}}">Lansattic on Etsy<small>Pearls &amp; Fine Jewelry</small></a>{% endif %}{% if section.settings.etsy_studio != blank %}<a href="{{section.settings.etsy_studio}}">StudioLibraArt on Etsy<small>Jade, Jadeite &amp; Natural Gemstones</small></a>{% endif %}</div></div><div class="lfbottom"><span>© {{ "now" | date: "%Y" }} LANSATTIC · CALIFORNIA, USA</span><span>Natural materials. Eastern wisdom. Jewelry with meaning.</span></div></div></footer>
-{% schema %}{"name":"Lansattic final footer","settings":[{"type":"url","id":"instagram","label":"Instagram"},{"type":"url","id":"pinterest","label":"Pinterest"},{"type":"url","id":"etsy_lansattic","label":"Lansattic Etsy"},{"type":"url","id":"etsy_studio","label":"StudioLibraArt Etsy"}],"presets":[{"name":"Lansattic final footer"}]}{% endschema %}
+<style>#lf-{{section.id}}{background:#f3f1ea;color:#24251f;padding:72px 0 28px}.lfw{width:min(100% - 48px,1440px);margin:auto}.lfgrid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;padding-bottom:60px}.lfbrand{font-family:var(--heading-font-family);font-size:34px;letter-spacing:.08em;margin-bottom:18px}.lfcopy{max-width:330px;font-size:13px;line-height:1.7;opacity:.75}.lfcol h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin:8px 0 20px}.lfcol a{display:block;color:inherit;text-decoration:none;font-size:13px;margin:0 0 12px}.lfbottom{border-top:1px solid #d8d2c7;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.75}@media(max-width:900px){.lfgrid{grid-template-columns:1fr 1fr}.lfgrid>div:first-child{grid-column:1/-1}.lfbottom{flex-direction:column}}@media(max-width:520px){#lf-{{section.id}}{padding-top:52px}.lfw{width:min(100% - 32px,1440px)}.lfgrid{gap:32px 20px}}.lfcol small{display:block;font-size:11px;line-height:1.5;opacity:.75;margin-top:4px}</style>
+<footer id="lf-{{ section.id }}"><div class="lfw">
+  <div class="lfgrid">
+    <div><div class="lfbrand">LANSATTIC</div><div class="lfcopy">{{ section.settings.brand_copy }}</div>
+      {% if section.settings.instagram != blank %}<p><a href="{{ section.settings.instagram | escape }}">Instagram</a></p>{% endif %}
+      {% if section.settings.pinterest != blank %}<p><a href="{{ section.settings.pinterest | escape }}">Pinterest</a></p>{% endif %}
+    </div>
+    {% for group in section.blocks %}
+      <div class="lfcol" {{ group.shopify_attributes }}><h3>{{ group.settings.heading | escape }}</h3>
+        {% if group.settings.menu != blank %}
+          {% for link in group.settings.menu.links %}
+            {% capture link_visible %}{% render 'lansattic-link-visible', url: link.url %}{% endcapture %}
+            {% if link_visible == 'true' %}<a href="{{ link.url }}">{{ link.title | escape }}</a>{% endif %}
+          {% endfor %}
+        {% else %}
+          {% assign lines = group.settings.links | newline_to_br | split: '<br />' %}
+          {% for line in lines %}
+            {% assign parts = line | strip | split: '|' %}
+            {% assign label = parts[0] | strip %}{% assign url = parts[1] | strip %}
+            {% capture link_visible %}{% render 'lansattic-link-visible', url: url %}{% endcapture %}
+            {% if label != blank and link_visible == 'true' %}<a href="{{ url | escape }}">{{ label | escape }}</a>{% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="lfbottom"><span>© {{ 'now' | date: '%Y' }} Lansattic · California, USA</span><span>{{ section.settings.tagline | escape }}</span></div>
+</div></footer>
+{% schema %}
+{
+  "name": "Lansattic footer",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "brand_copy",
+      "label": "Brand description",
+      "default": "<p>Natural jewelry, Eastern wisdom and a quieter way of choosing what becomes yours.</p>"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Footer tagline",
+      "default": "Natural materials. Eastern wisdom. Jewelry with meaning."
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "pinterest",
+      "label": "Pinterest"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_group",
+      "name": "Link group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Shopify navigation menu",
+          "info": "Choose a menu to manage these links in Shopify navigation."
+        },
+        {
+          "type": "textarea",
+          "id": "links",
+          "label": "Fallback links",
+          "info": "Used when no menu is selected. One Label|URL per line."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lansattic footer"
+    }
+  ]
+}
+{% endschema %}

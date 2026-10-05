@@ -1,3 +1,4 @@
+{%- capture collection_title -%}{%- render 'lansattic-collection-title', collection: collection -%}{%- endcapture -%}
 {%- if section.settings.show_image == false or collection.image == blank and section.settings.image == blank -%}
   {%- assign show_image = false -%}
 {%- else -%}
@@ -17,7 +18,7 @@
         </li>
 
         <li class="breadcrumb__list-item">
-          <a href="{{ collection.url }}" aria-current="page" class="smallcaps {% unless show_image %}link-faded{% endunless %}">{{ collection.title }}</a>
+          <a href="{{ collection.url }}" aria-current="page" class="smallcaps {% unless show_image %}link-faded{% endunless %}">{{ collection_title }}</a>
         </li>
       </ol>
     </nav>
@@ -26,7 +27,7 @@
 
 {%- capture collection_content -%}
   {%- if section.settings.show_collection_title -%}
-    <h1 class="h1">{{ collection.title }}</h1>
+    <h1 class="h1">{{ collection_title }}</h1>
   {%- endif -%}
 
   {%- if section.settings.show_collection_description -%}

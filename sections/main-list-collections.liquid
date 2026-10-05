@@ -101,7 +101,7 @@
                       class="collection-card__content prose prose--tight {{ section.settings.content_position }}"
                       style="{% render 'surface', text_color: section.settings.text_color %}"
                     >
-                      <p class="h3">{{ collection.title }}</p>
+                      <p class="h3">{% render 'lansattic-collection-title', collection: collection %}</p>
                     </div>
                   </div>
                 </a>

@@ -1,6 +1,6 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhsplit" id="about"><div class="lhsplitmedia">{% if section.settings.founder_image != blank %}{{section.settings.founder_image|image_url:width:1600|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}</div><div class="lhsplitbody"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p><div><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
+<section class="lhsplit" id="about"><div class="lhsplitmedia">{% if section.settings.founder_image != blank %}{{section.settings.founder_image|image_url:width:1600|image_tag:loading:'lazy'}}{% elsif section.settings.founder_asset != blank %}{% render 'lansattic-archive-photo', asset: section.settings.founder_asset, alt: section.settings.founder_alt, loading: 'lazy' %}{% endif %}</div><div class="lhsplitbody"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2><p class="lhp">{{ section.settings.copy_3 | escape | newline_to_br }}</p><div><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
 </div>
 
 {% schema %}
@@ -112,6 +112,18 @@
         }
       ],
       "default": "cover"
+    },
+    {
+      "type": "text",
+      "id": "founder_asset",
+      "label": "Included photograph",
+      "default": "lansattic-supplied-jade-heritage.jpg"
+    },
+    {
+      "type": "text",
+      "id": "founder_alt",
+      "label": "Photograph description",
+      "default": "Two generations wearing jade bangles, with their hands resting together."
     }
   ],
   "presets": [

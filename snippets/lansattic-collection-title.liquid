@@ -1,0 +1,9 @@
+{%- case collection.handle -%}
+  {%- when 'collectors-gallery' -%}Collector’s Gallery
+  {%- when 'everyday-jade' -%}Everyday Jade
+  {%- when 'pearl-yin-energy' -%}The Pearl Garden
+  {%- when 'one-of-a-kind' -%}One of a Kind
+  {%- when 'sacred-beads' -%}Sacred Beads
+  {%- when 'five-elements-jewelry' -%}Five Elements
+  {%- else -%}{{- collection.title -}}
+{%- endcase -%}

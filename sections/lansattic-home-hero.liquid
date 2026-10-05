@@ -1,6 +1,6 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhhero{% if section.settings.use_supplied_layout %} lhhero--provided{% endif %}" id="home-{{ section.id }}">{% if section.settings.hero_image != blank or section.settings.hero_image_mobile != blank %}<picture>{% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">{% endif %}{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% elsif section.settings.hero_image_mobile != blank %}{{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% endif %}</picture>{% elsif section.settings.hero_asset != blank %}<picture>{% render 'lansattic-archive-photo', asset: section.settings.hero_asset, alt: section.settings.hero_alt, loading: 'eager', sizes: '(max-width: 749px) 1200px, 100vw' %}</picture>{% endif %}<div class="lhheroc"><h1 class="lht">{{ section.settings.copy_1 | escape | newline_to_br }}</h1><p class="lhp">{{ section.settings.copy_2 | escape | newline_to_br }}</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a><a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a></div></div></section>
+<section class="lhhero{% if section.settings.use_supplied_layout %} lhhero--provided{% endif %}" id="home-{{ section.id }}">{% if section.settings.hero_image != blank or section.settings.hero_image_mobile != blank %}<picture>{% if section.settings.hero_image_mobile != blank %}<source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 1000 }}">{% endif %}{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% elsif section.settings.hero_image_mobile != blank %}{{ section.settings.hero_image_mobile | image_url: width: 1000 | image_tag: loading: 'eager', class: 'lhheroimg' }}{% endif %}</picture>{% elsif section.settings.hero_asset != blank %}<picture>{% render 'lansattic-archive-photo', asset: section.settings.hero_asset, alt: section.settings.hero_alt, loading: 'eager', sizes: '(max-width: 749px) 1200px, 100vw' %}</picture>{% endif %}<div class="lhheroc"><h1 class="lht">{{ section.settings.copy_1 | escape | newline_to_br }}</h1><p class="lhp">{{ section.settings.copy_2 | escape | newline_to_br }}</p><div class="lhactions"><a class="lhbtn" href="{{section.settings.shop_link}}">{{ section.settings.shop_cta_label | default: 'Shop the collection' }}</a>{% if section.settings.show_story_link %}<a class="lhbtn" href="{{ section.settings.about_link | default: '/pages/about-lansattic' }}">{{ section.settings.about_cta_label | default: 'Discover our story' }}</a>{% endif %}</div></div></section>
 </div>
 
 {% schema %}
@@ -178,6 +178,12 @@
       "id": "use_supplied_layout",
       "label": "Quiet editorial layout",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_story_link",
+      "label": "Show story button",
+      "default": true
     }
   ],
   "presets": [

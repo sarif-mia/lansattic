@@ -33,7 +33,7 @@
 @media(max-width:749px) { #etsy-{{ section.id }} { padding:44px 20px; } #etsy-{{ section.id }} .eth-reviews, #etsy-{{ section.id }} .eth-shops { grid-template-columns:1fr; gap:20px; } }
 {% endstyle %}
 <section id="etsy-{{ section.id }}" aria-labelledby="etsy-title-{{ section.id }}"><div class="eth-wrap">
- <header class="eth-head"><p class="eth-kicker">Our Etsy History</p><h2 id="etsy-title-{{ section.id }}">{{ section.settings.heading | escape }}</h2><p>{{ section.settings.intro | escape }}</p><p class="eth-stats">{{ section.settings.stats | escape }}<small class="eth-date">{{ section.settings.stats_note | escape }}</small></p></header>
+ <header class="eth-head"><p class="eth-kicker">Customer Stories</p><h2 id="etsy-title-{{ section.id }}">{{ section.settings.heading | escape }}</h2><p>{{ section.settings.intro | escape }}</p></header>
  <lansattic-review-carousel role="region" aria-roledescription="carousel" aria-label="Customer reviews">
  <div class="eth-reviews" tabindex="0" aria-label="Swipe to browse reviews">{% for block in section.blocks %}<article class="eth-review" {{ block.shopify_attributes }}><span aria-label="5 out of 5 stars">★★★★★</span><blockquote>“{{ block.settings.quote | escape }}”</blockquote>{% capture review_credit %}{{ block.settings.customer | escape }} · Verified Etsy Customer{% if block.settings.shop != 'unspecified' %} · {{ block.settings.shop | escape }}{% endif %}{% endcapture %}{% if block.settings.source != blank %}<a href="{{ block.settings.source }}">{{ review_credit }}</a>{% else %}<span class="eth-credit">{{ review_credit }}</span>{% endif %}</article>{% endfor %}</div>
  {% if section.blocks.size > 1 %}<div class="eth-carousel-controls">
@@ -41,7 +41,7 @@
  </div>{% endif %}
  </lansattic-review-carousel>
  <script src="{{ 'lansattic-review-carousel.js' | asset_url }}" defer></script>
- <div class="eth-shops"><div><a href="{{ section.settings.lansattic_link }}">Shop Lansattic on Etsy</a><p>Pearls &amp; Fine Jewelry</p></div><div><a href="{{ section.settings.studio_link }}">Visit StudioLibraArt on Etsy</a><p>Jade, Jadeite &amp; Natural Gemstones</p></div></div>
+
  {% if section.settings.reviews_link != blank or section.settings.show_stories_link %}<div class="eth-cta">
  {% if section.settings.reviews_link != blank %}<a href="{{ section.settings.reviews_link }}">Read more reviews on Etsy</a>{% endif %}
  {% if section.settings.show_stories_link %}<a href="/pages/customer-stories">Read customer stories</a>{% endif %}
@@ -62,35 +62,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Two Shops, One Evolving Story"
+      "default": "Worn, Loved, Remembered"
     },
     {
       "type": "textarea",
       "id": "intro",
       "label": "Introduction",
-      "default": "Our Etsy shops are part of our history. Lansattic.com is the complete home of our collections, materials and stories."
-    },
-    {
-      "type": "textarea",
-      "id": "stats",
-      "label": "Trust statement",
-      "default": "9+ Years on Etsy \u00b7 10,300+ Combined Sales Across Our Etsy Shops \u00b7 4.9\u2605 in Each Shop"
-    },
-    {
-      "type": "text",
-      "id": "stats_note",
-      "label": "Statistics context",
-      "default": "Lansattic: 9,802 sales \u00b7 StudioLibraArt: 521 sales. Checked September 30, 2026."
-    },
-    {
-      "type": "url",
-      "id": "lansattic_link",
-      "label": "Lansattic shop"
-    },
-    {
-      "type": "url",
-      "id": "studio_link",
-      "label": "StudioLibraArt shop"
+      "default": "Jewelry becomes part of the lives of the people who wear it."
     },
     {
       "type": "checkbox",

@@ -128,9 +128,9 @@
         "two_shops": {
           "type": "chapter",
           "settings": {
-            "heading": "Two Shops, One Evolving Story",
+            "heading": "The Lansattic Story",
             "subheading": "",
-            "text": "<p>In 2015, my journey became Lansattic in the United States. A small online shop gradually grew into jewelry worn by customers around the world.</p><p>Our online story developed through two distinct Etsy shops: <strong>Lansattic</strong>, primarily for pearls and fine jewelry, and <strong>StudioLibraArt</strong>, for jade, jadeite and natural gemstones.</p><p>Today, Lansattic.com brings these paths together as the complete home of the brand, with collections shaped by material, individuality and meaning.</p>",
+            "text": "<p>In 2015, my journey became Lansattic in the United States. A small online shop gradually grew into jewelry worn by customers around the world.</p><p>Today, Lansattic brings together jade, jadeite, pearls and natural gemstones, with collections shaped by material, individuality and meaning.</p>",
             "image_side": "left",
             "mobile_image_order": "after_text",
             "image_ratio": "reference",
@@ -394,8 +394,8 @@
         "b1": {
           "type": "story",
           "settings": {
-            "heading": "Our Etsy Community",
-            "text": "<p>Our story has grown through two distinct Etsy shops. Lansattic is home to pearls and fine jewelry; StudioLibraArt focuses on jade, jadeite and natural gemstones.</p><p>The selected reviews below are attributed to the shop where each customer purchased their piece. Together, they are part of the history behind Lansattic.com.</p>",
+            "heading": "The Lansattic Community",
+            "text": "<p>Jewelry becomes part of the lives of the people who wear it. Discover customer experiences with Lansattic and the pieces they chose to keep close.</p>",
             "show_image": false
           }
         }
@@ -512,8 +512,8 @@
       "type": "lansattic-etsy-history",
       "settings": {
         "page_handle": "about-lansattic",
-        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
-        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+        "intro": "Jewelry becomes part of the lives of the people who wear it.",
+        "reviews_link": ""
       },
       "blocks": {
         "mary": {
@@ -523,15 +523,6 @@
             "customer": "Mary",
             "shop": "Lansattic",
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
-          }
-        },
-        "elizabeth": {
-          "type": "review",
-          "settings": {
-            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
-            "customer": "Elizabeth",
-            "shop": "StudioLibraArt",
-            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
           }
         },
         "lia": {
@@ -546,7 +537,6 @@
       },
       "block_order": [
         "mary",
-        "elizabeth",
         "lia"
       ]
     },
@@ -555,8 +545,8 @@
       "settings": {
         "page_handle": "customer-stories",
         "show_stories_link": false,
-        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
-        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+        "intro": "Jewelry becomes part of the lives of the people who wear it.",
+        "reviews_link": ""
       },
       "blocks": {
         "mary": {
@@ -566,15 +556,6 @@
             "customer": "Mary",
             "shop": "Lansattic",
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
-          }
-        },
-        "elizabeth": {
-          "type": "review",
-          "settings": {
-            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
-            "customer": "Elizabeth",
-            "shop": "StudioLibraArt",
-            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
           }
         },
         "lia": {
@@ -589,7 +570,6 @@
       },
       "block_order": [
         "mary",
-        "elizabeth",
         "lia"
       ]
     },

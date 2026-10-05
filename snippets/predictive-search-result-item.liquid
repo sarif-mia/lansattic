@@ -1,3 +1,4 @@
+{%- capture collection_title -%}{%- render 'lansattic-collection-title', collection: collection -%}{%- endcapture -%}
 {%- doc -%}
   Renders a single result for the predictive search. This is abstracted as a snippet as this is rendered for both native predictive search and for the fallback search in Liquid, for languages that do not support predictive search.
 
@@ -33,7 +34,7 @@
         {{- collection.image | image_url: width: collection.image.width | image_tag: sizes: '(max-width: 699px) 160px, 500px', widths: '200,300,400,500,600,800,1000,1200,1400' -}}
       {%- endif -%}
 
-      <span class="h6 sm:h5">{{ collection.title }}</span>
+      <span class="h6 sm:h5">{{ collection_title }}</span>
     </a>
 
   {%- when 'page' -%}

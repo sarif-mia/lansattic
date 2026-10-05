@@ -17,7 +17,7 @@
           "type": "mega_column",
           "settings": {
             "heading": "Collections",
-            "links": "Collector's Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements Jewelry|/collections/five-elements-jewelry\nSacred Beads|/collections/sacred-beads\nOne of a Kind|/collections/one-of-a-kind"
+            "links": "Collector’s Gallery|/collections/collectors-gallery\nEveryday Jade|/collections/everyday-jade\nThe Pearl Garden|/collections/pearl-yin-energy\nFive Elements|/collections/five-elements-jewelry\nSacred Beads|/collections/sacred-beads\nOne of a Kind|/collections/one-of-a-kind"
           }
         },
         "mega_materials": {
@@ -46,22 +46,22 @@
         "menu_collectors": {
           "type": "menu_link",
           "settings": {
-            "label": "Collector's Gallery",
+            "label": "Collector’s Gallery",
             "link": "/collections/collectors-gallery"
           }
         },
         "menu_elements": {
           "type": "menu_link",
           "settings": {
-            "label": "Five Elements Jewelry",
-            "link": "/#five-elements"
+            "label": "Five Elements",
+            "link": "/collections/five-elements-jewelry"
           }
         },
         "menu_journal": {
           "type": "menu_link",
           "settings": {
             "label": "Journal",
-            "link": "/#journal"
+            "link": "/blogs/journal"
           }
         },
         "menu_about": {
@@ -82,7 +82,7 @@
         "announcement_2": {
           "type": "announcement",
           "settings": {
-            "text": "Natural Materials · Jewelry with Meaning",
+            "text": "Natural Materials \u00b7 Jewelry with Meaning",
             "link": "shopify://collections/all",
             "icon": "leaf"
           }

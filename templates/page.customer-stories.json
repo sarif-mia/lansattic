@@ -12,8 +12,8 @@
         "b1": {
           "type": "story",
           "settings": {
-            "heading": "Our Etsy Community",
-            "text": "<p>Our story has grown through two distinct Etsy shops. Lansattic is home to pearls and fine jewelry; StudioLibraArt focuses on jade, jadeite and natural gemstones.</p><p>The selected reviews below are attributed to the shop where each customer purchased their piece. Together, they are part of the history behind Lansattic.com.</p>",
+            "heading": "The Lansattic Community",
+            "text": "<p>Jewelry becomes part of the lives of the people who wear it. Discover customer experiences with Lansattic and the pieces they chose to keep close.</p>",
             "show_image": false
           }
         }
@@ -26,8 +26,8 @@
       "type": "lansattic-etsy-history",
       "settings": {
         "show_stories_link": false,
-        "lansattic_link": "https://www.etsy.com/shop/Lansattic",
-        "studio_link": "https://www.etsy.com/shop/StudiolibraArt"
+        "intro": "Jewelry becomes part of the lives of the people who wear it.",
+        "reviews_link": ""
       },
       "blocks": {
         "mary": {
@@ -37,15 +37,6 @@
             "customer": "Mary",
             "shop": "Lansattic",
             "source": "https://www.etsy.com/shop/Lansattic#reviews"
-          }
-        },
-        "elizabeth": {
-          "type": "review",
-          "settings": {
-            "quote": "Excellent seller and beautiful ring! The seller was really helpful and kind.",
-            "customer": "Elizabeth",
-            "shop": "StudioLibraArt",
-            "source": "https://www.etsy.com/shop/StudiolibraArt#reviews"
           }
         },
         "lia": {
@@ -60,7 +51,6 @@
       },
       "block_order": [
         "mary",
-        "elizabeth",
         "lia"
       ]
     }

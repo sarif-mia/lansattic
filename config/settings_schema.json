@@ -855,5 +855,33 @@
         "info": "t:theme_settings.favicon.image_info"
       }
     ]
+  },
+  {
+    "name": "Social sharing",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "sharing_image",
+        "label": "Default social sharing image",
+        "info": "Used when a page does not have its own sharing image."
+      }
+    ]
+  },
+  {
+    "name": "Homepage SEO",
+    "settings": [
+      {
+        "type": "text",
+        "id": "home_seo_title",
+        "label": "Homepage SEO title",
+        "default": "Lansattic | Jade, Pearls & Jewelry with Meaning"
+      },
+      {
+        "type": "textarea",
+        "id": "home_seo_description",
+        "label": "Homepage meta description",
+        "default": "Discover natural jade, jadeite, pearls and gemstone jewelry from Lansattic. Rooted in nature and inspired by Eastern wisdom. Jewelry with meaning."
+      }
+    ]
   }
 ]

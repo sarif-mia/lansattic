@@ -1,3 +1,4 @@
+{%- capture lansattic_description -%}{%- render 'lansattic-brand-copy', content: product.description -%}{%- endcapture -%}
 {%- doc -%}
   This snippet renders all the blocks of a given product. It uses the blocks of the section currently in use (there is no need to manually pass the section as it is globally available).
 
@@ -77,10 +78,10 @@
         elsif block.type == 'accordion' and next_block.type == 'accordion' and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
-        elsif block.type == 'accordion' and next_block.type == 'description' and product.description != blank and next_block.settings.collapse_content and next_block.settings.show_below_gallery != true
+        elsif block.type == 'accordion' and next_block.type == 'description' and lansattic_description != blank and next_block.settings.collapse_content and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
-        elsif block.type == 'description' and product.description != blank and block.settings.collapse_content and next_block.type == 'accordion' and next_block.settings.show_below_gallery != true
+        elsif block.type == 'description' and lansattic_description != blank and block.settings.collapse_content and next_block.type == 'accordion' and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
         elsif block.type == 'disclosures' and block.settings.collapse_content and has_product_page_disclosures and block.settings.show_below_gallery != true and next_block.type == 'accordion' and next_block.settings.show_below_gallery != true
@@ -89,10 +90,10 @@
         elsif block.type == 'accordion' and block.settings.show_below_gallery != true and next_block.type == 'disclosures' and next_block.settings.collapse_content and has_product_page_disclosures and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
-        elsif block.type == 'description' and product.description != blank and block.settings.collapse_content and block.settings.show_below_gallery != true and next_block.type == 'disclosures' and next_block.settings.collapse_content and has_product_page_disclosures and next_block.settings.show_below_gallery != true
+        elsif block.type == 'description' and lansattic_description != blank and block.settings.collapse_content and block.settings.show_below_gallery != true and next_block.type == 'disclosures' and next_block.settings.collapse_content and has_product_page_disclosures and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
-        elsif block.type == 'disclosures' and block.settings.collapse_content and has_product_page_disclosures and block.settings.show_below_gallery != true and next_block.type == 'description' and product.description != blank and next_block.settings.collapse_content and next_block.settings.show_below_gallery != true
+        elsif block.type == 'disclosures' and block.settings.collapse_content and has_product_page_disclosures and block.settings.show_below_gallery != true and next_block.type == 'description' and lansattic_description != blank and next_block.settings.collapse_content and next_block.settings.show_below_gallery != true
           assign block_group_class = 'accordion-group'
           assign block_group_name = 'accordion-group'
         elsif block.type == 'feature_with_icon' and next_block.type == 'feature_with_icon'
@@ -204,7 +205,7 @@
             {%- if product == blank -%}
               {%- assign product_description = 'general.on_boarding.product_description' | t -%}
             {%- else -%}
-              {%- assign product_description = product.description -%}
+              {%- assign product_description = lansattic_description -%}
             {%- endif -%}
 
             {%- if product_description != blank -%}
@@ -564,7 +565,7 @@
 
               <div class="share-buttons">
                 <span class="smallcaps text-xxs text-subdued">{{- 'general.social.share' | t -}}</span>
-                {%- render 'share-buttons', url: product.url, title: product.title, description: product.description, layout: 'list' -%}
+                {%- render 'share-buttons', url: product.url, title: product.title, description: lansattic_description, layout: 'list' -%}
               </div>
             </share-button>
 
