@@ -71,8 +71,8 @@
 .lansattic-home-section .lhhero--provided .lhactions{justify-content:flex-start}
 .lansattic-home-section .lhhero--provided .lhbtn:first-child{background:#315c4d!important;border-color:#315c4d!important;color:#fff!important}
 @media(max-width:749px){
- .lansattic-home-section .lhhero--provided{display:grid;align-items:start;min-height:var(--hero-height-mobile,640px)}
- .lansattic-home-section .lhhero--provided:after{display:block;background:linear-gradient(180deg,rgba(247,245,239,.96),rgba(247,245,239,.88) 36%,rgba(247,245,239,.28) 64%,transparent 82%)}
+ .lansattic-home-section .lhhero--provided{display:grid;align-items:end;min-height:var(--hero-height-mobile,640px)}
+ .lansattic-home-section .lhhero--provided:after{display:block;background:linear-gradient(0deg,rgba(247,245,239,.96),rgba(247,245,239,.88) 36%,rgba(247,245,239,.28) 64%,transparent 82%)}
  .lansattic-home-section .lhhero--provided .lhheroc{margin:0;padding:36px 24px 40px;width:100%;max-width:440px}
  .lansattic-home-section .lhhero--provided .lht{font-size:clamp(40px,11.5vw,46px);max-width:340px}
  .lansattic-home-section .lhhero--provided .lhp{font-size:15px;margin:18px 0 24px}
