@@ -1,4 +1,4 @@
-<style>#lf-{{section.id}}{background:#f3f1ea;color:#24251f;padding:72px 0 28px}.lfw{width:min(100% - 48px,1440px);margin:auto}.lfgrid{display:grid;grid-template-columns:1.5fr repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:32px;padding-bottom:60px}.lfbrand{font-family:var(--heading-font-family);font-size:34px;letter-spacing:.08em;margin-bottom:18px}.lfcopy{max-width:330px;font-size:13px;line-height:1.7;opacity:.75}.lfcol h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin:8px 0 20px}.lfcol a{display:block;color:inherit;text-decoration:none;font-size:13px;margin:0 0 12px}.lfbottom{border-top:1px solid #d8d2c7;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.75}@media(max-width:900px){.lfgrid{grid-template-columns:1fr 1fr}.lfgrid>div:first-child{grid-column:1/-1}.lfbottom{flex-direction:column}}@media(max-width:520px){#lf-{{section.id}}{padding-top:52px}.lfw{width:min(100% - 32px,1440px)}.lfgrid{gap:32px 20px}}.lfcol small{display:block;font-size:11px;line-height:1.5;opacity:.75;margin-top:4px}</style>
+<style>#lf-{{section.id}}{background:#f3f1ea;color:#24251f;padding:var(--lansattic-section-space) 0 28px}.lfw{width:min(100% - 48px,1440px);margin:auto}.lfgrid{display:grid;grid-template-columns:1.5fr repeat({{ section.blocks.size | at_least: 1 }},minmax(0,1fr));gap:32px;padding-bottom:var(--lansattic-section-space)}.lfbrand{font-family:var(--heading-font-family);font-size:34px;letter-spacing:.08em;margin-bottom:18px}.lfcopy{max-width:330px;font-size:13px;line-height:1.7;opacity:.75}.lfcol h3{font-size:11px;text-transform:uppercase;letter-spacing:.16em;margin:8px 0 20px}.lfcol a{display:block;color:inherit;text-decoration:none;font-size:13px;margin:0 0 12px}.lfbottom{border-top:1px solid #d8d2c7;padding-top:24px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.75}@media(max-width:900px){.lfgrid{grid-template-columns:1fr 1fr}.lfgrid>div:first-child{grid-column:1/-1}.lfbottom{flex-direction:column}}@media(max-width:520px){#lf-{{section.id}}{padding-top:var(--lansattic-section-space)}.lfw{width:min(100% - 32px,1440px)}.lfgrid{gap:32px 20px}}.lfcol small{display:block;font-size:11px;line-height:1.5;opacity:.75;margin-top:4px}</style>
 <style>
   #lf-{{ section.id }} .lf-social { display: flex; gap: 12px; margin-top: 24px; }
   #lf-{{ section.id }} .lf-social__link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #c9d1c6; border-radius: 50%; background: #e9ece3; color: #315c4d; text-decoration: none; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
@@ -38,7 +38,7 @@
             {% assign parts = line | strip | split: '|' %}
             {% assign label = parts[0] | strip %}{% assign url = parts[1] | strip %}
             {% capture link_visible %}{% render 'lansattic-link-visible', url: url %}{% endcapture %}
-            {% if label != blank and link_visible == 'true' %}<a href="{{ url | escape }}">{{ label | escape }}</a>{% endif %}
+            {% if label != blank and link_visible == 'true' %}<a href="{{ url | escape }}">{{ label | escape }}{% if parts[2] != blank %}<small>{{ parts[2] | strip | escape }}</small>{% endif %}</a>{% endif %}
           {% endfor %}
         {% endif %}
       </div>
@@ -93,7 +93,7 @@
           "type": "textarea",
           "id": "links",
           "label": "Fallback links",
-          "info": "Used when no menu is selected. One Label|URL per line."
+          "info": "Used when no menu is selected. One Label|URL|Optional description per line."
         }
       ]
     }

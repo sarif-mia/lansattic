@@ -43,7 +43,7 @@
                             {% assign link_parts = clean_line | split: '|' %}
                             {% assign item_label = link_parts[0] | strip %}
                             {% assign item_url = link_parts[1] | strip %}
-                            {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                            {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% assign intention_names = 'Calm|Grounding|Balance|Clarity|Vitality|Connection' | split: '|' %}{% if intention_names contains item_label and link_visible != 'true' %}{% assign item_url = '/collections/five-elements-jewelry' %}{% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if link_visible != 'true' %}{% assign item_url = routes.all_products_collection_url %}{% assign link_visible = 'true' %}{% endif %}{% endif %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
                           {% endfor %}
                         </div>
                       {% endfor %}
@@ -173,7 +173,7 @@
                     {% assign link_parts = clean_line | split: '|' %}
                     {% assign item_label = link_parts[0] | strip %}
                     {% assign item_url = link_parts[1] | strip %}
-                    {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
+                    {% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% assign intention_names = 'Calm|Grounding|Balance|Clarity|Vitality|Connection' | split: '|' %}{% if intention_names contains item_label and link_visible != 'true' %}{% assign item_url = '/collections/five-elements-jewelry' %}{% capture link_visible %}{% render 'lansattic-link-visible', url: item_url %}{% endcapture %}{% if link_visible != 'true' %}{% assign item_url = routes.all_products_collection_url %}{% assign link_visible = 'true' %}{% endif %}{% endif %}{% if item_label != blank and item_url != blank and link_visible == 'true' %}<a href="{{ item_url | default: routes.all_products_collection_url }}">{{ item_label | escape }}</a>{% endif %}
                   {% endfor %}
                 {% endfor %}
               </div>
@@ -673,7 +673,7 @@
           "type": "mega_column",
           "settings": {
             "heading": "Intentions",
-            "links": "Calm|/collections/five-elements-jewelry\nGrounding|/collections/five-elements-jewelry\nBalance|/collections/five-elements-jewelry\nClarity|/collections/five-elements-jewelry\nVitality|/collections/five-elements-jewelry\nConnection|/collections/five-elements-jewelry"
+            "links": "Calm|/collections/calm\nGrounding|/collections/grounding\nBalance|/collections/balance\nClarity|/collections/clarity\nVitality|/collections/vitality\nConnection|/collections/connection"
           }
         }
       ]

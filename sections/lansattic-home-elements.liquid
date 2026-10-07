@@ -1,6 +1,6 @@
 {% render 'lansattic-home-styles', section: section %}
 <div id="lh-{{section.id}}" class="lansattic-home-section">
-<section class="lhs lhelements" id="five-elements"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2></header><div class="lhegrid">{% for i in (1..5) %}{% assign ik='element_image_'|append:i %}{% assign element_handles = 'wood|fire|earth|metal|water' | split: '|' %}{% assign element_index = i | minus: 1 %}<a class="lhe" href="{{ section.settings.elements_link }}#element-{{ element_handles[element_index] }}">{% if section.settings.use_document_images %}{% render 'lansattic-element-reference', index: i %}{% elsif section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:800|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhet"><h3>{% assign editable_et = 'et_' | append: forloop.index %}{{ section.settings[editable_et] | escape }}</h3><small>{% assign editable_eq = 'eq_' | append: forloop.index %}{{ section.settings[editable_eq] | escape }}</small></div></a>{% endfor %}</div><div class="lhcta"><a class="lhbtn" href="{{section.settings.elements_link}}">{{ section.settings.elements_cta_label | default: 'Explore Five Elements' }}</a></div></div></section>
+<section class="lhs lhelements" id="five-elements"><div class="lhw"><header class="lhhead"><p class="lhk">{{ section.settings.copy_1 | escape | newline_to_br }}</p><h2 class="lht">{{ section.settings.copy_2 | escape | newline_to_br }}</h2></header><div class="lhegrid">{% for i in (1..5) %}{% assign ik='element_image_'|append:i %}{% assign link_key = 'element_link_' | append: i %}{% assign destination = section.settings[link_key] %}{% if destination == blank %}{% assign element_handles = 'wood|fire|earth|metal|water' | split: '|' %}{% assign destination = '/collections/' | append: element_handles[forloop.index0] %}{% endif %}<a class="lhe" href="{{ destination | escape }}">{% if section.settings.use_document_images %}{% render 'lansattic-element-reference', index: i %}{% elsif section.settings[ik] != blank %}{{section.settings[ik]|image_url:width:800|image_tag:loading:'lazy'}}{% else %}{{'image'|placeholder_svg_tag}}{% endif %}<div class="lhet"><h3>{% assign editable_et = 'et_' | append: forloop.index %}{{ section.settings[editable_et] | escape }}</h3><small>{% assign editable_eq = 'eq_' | append: forloop.index %}{{ section.settings[editable_eq] | escape }}</small></div></a>{% endfor %}</div><div class="lhcta"><a class="lhbtn" href="{{section.settings.elements_link}}">{{ section.settings.elements_cta_label | default: 'Explore Five Elements' }}</a></div></div></section>
 </div>
 
 {% schema %}
@@ -192,6 +192,31 @@
         }
       ],
       "default": "cover"
+    },
+    {
+      "type": "url",
+      "id": "element_link_1",
+      "label": "Wood collection link"
+    },
+    {
+      "type": "url",
+      "id": "element_link_2",
+      "label": "Fire collection link"
+    },
+    {
+      "type": "url",
+      "id": "element_link_3",
+      "label": "Earth collection link"
+    },
+    {
+      "type": "url",
+      "id": "element_link_4",
+      "label": "Metal collection link"
+    },
+    {
+      "type": "url",
+      "id": "element_link_5",
+      "label": "Water collection link"
     }
   ],
   "presets": [

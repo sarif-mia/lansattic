@@ -34,3 +34,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 /* Fixed card frames keep mixed source photographs aligned, including hover images. */
 .product-card__media:not(.aspect-natural) { position:relative; overflow:hidden; }
 .product-card__media:not(.aspect-natural) .product-card__image { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
+
+/* Shared section rhythm for native and custom theme sections. */
+:root {
+  --lansattic-section-space: 64px;
+  --lansattic-heading-gap: 32px;
+  --section-vertical-spacing: var(--lansattic-section-space);
+  --section-vertical-spacing-tight: var(--lansattic-section-space);
+  --section-stack-gap: var(--lansattic-heading-gap);
+  --section-stack-gap-tight: var(--lansattic-heading-gap);
+}
+@media (max-width: 749px) {
+  :root {
+    --lansattic-section-space: 32px;
+    --lansattic-heading-gap: 24px;
+  }
+}

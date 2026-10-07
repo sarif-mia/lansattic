@@ -1,32 +1,16 @@
 {% for block in section.blocks %}
 {% if collection.handle == block.settings.collection_handle %}
 {% style %}
-#lcs-{{ section.id }}{background:#f7f5ef;color:#24251f;padding:0 24px 56px}
-#lcs-{{ section.id }} .lcs-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:64px}
+#lcs-{{ section.id }}{background:#f7f5ef;color:#24251f;padding:0 24px var(--lansattic-section-space)}
+#lcs-{{ section.id }} .lcs-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:var(--lansattic-section-space)}
 #lcs-{{ section.id }} .lcs-image img{width:100%;height:auto;display:block;max-height:500px;object-fit:contain}
 #lcs-{{ section.id }} h2{font-family:var(--heading-font-family);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.2;margin-bottom:24px}
 #lcs-{{ section.id }} .lcs-copy{font-size:16px;line-height:1.75}
 #lcs-{{ section.id }} .lcs-copy p+p{margin-top:18px}
-#lcs-{{ section.id }} .lcs-elements{max-width:1120px;margin:40px auto 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
-#lcs-{{ section.id }} .lcs-element{border-top:1px solid #d8d2c7;padding-top:20px;scroll-margin-top:140px}
-#lcs-{{ section.id }} .lcs-element h3{font-family:var(--heading-font-family);font-size:24px;font-weight:400;margin-bottom:12px}
-#lcs-{{ section.id }} .lcs-element p{font-size:14px;line-height:1.7}
-@media(max-width:749px){#lcs-{{ section.id }} .lcs-elements{grid-template-columns:1fr;gap:24px}}
-@media(max-width:749px){#lcs-{{ section.id }}{padding:0 20px 40px}#lcs-{{ section.id }} .lcs-inner{grid-template-columns:1fr;gap:28px}#lcs-{{ section.id }} .lcs-image{order:2}}
+@media(max-width:749px){#lcs-{{ section.id }}{padding:0 20px var(--lansattic-section-space)}#lcs-{{ section.id }} .lcs-inner{grid-template-columns:1fr;gap:var(--lansattic-heading-gap)}#lcs-{{ section.id }} .lcs-image{order:2}}
 {% endstyle %}
 <section id="lcs-{{ section.id }}" {{ block.shopify_attributes }}><div class="lcs-inner"><div class="lcs-image">{% render 'lansattic-archive-photo', image:block.settings.image, asset:block.settings.image_asset, alt:block.settings.image_alt, loading:'lazy' %}</div><div class="lcs-copy"><h2>{{ block.settings.heading | escape }}</h2>{{ block.settings.text }}</div></div>
-{% if collection.handle == 'five-elements-jewelry' %}
-  {% assign element_names = 'Wood|Fire|Earth|Metal|Water' | split: '|' %}
-  {% assign element_meanings = 'Growth|Vitality|Grounding|Clarity|Stillness' | split: '|' %}
-  <div class="lcs-elements">
-    {% for element in element_names %}
-      <article class="lcs-element" id="element-{{ element | handleize }}">
-        <h3>{{ element }} · {{ element_meanings[forloop.index0] }}</h3>
-        <p>Explore {{ element }} through color, material and symbolism.</p>
-      </article>
-    {% endfor %}
-  </div>
-{% endif %}
+
 </section>
 {% endif %}
 {% endfor %}

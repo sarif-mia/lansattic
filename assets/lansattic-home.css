@@ -79,3 +79,19 @@
  .lansattic-home-section .lhhero--provided picture{position:absolute;inset:0;display:block;width:100%;height:100%}
  .lansattic-home-section .lhhero--provided picture img{display:block;width:100%;height:100%;object-fit:cover}
 }
+
+/* Balanced collection cards on desktop. */
+@media(min-width:990px){.lansattic-home-section .lhcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Use the shared rhythm for every homepage section. */
+.lansattic-home-section .lhs,
+.lansattic-home-section .lhsplitbody,
+.lansattic-home-section .lhoneb,
+.lansattic-home-section .lhnews{padding-block:var(--lansattic-section-space)}
+.lansattic-home-section .lhhead,
+.lansattic-home-section #shop .lhhead,
+.lansattic-home-section .lhworld .lhhead,
+.lansattic-home-section .lhreviews .lhhead,
+.lansattic-home-section .lhintent-section .lhhead{margin-bottom:var(--lansattic-heading-gap)}
+.lansattic-home-section .lhcta,
+.lansattic-home-section .lhreviews .lhcta{margin-top:var(--lansattic-heading-gap)}

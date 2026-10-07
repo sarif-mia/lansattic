@@ -1,8 +1,8 @@
 {% if section.settings.page_handle == blank or page.handle == section.settings.page_handle %}
 {% style %}
-#etsy-{{ section.id }} { background:#f3f1ea; color:#24251f; padding:64px 24px; }
+#etsy-{{ section.id }} { background:#f3f1ea; color:#24251f; padding:var(--lansattic-section-space) 24px; }
 #etsy-{{ section.id }} .eth-wrap { max-width:1180px; margin:auto; }
-#etsy-{{ section.id }} .eth-head { text-align:center; max-width:780px; margin:0 auto 36px; }
+#etsy-{{ section.id }} .eth-head { text-align:center; max-width:780px; margin:0 auto var(--lansattic-heading-gap); }
 #etsy-{{ section.id }} .eth-kicker { font-size:11px; letter-spacing:.15em; text-transform:uppercase; margin-bottom:16px; }
 #etsy-{{ section.id }} h2 { font-family:var(--heading-font-family); font-size:clamp(30px,3vw,42px); font-weight:400; margin:0 0 20px; }
 #etsy-{{ section.id }} .eth-head p { line-height:1.7; }
@@ -13,10 +13,10 @@
 #etsy-{{ section.id }} blockquote { font-family:var(--heading-font-family); font-size:22px; line-height:1.5; margin:16px 0; }
 #etsy-{{ section.id }} .eth-review a, #etsy-{{ section.id }} .eth-credit { font-size:12px; line-height:1.7; text-decoration:underline; text-underline-offset:3px; }
 #etsy-{{ section.id }} .eth-credit { text-decoration:none; display:block; }
-#etsy-{{ section.id }} .eth-shops { display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:850px; margin:40px auto 0; text-align:center; }
+#etsy-{{ section.id }} .eth-shops { display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:850px; margin:var(--lansattic-heading-gap) auto 0; text-align:center; }
 #etsy-{{ section.id }} .eth-shops a { display:inline-block; padding:12px 0; border-bottom:1px solid; font-size:12px; letter-spacing:.05em; text-transform:uppercase; }
 #etsy-{{ section.id }} .eth-shops p { font-size:13px; line-height:1.6; margin-top:12px; }
-#etsy-{{ section.id }} .eth-cta { display:flex; justify-content:center; flex-wrap:wrap; gap:12px 28px; text-align:center; margin-top:36px; }
+#etsy-{{ section.id }} .eth-cta { display:flex; justify-content:center; flex-wrap:wrap; gap:12px 28px; text-align:center; margin-top:var(--lansattic-heading-gap); }
 #etsy-{{ section.id }} .eth-cta a { display:inline-flex; min-height:44px; align-items:center; border-bottom:1px solid; font-size:12px; }
 #etsy-{{ section.id }} lansattic-review-carousel { display:block; min-width:0; }
 #etsy-{{ section.id }} .eth-carousel-controls { display:none; }
@@ -30,7 +30,7 @@
  #etsy-{{ section.id }} .eth-dot::before { content:""; width:7px; height:7px; border:1px solid #315c4d; border-radius:50%; }
  #etsy-{{ section.id }} .eth-dot[aria-current="true"]::before { background:#315c4d; }
 }
-@media(max-width:749px) { #etsy-{{ section.id }} { padding:44px 20px; } #etsy-{{ section.id }} .eth-reviews, #etsy-{{ section.id }} .eth-shops { grid-template-columns:1fr; gap:20px; } }
+@media(max-width:749px) { #etsy-{{ section.id }} { padding:var(--lansattic-section-space) 20px; } #etsy-{{ section.id }} .eth-reviews, #etsy-{{ section.id }} .eth-shops { grid-template-columns:1fr; gap:20px; } }
 {% endstyle %}
 <section id="etsy-{{ section.id }}" aria-labelledby="etsy-title-{{ section.id }}"><div class="eth-wrap">
  <header class="eth-head"><p class="eth-kicker">Customer Stories</p><h2 id="etsy-title-{{ section.id }}">{{ section.settings.heading | escape }}</h2><p>{{ section.settings.intro | escape }}</p></header>

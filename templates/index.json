@@ -96,12 +96,12 @@
         "ints_4": "Clarity",
         "ints_5": "Vitality",
         "ints_6": "Connection",
-        "intention_link_1": "",
-        "intention_link_2": "",
-        "intention_link_3": "",
-        "intention_link_4": "",
-        "intention_link_5": "",
-        "intention_link_6": "",
+        "intention_link_1": "/collections/calm",
+        "intention_link_2": "/collections/grounding",
+        "intention_link_3": "/collections/balance",
+        "intention_link_4": "/collections/clarity",
+        "intention_link_5": "/collections/vitality",
+        "intention_link_6": "/collections/connection",
         "elements_link": "shopify://collections/five-elements-jewelry"
       }
     },
@@ -127,7 +127,12 @@
         "element_image_3": "shopify://shop_images/earth.png",
         "element_image_4": "shopify://shop_images/metal.png",
         "element_image_5": "shopify://shop_images/water.png",
-        "use_document_images": true
+        "use_document_images": true,
+        "element_link_1": "/collections/wood",
+        "element_link_2": "/collections/fire",
+        "element_link_3": "/collections/earth",
+        "element_link_4": "/collections/metal",
+        "element_link_5": "/collections/water"
       }
     },
     "home_one_of_a_kind": {
@@ -203,11 +208,20 @@
         "copy_4": "Thank you for joining the Lansattic Journal.",
         "newsletter_cta_label": "JOIN THE LIST"
       }
+    },
+    "home_featured_products": {
+      "type": "lansattic-featured-products",
+      "settings": {
+        "heading": "Featured jewelry",
+        "collection": "all",
+        "products_count": 4
+      }
     }
   },
   "order": [
     "home_hero",
     "home_collections",
+    "home_featured_products",
     "home_founder",
     "home_world",
     "home_intentions",

@@ -1,8 +1,8 @@
 {% if section.settings.page_handle == blank or page.handle == section.settings.page_handle %}
 {% style %}
   #ls-{{ section.id }} { background: #f7f5ef; color: #24251f; }
-  #ls-{{ section.id }} .ls-wrap { max-width: 1180px; margin: auto; padding: 0 32px 72px; }
-  #ls-{{ section.id }} .ls-intro { position: relative; padding: 80px 0 56px; border-bottom: 1px solid #d8d2c7; }
+  #ls-{{ section.id }} .ls-wrap { max-width: 1180px; margin: auto; padding: 0 32px; }
+  #ls-{{ section.id }} .ls-intro { position: relative; padding: var(--lansattic-section-space) 0; border-bottom: 1px solid #d8d2c7; }
   #ls-{{ section.id }} .ls-intro--image { padding: 0; margin-bottom: 32px; }
   #ls-{{ section.id }} .ls-intro-media { margin: 0 -32px 40px; max-height: 480px; overflow: hidden; }
   #ls-{{ section.id }} .ls-intro-media img { width: 100%; height: auto; max-height: 480px; object-fit: cover; }
@@ -11,8 +11,8 @@
   #ls-{{ section.id }} .ls-title { font-family: var(--heading-font-family); font-size: clamp(42px, 5vw, 72px); font-weight: 400; line-height: 1.08; margin: 16px 0 24px; }
   #ls-{{ section.id }} .ls-copy { font-size: 17px; line-height: 1.8; color: #454a43; max-width: 65ch; }
   #ls-{{ section.id }} .ls-copy p + p { margin-top: 1em; }
-  #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: 42px 0; border-bottom: 1px solid #d8d2c7; max-width: 720px; margin: auto; scroll-margin-top: 110px; }
-  #ls-{{ section.id }} .ls-row--image { max-width: none; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 56px; align-items: center; }
+  #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: var(--lansattic-section-space) 0; border-bottom: 1px solid #d8d2c7; max-width: 720px; margin: auto; scroll-margin-top: 110px; }
+  #ls-{{ section.id }} .ls-row--image { max-width: none; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: var(--lansattic-section-space); align-items: center; }
   #ls-{{ section.id }} .ls-row--image:nth-of-type(even) .ls-media-wrap { order: 2; }
   #ls-{{ section.id }} .ls-media { overflow: hidden; }
   #ls-{{ section.id }} .ls-media img { width: 100%; height: auto; display: block; }
@@ -20,10 +20,11 @@
   #ls-{{ section.id }} h2 { font-family: var(--heading-font-family); font-weight: 400; font-size: clamp(30px,3vw,42px); line-height: 1.15; margin: 10px 0 20px; }
   #ls-{{ section.id }} .ls-cta { display: inline-flex; align-items: center; min-height: 44px; margin-top: 20px; border-bottom: 1px solid; font-size: 13px; }
   @media (max-width:749px) {
-    #ls-{{ section.id }} .ls-wrap { padding: 0 22px 44px; }
-    #ls-{{ section.id }} .ls-intro { padding: 48px 0 24px; }
-    #ls-{{ section.id }} .ls-intro-media { margin: -48px -22px 28px; }
-    #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: 30px 0; }
+    #ls-{{ section.id }} .ls-wrap { padding: 0 22px; }
+    #ls-{{ section.id }} .ls-intro { padding: var(--lansattic-section-space) 0; }
+    #ls-{{ section.id }} .ls-intro--image { padding: 0; }
+    #ls-{{ section.id }} .ls-intro-media { margin: 0 -22px var(--lansattic-heading-gap); }
+    #ls-{{ section.id }} .ls-row, #ls-{{ section.id }} .ls-simple { padding: var(--lansattic-section-space) 0; }
     #ls-{{ section.id }} .ls-row--image { grid-template-columns: minmax(0,1fr); gap: 24px; }
     #ls-{{ section.id }} .ls-row--image:nth-of-type(even) .ls-media-wrap { order: 0; }
     #ls-{{ section.id }} .ls-copy { font-size: 16px; line-height: 1.75; }

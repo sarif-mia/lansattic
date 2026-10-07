@@ -1,6 +1,6 @@
 {% render 'lansattic-home-styles', section: section %}
 <style>
-#lh-{{ section.id }} .lhjournal-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 auto 36px;max-width:1180px}
+#lh-{{ section.id }} .lhjournal-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 auto var(--lansattic-heading-gap);max-width:1180px}
 #lh-{{ section.id }} .lhjournal-nav a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:100px;padding:20px 14px;border:1px solid #d8d2c7;font-family:var(--heading-font-family);font-size:25px;line-height:1.2;transition:background .2s,color .2s}
 #lh-{{ section.id }} .lhjournal-nav a:hover{background:#315c4d;color:#fff}
 @media(max-width:749px){#lh-{{ section.id }} .lhjournal-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#lh-{{ section.id }} .lhjournal-nav a{font-size:22px}}

@@ -93,12 +93,16 @@ original images found in the Downloads folder.
   automated-request rate limits and the account authentication redirect.
 - Materials menu links now search for the named materials instead of opening
   all products. Verified products on all five material destinations.
-- Each Five Elements card links to its corresponding introduction in the
-  existing Five Elements collection. The unlinked `/pages/five-elements` route
-  does not exist in Shopify; navigation uses the existing collection.
-- Unconfigured intentions remain visible as labels with one explicit
-  **Explore Five Elements** button. Assign individual intention links in the
-  theme editor when their product collections are ready.
+- Each Five Elements card opens the existing Five Elements collection. The
+  five explanatory element blocks were removed from that collection at the
+  client’s request. The unlinked `/pages/five-elements` route does not exist
+  in Shopify; navigation uses the existing collection.
+- Homepage intentions remain visible as labels with one explicit
+  **Explore Five Elements** button. The header's Intentions column displays
+  Calm, Grounding, Balance, Clarity, Vitality and Connection, as requested in
+  the menu reference. Each currently opens the existing Five Elements
+  collection; edit the header mega-menu block to assign individual destinations
+  when their product collections are ready.
 - Verified mobile navigation, filters, the Add to cart button and Checkout;
   cleared the isolated test cart. No order was placed.
 - Instagram and Pinterest reached the correct profiles. Etsy blocked automated
@@ -108,3 +112,43 @@ original images found in the Downloads folder.
   and confirmation email delivery remain unverified.
 - Theme Check: 0 errors, 10 existing warnings. Browser evidence is saved in the
   ignored `qa/link-audit/` directory. Changes are in the unpublished draft.
+
+## Requested shopping updates — 6 October 2026
+
+The unpublished draft has both Etsy shops under Our Etsy Shops, with Pearl Jewelry
+for Lansattic and Jade & Jadeite Jewelry for Studio Libra Art. The four populated
+homepage collection cards use two desktop columns.
+
+All six intentions and five element cards have separate collection destinations.
+The five element cards link directly to Wood, Fire, Earth, Metal, and Water.
+Until an intention destination has storefront products, its card automatically opens the
+populated Five Elements collection (or All Products if Five Elements is empty).
+Adding products to the corresponding intention collection activates its dedicated link
+without another theme upload. The header intentions use the same safeguard.
+
+In the theme editor, open **Featured jewelry** to select and order individual
+products, choose a fallback collection, and change the number displayed. Selected
+products take priority; otherwise the section displays products from the chosen
+collection. Images, names, and prices use the theme's standard product cards.
+
+Uploaded only the nine files needed for these changes to draft theme
+130612330568. Theme Check passed with zero errors and eight existing warnings.
+Desktop preview confirmed the two-by-two collection grid, both Etsy descriptions,
+six clickable intentions, five element links, and four real products with prices.
+
+Created Calm, Grounding, Balance, Clarity, Vitality, Connection, Wood, Fire,
+Earth, Metal, and Water in Shopify Admin as collections ready for product
+selection. Collection IDs are recorded in `qa/requested-shopping-updates/collections.json`.
+Mobile preview also passed with no horizontal overflow or Liquid errors.
+
+## Section spacing — 7 October 2026
+
+Native theme sections and custom homepage, reviews, story, journal, collection
+story and footer sections share responsive spacing variables. Section padding is
+64px on desktop/tablet and 32px below 750px; heading-to-content gaps are 32px
+and 24px respectively. About chapter spacing remains editable on desktop.
+Removed extra story/About wrapper padding that compounded the section gaps.
+
+Uploaded the changed theme files to unpublished draft 130612330568. Theme Check
+passed with zero errors and eight existing warnings. Preview browser checks and
+screenshots are stored locally in the ignored `qa/spacing-2026-10-07/` folder.

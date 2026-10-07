@@ -1,0 +1,37 @@
+{% liquid
+  assign featured_products = section.settings.products
+  if featured_products == blank
+    assign featured_products = section.settings.collection.products
+  endif
+%}
+{% if featured_products != blank or request.design_mode %}
+  {% render 'lansattic-home-styles', section: section %}
+  <style>
+    #lh-{{ section.id }} .lhproducts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    @media (min-width: 990px) { #lh-{{ section.id }} .lhproducts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  </style>
+  <div id="lh-{{ section.id }}" class="lansattic-home-section">
+    <section class="lhs"><div class="lhw">
+      <header class="lhhead"><h2 class="lht">{{ section.settings.heading | escape }}</h2></header>
+      <div class="lhproducts">
+        {% for product in featured_products limit: section.settings.products_count %}
+          {% render 'product-card', product: product, section: section, position: forloop.index, stacked: true, show_quick_buy: false, show_swatches: false %}
+        {% else %}
+          <p>Select products or a populated collection to display featured jewelry.</p>
+        {% endfor %}
+      </div>
+    </div></section>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Featured jewelry",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Featured jewelry" },
+    { "type": "product_list", "id": "products", "label": "Featured products", "limit": 12, "info": "Choose and order individual products. When blank, products come from the collection below." },
+    { "type": "collection", "id": "collection", "label": "Fallback collection" },
+    { "type": "range", "id": "products_count", "label": "Number of products", "min": 4, "max": 12, "step": 4, "default": 4 }
+  ],
+  "presets": [{ "name": "Featured jewelry" }]
+}
+{% endschema %}
