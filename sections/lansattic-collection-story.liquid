@@ -1,15 +1,16 @@
 {% for block in section.blocks %}
 {% if collection.handle == block.settings.collection_handle %}
 {% style %}
-#lcs-{{ section.id }}{background:#f7f5ef;color:#24251f;padding:0 24px var(--lansattic-section-space)}
+#lcs-{{ section.id }}{background:#f7f5ef;color:#24251f;padding:{% if collection.handle == 'five-elements-jewelry' %}var(--lansattic-section-space){% else %}0{% endif %} 24px var(--lansattic-section-space)}
 #lcs-{{ section.id }} .lcs-inner{max-width:1120px;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:var(--lansattic-section-space)}
 #lcs-{{ section.id }} .lcs-image img{width:100%;height:auto;display:block;max-height:500px;object-fit:contain}
-#lcs-{{ section.id }} h2{font-family:var(--heading-font-family);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.2;margin-bottom:24px}
+#lcs-{{ section.id }} :is(h1,h2){font-family:var(--heading-font-family);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.2;margin-bottom:24px}
 #lcs-{{ section.id }} .lcs-copy{font-size:16px;line-height:1.75}
 #lcs-{{ section.id }} .lcs-copy p+p{margin-top:18px}
-@media(max-width:749px){#lcs-{{ section.id }}{padding:0 20px var(--lansattic-section-space)}#lcs-{{ section.id }} .lcs-inner{grid-template-columns:1fr;gap:var(--lansattic-heading-gap)}#lcs-{{ section.id }} .lcs-image{order:2}}
+@media(max-width:749px){#lcs-{{ section.id }}{padding-inline:20px}#lcs-{{ section.id }} .lcs-inner{grid-template-columns:1fr;gap:var(--lansattic-heading-gap)}#lcs-{{ section.id }} .lcs-image{order:2}}
 {% endstyle %}
-<section id="lcs-{{ section.id }}" {{ block.shopify_attributes }}><div class="lcs-inner"><div class="lcs-image">{% render 'lansattic-archive-photo', image:block.settings.image, asset:block.settings.image_asset, alt:block.settings.image_alt, loading:'lazy' %}</div><div class="lcs-copy"><h2>{{ block.settings.heading | escape }}</h2>{{ block.settings.text }}</div></div>
+{% assign heading_tag = 'h2' %}{% if collection.handle == 'five-elements-jewelry' %}{% assign heading_tag = 'h1' %}{% endif %}
+<section id="lcs-{{ section.id }}" {{ block.shopify_attributes }}><div class="lcs-inner"><div class="lcs-image">{% render 'lansattic-archive-photo', image:block.settings.image, asset:block.settings.image_asset, alt:block.settings.image_alt, loading:'lazy' %}</div><div class="lcs-copy"><{{ heading_tag }}>{{ block.settings.heading | escape }}</{{ heading_tag }}>{{ block.settings.text }}</div></div>
 
 </section>
 {% endif %}

@@ -1,3 +1,5 @@
+{%- comment -%}Botanicals has its title and introduction in the collection story.{%- endcomment -%}
+{%- unless collection.handle == 'five-elements-jewelry' -%}
 {%- capture collection_title -%}{%- render 'lansattic-collection-title', collection: collection -%}{%- endcapture -%}
 {%- if section.settings.show_image == false or collection.image == blank and section.settings.image == blank -%}
   {%- assign show_image = false -%}
@@ -103,6 +105,8 @@
     </div>
   </div>
 {%- endif -%}
+
+{%- endunless -%}
 
 {% schema %}
 {

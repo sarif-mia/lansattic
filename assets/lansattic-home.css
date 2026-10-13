@@ -81,7 +81,7 @@
 }
 
 /* Balanced collection cards on desktop. */
-@media(min-width:990px){.lansattic-home-section .lhcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:990px){.lansattic-home-section .lhcards{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px;margin-inline:auto}}
 
 /* Use the shared rhythm for every homepage section. */
 .lansattic-home-section .lhs,
